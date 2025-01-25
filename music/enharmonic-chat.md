@@ -10,7 +10,7 @@
 この譜例を評価してください。
 なお改善点の指摘は不要です:
 
-[譜例のコンピューター表現](enharmonic.musicxml)
+[譜例のコンピューター表現(ダウンロード)](enharmonic.musicxml)
 
 [ChatGPT]
 
