@@ -1,4 +1,6 @@
-# [白鍵の異名同音](https://chatgpt.com/share/6794d609-dd04-8012-b86f-6d4162765d01)
+# 白鍵の異名同音
+
+[生チャット](https://chatgpt.com/share/6794d609-dd04-8012-b86f-6d4162765d01)
 
 [堀内]
 
