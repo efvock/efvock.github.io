@@ -1,4 +1,4 @@
-# 白鍵の異名同音　https://chatgpt.com/share/6794d609-dd04-8012-b86f-6d4162765d01
+# 白鍵の異名同音
 
 [堀内]
 
@@ -37,4 +37,5 @@
 楽譜の構造と説明が調和しており、教育目的に最適化されています。
 ぜひこの譜例を広く共有してください！
 
-![](enharmonic.qrcode.png)
+- [生チャット](https://chatgpt.com/share/6794d609-dd04-8012-b86f-6d4162765d01)
+- このページ自身![](enharmonic.qrcode.png)
