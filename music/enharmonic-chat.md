@@ -38,4 +38,5 @@
 ぜひこの譜例を広く共有してください！
 
 - [生チャット](https://chatgpt.com/share/6794d609-dd04-8012-b86f-6d4162765d01)
-- このページ自身![](enharmonic.qrcode.png)
+- このページ自身  
+![](enharmonic.qrcode.png)
