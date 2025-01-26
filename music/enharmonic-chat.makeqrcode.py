@@ -31,7 +31,7 @@ draw = ImageDraw.Draw(qr_img)
 font_path = "/System/Library/Fonts/ヒラギノ角ゴシック W6.ttc"
 # weight = "W6"
 # font_path = get_font_path_by_name(font_name)
-font_size = 20  # 適切なフォントサイズを設定
+font_size = 16  # 適切なフォントサイズを設定
 font = ImageFont.truetype(font_path, font_size)
 
 # テキスト
