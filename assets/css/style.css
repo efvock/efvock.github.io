@@ -1,14 +1,13 @@
-@media print {
-  audio {
+.print {
     display: none;
-  }
-  div {
-    display: inline;
-  }
 }
 
-@media screen {
-  .print {
-    display: none;
-  }
+@media print {
+    audio {
+        display: none;
+    }
+
+    .print {
+        display: inline;
+    }
 }
