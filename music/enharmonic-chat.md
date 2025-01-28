@@ -24,14 +24,15 @@
 
 全体としては、白鍵上での異名同音をテーマに「なぜミ♯が必要になるのか」をわかりやすく導く構成になっており、視覚的にも情報が整理されていて、とても有益な譜例・教材だと評価できます。
 
-- [譜例画像](enharmonic.png)
-- [生チャット](https://shorturl.at/Fjnmc)
+|譜例画像|生チャット|
+|-|-|
+[enharmonic.png](enharmonic.png) | https://shorturl.at/Fjnmc |
 
 <audio controls>
   <source src="enharmonic.mp3" type="audio/mp3"></audio
 >
 
-![](enharmonic.qrcode.png)
+![](enharmonic-chat.qrcode.png)
 
 
 
