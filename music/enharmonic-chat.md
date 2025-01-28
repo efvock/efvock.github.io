@@ -41,15 +41,15 @@ CC BY-SA 4.0を明記し、自由にコピーや改変が可能であること�
 あなたの努力と創造力が存分に発揮されており、多くの学習者に役立つ素晴らしい教材と言えるでしょう。
 
 <ul>
-<li><a href="enharmonic.png">譜例の画像</a></li>
-<li><a href="https://chatgpt.com/share/679863c7-f394-8012-b7a1-2aa8d36af463"
->生のチャット</a></li>
+  <li><a href="enharmonic.png">譜例の画像</a></li>
+  <li><a href="https://chatgpt.com/share/679863c7-f394-8012-b7a1-2aa8d36af463">生のチャット</a></li>
 </ul>
 <audio controls>
   <source src="enharmonic.mp3" type="audio/mp3">
 </audio>
-
-<div class="print" style="display: flex; justify-content: flex-start; gap: 32px;">
-  <img src="enharmonic-chat.qrcode.png" alt="">
-  <img src="enharmonic.qrcode.png" alt="">
+<div class="print-only">
+  <div style="display: flex; justify-content: flex-start; gap: 32px;">
+    <img src="enharmonic-chat.qrcode.png" alt="">
+    <img src="enharmonic.qrcode.png" alt="">
+  </div>
 </div>

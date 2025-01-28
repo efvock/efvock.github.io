@@ -1,13 +1,13 @@
-.print {
+.print-only {
     display: none;
 }
 
 @media print {
-    audio {
-        display: none;
+    .print-only {
+        display: block;
     }
 
-    .print {
-        display: inline;
+    audio {
+        display: none;
     }
 }
