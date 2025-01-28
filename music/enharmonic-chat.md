@@ -44,10 +44,13 @@ CC BY-SA 4.0を明記し、自由にコピーや改変が可能であること�
 <li><a href="enharmonic.png">譜例の画像</a></li>
 <li><a href="https://chatgpt.com/share/679863c7-f394-8012-b7a1-2aa8d36af463"
 >生のチャット</a></li>
-<li>
+</ul>
 <audio controls>
   <source src="enharmonic.mp3" type="audio/mp3">
 </audio>
-<span class="cannot">音声 (https://efvock.github.com/music/enharmonic.mp3) は印刷できません</span>
-</li>
-</ul>
+
+<table>
+<tr>
+  <td><img src="enharmonic-chat.qrcode.png"></td>
+  <td><img src="enharmonic-chat.qrcode.png"></td>
+</table>
