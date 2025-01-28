@@ -2,13 +2,13 @@
   audio {
     display: none;
   }
-  .audio-link {
+  .cannot {
     display: inline;
   }
 }
 
 @media screen {
-  .audio-link {
+  .cannot {
     display: none;
   }
 }

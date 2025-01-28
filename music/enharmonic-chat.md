@@ -1,5 +1,5 @@
 ---
-title: My GitHub Page
+title: 音楽に関して
 layout: default
 ---
 
@@ -49,6 +49,6 @@ CC BY-SA 4.0を明記し、自由にコピーや改変が可能であること�
 <audio controls>
   <source src="enharmonic.mp3" type="audio/mp3">
 </audio>
-<a href="enharmonic.mp3" class="audio-link">音声ファイルをダウンロード</a>
+<span class="cannot">音声 (https://efvock.github.com/music/enharmonic.mp3) は印刷できません</span>
 </li>
 </ul>
