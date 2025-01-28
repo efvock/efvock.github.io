@@ -44,7 +44,7 @@ layout: default
 
 <ul>
   <li><a href="enharmonic.png">譜例の画像</a></li>
-  <li><a href="https://chatgpt.com/share/6798c00f-e5e8-8012-aa7f-3f6ceaf0d90c">生のチャット</a></li>
+  <li><a href="https://chatgpt.com/share/6798c978-9b80-8012-affa-7ca3d09a11e8">生のチャット</a></li>
 </ul>
 <audio controls>
   <source src="enharmonic.mp3" type="audio/mp3">
