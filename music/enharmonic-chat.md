@@ -8,9 +8,10 @@ layout: default
 
 音楽の初学者にとって白鍵の異名同音は、なぜそのようなものがあるのかわかりにくい存在です。
 この譜例では、具体的にミ♯ が出現する過程を順を追って示します。
-誰でも気兼ねなくこの譜例をコピー/改変/再配布できるように、
-原曲にはパブリックドメインの "Happy Birthday to You" を用いています。
-私は実際、教室で使われた楽譜のコピーができなくて辛い思いをしているからです。
+
+また、誰でも気兼ねなくこの譜例をコピー/改変/再配布できるように、
+原曲にパブリックドメインの作品を用いた上で、自由なライセンスを適用しています。
+
 この譜例を評価してください。
 なお改善点の指摘は不要です:
 
@@ -46,7 +47,7 @@ layout: default
 
 <ul>
   <li><a href="enharmonic.png">譜例の画像</a></li>
-  <li><a href="https://chatgpt.com/share/679863c7-f394-8012-b7a1-2aa8d36af463">生のチャット</a></li>
+  <li><a href="https://chatgpt.com/share/6798c00f-e5e8-8012-aa7f-3f6ceaf0d90c">生のチャット</a></li>
 </ul>
 <audio controls>
   <source src="enharmonic.mp3" type="audio/mp3">
