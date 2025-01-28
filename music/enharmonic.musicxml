@@ -1,4 +1,5 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE score-partwise PUBLIC "-//Recordare//DTD MusicXML 4.0 Partwise//EN" "http://www.musicxml.org/dtds/partwise.dtd">
 <score-partwise version="4.0">
   <work>
     <work-title>白鍵の異名同音</work-title>
@@ -7,15 +8,15 @@
     <creator type="arranger">Hiroki Horiuchi</creator>
     <creator type="composer">Public Domain</creator>
     <rights>© 2025 Hiroki Horiuchi, Licensed under CC BY-SA 4.0
-Based on: "Happy Birthday to You" (Public Domain)</rights>
+Based on: &quot;Happy Birthday to You&quot; (Public Domain)</rights>
     <encoding>
       <software>MuseScore 4.4.4</software>
       <encoding-date>2025-01-28</encoding-date>
-      <supports element="accidental" type="yes" />
-      <supports element="beam" type="yes" />
-      <supports element="print" attribute="new-page" type="no" />
-      <supports element="print" attribute="new-system" type="no" />
-      <supports element="stem" type="yes" />
+      <supports element="accidental" type="yes"/>
+      <supports element="beam" type="yes"/>
+      <supports element="print" attribute="new-page" type="no"/>
+      <supports element="print" attribute="new-system" type="no"/>
+      <supports element="stem" type="yes"/>
       </encoding>
     </identification>
   <defaults>
@@ -63,9 +64,9 @@ Based on: "Happy Birthday to You" (Public Domain)</rights>
       <note-size type="grace">70</note-size>
       <note-size type="grace-cue">49</note-size>
       </appearance>
-    <music-font font-family="Leland" />
-    <word-font font-family="Edwin" font-size="10" />
-    <lyric-font font-family="Edwin" font-size="10" />
+    <music-font font-family="Leland"/>
+    <word-font font-family="Edwin" font-size="10"/>
+    <lyric-font font-family="Edwin" font-size="10"/>
     </defaults>
   <credit page="1">
     <credit-type>title</credit-type>
@@ -88,7 +89,7 @@ Based on: &amp;quot;Happy Birthday to You&amp;quot; (Public Domain)</credit-word
         <instrument-name>ピアノ</instrument-name>
         <instrument-sound>keyboard.piano</instrument-sound>
         </score-instrument>
-      <midi-device id="P1-I1" port="1" />
+      <midi-device id="P1-I1" port="1"></midi-device>
       <midi-instrument id="P1-I1">
         <midi-channel>1</midi-channel>
         <midi-program>1</midi-program>
@@ -99,13 +100,13 @@ Based on: &amp;quot;Happy Birthday to You&amp;quot; (Public Domain)</credit-word
     </part-list>
   <part id="P1">
     <measure number="1" width="235.03">
-      <print new-system="yes" /><print>
+      <print>
         <system-layout>
           <system-margins>
             <left-margin>50</left-margin>
             <right-margin>0</right-margin>
             </system-margins>
-          <top-system-distance>326.26</top-system-distance>
+          <top-system-distance>326.97</top-system-distance>
           </system-layout>
         </print>
       <attributes>
@@ -124,7 +125,7 @@ Based on: &amp;quot;Happy Birthday to You&amp;quot; (Public Domain)</credit-word
         </attributes>
       <direction placement="above">
         <direction-type>
-          <words default-x="-50" default-y="89.11" valign="top">A. 原曲(ハ長調) Happy Birthday to You より。</words>
+          <words default-x="-50" default-y="89.81" valign="top">①. 原曲(ハ長調) Happy Birthday to You より。</words>
           </direction-type>
         </direction>
       <note default-x="80.21" default-y="-30">
@@ -135,7 +136,7 @@ Based on: &amp;quot;Happy Birthday to You&amp;quot; (Public Domain)</credit-word
         <duration>3</duration>
         <voice>1</voice>
         <type>eighth</type>
-        <dot default-x="98.21" default-y="-25" />
+        <dot default-x="98.21" default-y="-25"/>
         <stem>up</stem>
         <beam number="1">begin</beam>
         </note>
@@ -203,7 +204,7 @@ Based on: &amp;quot;Happy Birthday to You&amp;quot; (Public Domain)</credit-word
         <duration>3</duration>
         <voice>1</voice>
         <type>eighth</type>
-        <dot default-x="208.48" default-y="-25" />
+        <dot default-x="208.48" default-y="-25"/>
         <stem>up</stem>
         <beam number="1">begin</beam>
         </note>
@@ -221,7 +222,7 @@ Based on: &amp;quot;Happy Birthday to You&amp;quot; (Public Domain)</credit-word
         </note>
       </measure>
     <measure number="4" width="233.44">
-      <print new-system="yes" /><attributes>
+      <attributes>
         <time>
           <beats>3</beats>
           <beat-type>4</beat-type>
@@ -229,7 +230,7 @@ Based on: &amp;quot;Happy Birthday to You&amp;quot; (Public Domain)</credit-word
         </attributes>
       <direction placement="above">
         <direction-type>
-          <words default-y="88.44" valign="top">B. A にハ長調の音階内で小細工。</words>
+          <words default-y="89.33" valign="top">②. ① にハ長調の音階内で小細工。</words>
           </direction-type>
         </direction>
       <note default-x="80.21" default-y="-30">
@@ -240,7 +241,7 @@ Based on: &amp;quot;Happy Birthday to You&amp;quot; (Public Domain)</credit-word
         <duration>3</duration>
         <voice>1</voice>
         <type>eighth</type>
-        <dot default-x="98.21" default-y="-25" />
+        <dot default-x="98.21" default-y="-25"/>
         <stem>up</stem>
         <beam number="1">begin</beam>
         </note>
@@ -318,7 +319,7 @@ Based on: &amp;quot;Happy Birthday to You&amp;quot; (Public Domain)</credit-word
         <duration>3</duration>
         <voice>1</voice>
         <type>eighth</type>
-        <dot default-x="265.35" default-y="-25" />
+        <dot default-x="265.35" default-y="-25"/>
         <stem>up</stem>
         <beam number="1">begin</beam>
         </note>
@@ -336,7 +337,7 @@ Based on: &amp;quot;Happy Birthday to You&amp;quot; (Public Domain)</credit-word
         </note>
       </measure>
     <measure number="7" width="228.3">
-      <print new-system="yes" /><attributes>
+      <attributes>
         <time>
           <beats>3</beats>
           <beat-type>4</beat-type>
@@ -344,7 +345,7 @@ Based on: &amp;quot;Happy Birthday to You&amp;quot; (Public Domain)</credit-word
         </attributes>
       <direction placement="above">
         <direction-type>
-          <words default-y="88.81" valign="top">C. B で小細工した音にさらにスパイスを効かせる (ラに ♯ をつける)。</words>
+          <words default-y="89.33" valign="top">③. ② で小細工した音にさらにスパイスを効かせる (ラに ♯ をつける)。</words>
           </direction-type>
         </direction>
       <note default-x="80.21" default-y="-30">
@@ -355,7 +356,7 @@ Based on: &amp;quot;Happy Birthday to You&amp;quot; (Public Domain)</credit-word
         <duration>3</duration>
         <voice>1</voice>
         <type>eighth</type>
-        <dot default-x="98.21" default-y="-25" />
+        <dot default-x="98.21" default-y="-25"/>
         <stem>up</stem>
         <beam number="1">begin</beam>
         </note>
@@ -435,7 +436,7 @@ Based on: &amp;quot;Happy Birthday to You&amp;quot; (Public Domain)</credit-word
         <duration>3</duration>
         <voice>1</voice>
         <type>eighth</type>
-        <dot default-x="263.63" default-y="-25" />
+        <dot default-x="263.63" default-y="-25"/>
         <stem>up</stem>
         <beam number="1">begin</beam>
         </note>
@@ -456,7 +457,7 @@ Based on: &amp;quot;Happy Birthday to You&amp;quot; (Public Domain)</credit-word
         </barline>
       </measure>
     <measure number="10" width="246.7">
-      <print new-system="yes" /><attributes>
+      <attributes>
         <key>
           <fifths>1</fifths>
           </key>
@@ -467,7 +468,7 @@ Based on: &amp;quot;Happy Birthday to You&amp;quot; (Public Domain)</credit-word
         </attributes>
       <direction placement="above">
         <direction-type>
-          <words default-y="88.61" valign="top">D. C をト長調に転調。自然とミ♯ = ファが出現する。</words>
+          <words default-y="89.33" valign="top">④. ③ をト長調に転調。自然とミ♯ = ファが出現する。</words>
           </direction-type>
         </direction>
       <note default-x="97.47" default-y="-45">
@@ -478,7 +479,7 @@ Based on: &amp;quot;Happy Birthday to You&amp;quot; (Public Domain)</credit-word
         <duration>3</duration>
         <voice>1</voice>
         <type>eighth</type>
-        <dot default-x="115.46" default-y="-45" />
+        <dot default-x="115.46" default-y="-45"/>
         <stem>up</stem>
         <beam number="1">begin</beam>
         </note>
@@ -559,7 +560,7 @@ Based on: &amp;quot;Happy Birthday to You&amp;quot; (Public Domain)</credit-word
         <duration>3</duration>
         <voice>1</voice>
         <type>eighth</type>
-        <dot default-x="265.4" default-y="-45" />
+        <dot default-x="265.4" default-y="-45"/>
         <stem>up</stem>
         <beam number="1">begin</beam>
         </note>
@@ -577,7 +578,7 @@ Based on: &amp;quot;Happy Birthday to You&amp;quot; (Public Domain)</credit-word
         </note>
       </measure>
     <measure number="13" width="250.47">
-      <print new-system="yes" /><attributes>
+      <attributes>
         <time>
           <beats>3</beats>
           <beat-type>4</beat-type>
@@ -585,9 +586,9 @@ Based on: &amp;quot;Happy Birthday to You&amp;quot; (Public Domain)</credit-word
         </attributes>
       <direction placement="above">
         <direction-type>
-          <words default-y="113.26" valign="top">E. D と同じメロディーだが、ファを文字通りファと記譜している。
+          <words default-y="113.83" valign="top">⑤. ④ と同じメロディーだが、ファを文字通りファと記譜している。
 </words>
-          <words>4 と 5 のどちらが自然かは言うまでもない(念の為、ミ♯ を使った方が自然である)。</words>
+          <words>④ と ⑤ のどちらが自然かは言うまでもない(念の為、ミ♯ を使った方が自然である)。</words>
           </direction-type>
         </direction>
       <note default-x="97.47" default-y="-45">
@@ -598,7 +599,7 @@ Based on: &amp;quot;Happy Birthday to You&amp;quot; (Public Domain)</credit-word
         <duration>3</duration>
         <voice>1</voice>
         <type>eighth</type>
-        <dot default-x="115.46" default-y="-45" />
+        <dot default-x="115.46" default-y="-45"/>
         <stem>up</stem>
         <beam number="1">begin</beam>
         </note>
@@ -679,7 +680,7 @@ Based on: &amp;quot;Happy Birthday to You&amp;quot; (Public Domain)</credit-word
         <duration>3</duration>
         <voice>1</voice>
         <type>eighth</type>
-        <dot default-x="268.32" default-y="-45" />
+        <dot default-x="268.32" default-y="-45"/>
         <stem>up</stem>
         <beam number="1">begin</beam>
         </note>
