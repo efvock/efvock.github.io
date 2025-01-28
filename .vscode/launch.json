@@ -1,0 +1,26 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "qr itself",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/music",
+            "program": "qr_with_title.py",
+            "args": ["このページ自身", "https://efvock.github.io/music/enharmonic-chat", "enharmonic-chat"],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "qr play",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/music",
+            "program": "qr_with_title.py",
+            "args": ["譜例を演奏", "https://efvock.github.io/music/enharmonic.mp3", "enharmonic"],
+            "console": "integratedTerminal"
+        }
+    ]
+}

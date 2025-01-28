@@ -6,7 +6,7 @@ import zbarlight
 from find_font import find_font
 from sys import argv
 
-title, text = argv[1:3]
+title, text, filename = argv[1:4]
 # QRコードを生成
 qr = qrcode.QRCode(box_size=3, border=0, error_correction=qrcode.constants.ERROR_CORRECT_H)
 qr.add_data(text)
@@ -53,6 +53,7 @@ def is_qr_decodable(image):
         return False
 
 qr_img.show()
+qr_img.save(f"{filename}.qrcode.png")
 
 # デコードチェック
 if not is_qr_decodable(qr_img):

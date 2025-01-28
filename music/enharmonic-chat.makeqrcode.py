@@ -16,7 +16,7 @@ def get_font_path_by_name(font_name):
 qr = qrcode.QRCode(
     version=1,
     error_correction=qrcode.constants.ERROR_CORRECT_H,
-    box_size=6,
+    box_size=3,
     border=0,
 )
 qr.add_data("https://efvock.github.io/music/enharmonic-chat")
