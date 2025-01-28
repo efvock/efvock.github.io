@@ -11,6 +11,8 @@ title, text, filename = argv[1:4]
 qr = qrcode.QRCode(box_size=3, border=0, error_correction=qrcode.constants.ERROR_CORRECT_H)
 qr.add_data(text)
 qr.make(fit=True)
+module_count = qr.modules.__len__()
+assert module_count == 41
 qr_img = qr.make_image(fill_color="black", back_color="white").convert("RGB")
 
 # テキストを設定
