@@ -1,3 +1,14 @@
-* {
-    color: red;
+@media print {
+  audio {
+    display: none;
+  }
+  .audio-link {
+    display: inline;
+  }
+}
+
+@media screen {
+  .audio-link {
+    display: none;
+  }
 }
