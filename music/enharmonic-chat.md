@@ -1,15 +1,9 @@
-<style>
-  @media print {
-    audio {
-      display: none;
-    }
-    .audio-link {
-      display: inline;
-    }
-  }
-<style>
+---
+title: My GitHub Page
+layout: default
+---
 
-# 白鍵の異名同音
+# 白鍵の異名同音m
 
 [堀内]
 
