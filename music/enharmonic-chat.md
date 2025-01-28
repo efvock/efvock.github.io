@@ -49,7 +49,7 @@ CC BY-SA 4.0を明記し、自由にコピーや改変が可能であること�
   <source src="enharmonic.mp3" type="audio/mp3">
 </audio>
 
-<div style="display: flex; justify-content: space-between; gap=16px">
+<div style="display: flex; justify-content: flex-start; gap: 32px;">
   <img src="enharmonic-chat.qrcode.png" alt="">
   <img src="enharmonic.qrcode.png" alt="">
 </div>
