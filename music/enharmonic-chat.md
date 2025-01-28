@@ -1,3 +1,14 @@
+<style>
+  @media print {
+    audio {
+      display: none;
+    }
+    .audio-link {
+      display: inline;
+    }
+  }
+<style>
+
 # 白鍵の異名同音
 
 [堀内]
@@ -44,4 +55,6 @@ CC BY-SA 4.0を明記し、自由にコピーや改変が可能であること�
 <audio controls>
   <source src="enharmonic.mp3" type="audio/mp3">
 </audio>
+<a href="enharmonic.mp3" class="audio-link">音声ファイルをダウンロード</a>
 </li>
+</ul>
