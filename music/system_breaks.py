@@ -3,9 +3,9 @@
 import xml.etree.ElementTree as ET
 
 
-def insert_system_breaks(input_file, output_file):
+def insert_system_breaks(musicxml):
     # MusicXML ファイルを読み込む
-    tree = ET.parse(input_file)
+    tree = ET.parse(musicxml)
     root = tree.getroot()
 
     # 小節（<measure>）要素を取得
@@ -19,11 +19,10 @@ def insert_system_breaks(input_file, output_file):
             measure.insert(0, print_tag)
 
     # 修正した MusicXML を保存
-    tree.write(output_file, encoding="utf-8", xml_declaration=True)
-    print(f"System breaks added and saved to {output_file}")
+    tree.write(musicxml, encoding="utf-8", xml_declaration=True)
 
 
-# 使用例
-input_musicxml = "music/enharmonic.musicxml"  # 入力ファイル名
-output_musicxml = "music/enharmonic.musicxml"  # 出力ファイル名
-insert_system_breaks(input_musicxml, output_musicxml)
+from sys import argv
+
+for musicxml in argv[1:]:
+    insert_system_breaks(musicxml)
