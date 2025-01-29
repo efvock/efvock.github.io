@@ -3,7 +3,7 @@
 }
 
 @media print {
-    html {
+    body {
         font-size: 80%;
     }
     .print-only {
