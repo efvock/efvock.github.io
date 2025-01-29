@@ -1,16 +1,14 @@
-html {
-    font-size: 80%;
-}
-
 .print-only {
     display: none;
 }
 
 @media print {
+    html {
+        font-size: 80%;
+    }
     .print-only {
         display: block;
     }
-
     audio {
         display: none;
     }
