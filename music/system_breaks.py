@@ -13,7 +13,7 @@ def insert_system_breaks(input_file, output_file):
 
     # 3n+1 小節ごとに <print new-system="yes"/> を挿入
     for i, measure in enumerate(measures):
-        if (i + 1) % 3 == 1:  # 3n+1 条件
+        if (i + 1) % 4 == 1:  # 4n+1 条件
             print_tag = ET.Element("print")
             print_tag.set("new-system", "yes")
             measure.insert(0, print_tag)
