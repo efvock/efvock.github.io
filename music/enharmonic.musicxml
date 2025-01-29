@@ -101,7 +101,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
     </part-list>
   <part id="P1">
     <measure number="1" width="302.43">
-      <print new-system="yes" /><print new-system="yes" /><print>
+      <print new-system="yes" /><print new-system="yes" /><print new-system="yes" /><print>
         <system-layout>
           <system-margins>
             <left-margin>50</left-margin>
@@ -293,7 +293,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         </note>
       </measure>
     <measure number="5" width="298.92">
-      <print new-system="yes" /><print new-system="yes" /><direction placement="above">
+      <print new-system="yes" /><print new-system="yes" /><print new-system="yes" /><direction placement="above">
         <direction-type>
           <words default-y="89.33" valign="top">②. ① をラシドで終止。</words>
           </direction-type>
@@ -456,7 +456,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         </note>
       </measure>
     <measure number="9" width="290.12">
-      <print new-system="yes" /><print new-system="yes" /><direction placement="above">
+      <print new-system="yes" /><print new-system="yes" /><print new-system="yes" /><direction placement="above">
         <direction-type>
           <words default-y="89.33" valign="top">③. ② の最後のラにスパイスを効かす (♯ をつける)。</words>
           </direction-type>
@@ -624,7 +624,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         </barline>
       </measure>
     <measure number="13" width="310.11">
-      <print new-system="yes" /><print new-system="yes" /><attributes>
+      <print new-system="yes" /><print new-system="yes" /><print new-system="yes" /><attributes>
         <key>
           <fifths>1</fifths>
           </key>
@@ -795,7 +795,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         </note>
       </measure>
     <measure number="17" width="293.04">
-      <print new-system="yes" /><print new-system="yes" /><attributes>
+      <print new-system="yes" /><print new-system="yes" /><print new-system="yes" /><attributes>
         <key>
           <fifths>1</fifths>
           </key>
@@ -971,7 +971,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         </barline>
       </measure>
     <measure number="21" width="342.31">
-      <print new-system="yes" /><print new-system="yes" /><attributes>
+      <print new-system="yes" /><print new-system="yes" /><print new-system="yes" /><attributes>
         <key>
           <fifths>5</fifths>
           </key>
@@ -1157,7 +1157,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         </note>
       </measure>
     <measure number="25" width="341.01">
-      <print new-system="yes" /><print new-system="yes" /><direction placement="above">
+      <print new-system="yes" /><print new-system="yes" /><print new-system="yes" /><direction placement="above">
         <direction-type>
           <words default-y="113.83" valign="top">⑦. ⑥ と同じメロディーだが、ラを文字通りラと記譜している。
 </words>

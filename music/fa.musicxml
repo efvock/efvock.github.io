@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <score-partwise version="4.0">
   <work>
-    <work-title>白鍵の異名同音 1</work-title>
+    <work-title>白鍵の異名同音(ファ譜)</work-title>
     </work>
   <identification>
     <creator type="arranger">堀内寛己</creator>
@@ -70,7 +70,7 @@ Based on: "春の小川" (effectively in the public domain)</rights>
     </defaults>
   <credit page="1">
     <credit-type>title</credit-type>
-    <credit-words default-x="600.241173" default-y="1611.208292" justify="center" valign="top" font-size="22">白鍵の異名同音 1</credit-words>
+    <credit-words default-x="600.241173" default-y="1611.208292" justify="center" valign="top" font-size="22">白鍵の異名同音(ファ譜)</credit-words>
     </credit>
   <credit page="1">
     <credit-type>subtitle</credit-type>

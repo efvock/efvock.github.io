@@ -48,7 +48,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
   <part id="P1">
     
     <measure number="1">
-      <print new-system="yes" /><print new-system="yes" />
+      <print new-system="yes" /><print new-system="yes" /><print new-system="yes" />
       <attributes>
         <divisions>10080</divisions>
         <key>
@@ -230,7 +230,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
     </measure>
     
     <measure number="5">
-      <print new-system="yes" /><print new-system="yes" />
+      <print new-system="yes" /><print new-system="yes" /><print new-system="yes" />
       <direction placement="above">
         <direction-type>
           <words default-y="89.33" enclosure="none" valign="top">②. ① をラシドで終止。</words>
@@ -398,7 +398,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
     </measure>
     
     <measure number="9">
-      <print new-system="yes" /><print new-system="yes" />
+      <print new-system="yes" /><print new-system="yes" /><print new-system="yes" />
       <direction placement="above">
         <direction-type>
           <words default-y="89.33" enclosure="none" valign="top">③. ② の最後のラにスパイスを効かす (♯ をつける)。</words>
@@ -568,7 +568,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
     </measure>
     
     <measure number="13">
-      <print new-system="yes" /><print new-system="yes" />
+      <print new-system="yes" /><print new-system="yes" /><print new-system="yes" />
       <attributes>
         <key>
           <fifths>1</fifths>
@@ -744,7 +744,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
     </measure>
     
     <measure number="17">
-      <print new-system="yes" /><print new-system="yes" />
+      <print new-system="yes" /><print new-system="yes" /><print new-system="yes" />
       <attributes>
         <key>
           <fifths>1</fifths>
@@ -926,7 +926,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
     </measure>
     
     <measure number="21">
-      <print new-system="yes" /><print new-system="yes" />
+      <print new-system="yes" /><print new-system="yes" /><print new-system="yes" />
       <attributes>
         <key>
           <fifths>0</fifths>
@@ -1107,7 +1107,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
     </measure>
     
     <measure number="25">
-      <print new-system="yes" /><print new-system="yes" />
+      <print new-system="yes" /><print new-system="yes" /><print new-system="yes" />
       <direction placement="above">
         <direction-type>
           <words default-y="89.33" enclosure="none" valign="top">②. ① をラシドで終止。</words>
@@ -1275,7 +1275,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
     </measure>
     
     <measure number="29">
-      <print new-system="yes" /><print new-system="yes" />
+      <print new-system="yes" /><print new-system="yes" /><print new-system="yes" />
       <direction placement="above">
         <direction-type>
           <words default-y="89.33" enclosure="none" valign="top">③. ② の最後のラにスパイスを効かす (♯ をつける)。</words>
@@ -1445,7 +1445,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
     </measure>
     
     <measure number="33">
-      <print new-system="yes" /><print new-system="yes" />
+      <print new-system="yes" /><print new-system="yes" /><print new-system="yes" />
       <attributes>
         <key>
           <fifths>5</fifths>
@@ -1631,7 +1631,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
     </measure>
     
     <measure number="37">
-      <print new-system="yes" /><print new-system="yes" />
+      <print new-system="yes" /><print new-system="yes" /><print new-system="yes" />
       <attributes>
         <key>
           <fifths>5</fifths>
