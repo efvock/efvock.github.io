@@ -1,6 +1,6 @@
----
+----
 layout: enharmonic-chat
----
+----
 
 # 白鍵の異名同音 (ChatGPT との会話)
 
