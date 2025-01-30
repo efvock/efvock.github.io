@@ -6,7 +6,7 @@ import zbarlight
 from find_font import find_font
 from sys import argv
 
-box_size = 4
+box_size = 3
 version = 7
 
 title, text, filename = argv[1:4]
