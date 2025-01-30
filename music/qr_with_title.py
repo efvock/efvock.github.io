@@ -8,7 +8,7 @@ from sys import argv
 
 title, text, filename = argv[1:4]
 # QRコードを生成
-qr = qrcode.QRCode(version=5, box_size=3, border=0, error_correction=qrcode.constants.ERROR_CORRECT_H)
+qr = qrcode.QRCode(version=6, box_size=3, border=0, error_correction=qrcode.constants.ERROR_CORRECT_H)
 qr.add_data(text)
 qr.make(fit=True)
 qr_img = qr.make_image(fill_color="black", back_color="white").convert("RGB")

@@ -8,8 +8,9 @@ layout: default
     <img src="fa-play.qrcode.png" alt="">
     <img src="la-score.qrcode.png" alt="">
     <img src="la-play.qrcode.png" alt="">
-    <img src="fa.xml" alt="">
-    <img src="la.xml" alt="">
+    <img src="fa.qrcode.png" alt="">
+    <img src="la.qrcode.png" alt="">
     <img src="enharmonic-chat.qrcode.png" alt="">
+    <img src="enharmonic-chat-raw.qrcode.png" alt="">
   </div>
 </div>
