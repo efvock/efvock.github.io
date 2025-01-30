@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 <ul>
   <li><a href="enharmonic.png">譜例の画像</a></li>
   <li><a href="https://chatgpt.com/share/67999ec4-ed98-8012-b243-3bea4f41f83c">
