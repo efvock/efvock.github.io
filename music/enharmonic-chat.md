@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: enharmonic-chat
 ---
 
 # 白鍵の異名同音
