@@ -19,6 +19,7 @@
 ul.checklist {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 ul.checklist li::before {
