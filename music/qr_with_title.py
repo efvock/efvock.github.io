@@ -6,19 +6,22 @@ import zbarlight
 from find_font import find_font
 from sys import argv
 
+box_size = 4
+version = 7
+
 title, text, filename = argv[1:4]
 # QRコードを生成
-qr = qrcode.QRCode(version=7, box_size=3, border=0, error_correction=qrcode.constants.ERROR_CORRECT_H)
+qr = qrcode.QRCode(version=version, box_size=box_size, border=0, error_correction=qrcode.constants.ERROR_CORRECT_H)
 qr.add_data(text)
 qr.make(fit=True)
 qr_img = qr.make_image(fill_color="black", back_color="white").convert("RGB")
 
 # テキストを設定
-font_size = 3 * 4
+font_size = box_size * 4
 font = find_font(r"YuGothic-Bold.*", font_size)
 
 # パディング量（ピクセル単位）
-padding = 3 * 2
+padding = box_size * 2
 
 # 描画用のオブジェクトを作成
 draw = ImageDraw.Draw(qr_img)
