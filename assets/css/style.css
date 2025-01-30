@@ -18,16 +18,17 @@
 
 ul.checklist {
     list-style: none;
-    padding: 0px;
-}
-
-ul.checklist li::before {
-    content: "✅x ";
-    font-size: 1.2em;
-    margin: 0px 5px 0px 0px;
-    padding: 0px;
+    padding: 0;
+    margin: 0;
 }
 
 ul.checklist li {
-    margin: 0px
+    line-height: 1.2;
+    margin-bottom: 2px;
+}
+
+ul.checklist li::before {
+    content: "✅y ";
+    font-size: 1.2em;
+    margin-right: 5px;
 }
