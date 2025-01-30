@@ -6,10 +6,23 @@
     body {
         font-size: 84%;
     }
+
     .print-only {
         display: block;
     }
+
     audio {
         display: none;
     }
+}
+
+ul.checklist {
+    list-style: none;
+    padding: 0;
+}
+
+ul.checklist li::before {
+    content: "✅ ";
+    font-size: 1.2em;
+    margin-right: 5px;
 }
