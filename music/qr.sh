@@ -2,7 +2,7 @@
 
 ./qr_with_title.py "ファ譜画像" "https://efvock.github.io/music/fa.png" "fa-score"
 ./qr_with_title.py "ファ譜を演奏" "https://efvock.github.io/music/fa.mp3" "fa-play"
-./qr_with_title.py "ラ譜を画像" "https://efvock.github.io/music/la.png" "la-score"
+./qr_with_title.py "ラ譜画像" "https://efvock.github.io/music/la.png" "la-score"
 ./qr_with_title.py "ラ譜を演奏" "https://efvock.github.io/music/fa.mp3" "la-play"
 ./qr_with_title.py "ファ譜(機械可読)" "https://efvock.github.io/music/fa.xml" "fa"
 ./qr_with_title.py "ラ譜(機械可読)" "https://efvock.github.io/music/la.xml" "la"

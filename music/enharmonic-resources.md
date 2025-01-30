@@ -12,5 +12,6 @@ layout: default
     <img src="la.qrcode.png" alt="">
     <img src="enharmonic-chat.qrcode.png" alt="">
     <img src="enharmonic-chat-raw.qrcode.png" alt="">
+    <img src="enharmonic-resources.qrcode.png" alt="">
   </div>
 </div>
