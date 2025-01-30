@@ -28,7 +28,7 @@ ul.checklist li {
 }
 
 ul.checklist li::before {
-    content: "✅y ";
+    content: "✅ ";
     font-size: 1.2em;
     margin-right: 5px;
 }
