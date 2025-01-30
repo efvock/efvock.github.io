@@ -18,12 +18,15 @@
 
 ul.checklist {
     list-style: none;
-    padding: 0;
-    margin: 0;
+    padding: 0px;
 }
 
 ul.checklist li::before {
     content: "✅ ";
     font-size: 1.2em;
     margin-right: 5px;
+}
+
+ul.checklist li {
+    margin: 0px
 }
