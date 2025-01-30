@@ -2,9 +2,6 @@
 layout: default
 ---
 
-1.
-
-
 <div class="print-only">
   <div style="display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 32px;">
     <img src="fa-score.qrcode.png" alt="">
