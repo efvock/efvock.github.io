@@ -19,7 +19,7 @@
             "request": "launch",
             "cwd": "${workspaceFolder}/music",
             "program": "qr_with_title.py",
-            "args": ["譜例を演奏", "https://efvock.github.io/music/enharmonic.mp3", "enharmonic"],
+            "args": ["ラ譜を演奏", "https://efvock.github.io/music/enharmonic.mp3", "enharmonic"],
             "console": "integratedTerminal"
         }
     ]
