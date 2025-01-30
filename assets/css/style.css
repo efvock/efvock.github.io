@@ -24,7 +24,7 @@ ul.checklist {
 ul.checklist li::before {
     content: "✅ ";
     font-size: 1.2em;
-    margin-right: 5px;
+    margin: 0px 5px 0px 0px;
 }
 
 ul.checklist li {
