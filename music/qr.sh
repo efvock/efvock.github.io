@@ -1,3 +1,3 @@
 #!/bin/sh
 
-./qr_with_title.py "このページ自身" "https://efvock.github.io/music/enharmonic-screen-only" "enharmonic-screen-only"
+./qr_with_title.py 別館 https://efvock.github.io/music/enharmonic-annex enharmonic-annex

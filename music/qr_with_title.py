@@ -7,7 +7,7 @@ from find_font import find_font
 from sys import argv
 
 box_size = 3
-version = 7
+version = 1
 
 title, text, filename = argv[1:4]
 # QRコードを生成
@@ -17,7 +17,7 @@ qr.make(fit=True)
 qr_img = qr.make_image(fill_color="black", back_color="white").convert("RGB")
 
 # テキストを設定
-font_size = box_size * 4
+font_size = box_size * 6
 font = find_font(r"YuGothic-Bold.*", font_size)
 
 # パディング量（ピクセル単位）
