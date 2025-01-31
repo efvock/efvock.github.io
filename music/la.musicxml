@@ -100,7 +100,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
     </part-list>
   <part id="P1">
     <measure number="1" width="302.43">
-      <print new-system="yes" /><print>
+      <print new-system="yes" /><print new-system="yes" /><print>
         <system-layout>
           <system-margins>
             <left-margin>50</left-margin>
@@ -286,7 +286,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         </note>
       </measure>
     <measure number="5" width="281.1">
-      <print new-system="yes" /><direction placement="above">
+      <print new-system="yes" /><print new-system="yes" /><direction placement="above">
         <direction-type>
           <words default-y="89.33" valign="top">②. ① をラシドで終止。</words>
           </direction-type>
@@ -452,7 +452,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         </barline>
       </measure>
     <measure number="9" width="344.24">
-      <print new-system="yes" /><attributes>
+      <print new-system="yes" /><print new-system="yes" /><attributes>
         <key>
           <fifths>5</fifths>
           </key>
@@ -632,7 +632,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         </note>
       </measure>
     <measure number="13" width="342.31">
-      <print new-system="yes" /><attributes>
+      <print new-system="yes" /><print new-system="yes" /><attributes>
         <key>
           <fifths>5</fifths>
           </key>
@@ -813,7 +813,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         </note>
       </measure>
     <measure number="17" width="341.01">
-      <print new-system="yes" /><attributes>
+      <print new-system="yes" /><print new-system="yes" /><attributes>
         <key>
           <fifths>5</fifths>
           </key>
