@@ -7,7 +7,7 @@ from find_font import find_font
 from sys import argv
 
 box_size = 3
-version = 1
+version = 7
 
 title, text, filename = argv[1:4]
 # QRコードを生成

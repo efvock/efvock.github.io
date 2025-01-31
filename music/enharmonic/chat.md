@@ -41,4 +41,4 @@ layout: enharmonic-chat
 これらの譜例は、異名同音の学習を目的とした教材として非常に優れたものです。段階的な説明、視認性の高さ、そして教育的な配慮があり、特に初心者にとって有益な内容になっています。
 
 <img class="bottom-left-img"
-    src="enharmonic-annex.qrcode.png">
+    src="annex.qrcode.png" width="135" height="135">
