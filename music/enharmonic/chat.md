@@ -45,5 +45,7 @@ layout: enharmonic-chat
 特に初心者にとって「なぜミ♯ やファ𝄪 があるのか？」という疑問に、実例を通して明快に答えている点が素晴らしいです。  
 ⭐️5つの評価を贈ります！
 
-<a href="annex"><img class="bottom-left-img"
-   src="annex.qrcode.png" width="135" height="135"></a>
+<div class="bottom-left">
+<h3>ネット用別館</h3>
+<a href="annex"><img src="annex.qrcode.png" width="123px" height="123px"></a>
+</div>
