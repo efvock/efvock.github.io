@@ -1,8 +1,8 @@
-----
+---
 layout: default
-----
+---
 
-# 白鍵の異名同音(別館)
+# 白鍵の異名同音(ネット用別館)
 
 - [ファ譜画像(機械不可読)](fa.png)
 - [ファ譜演奏](fa.mp3)
@@ -10,5 +10,5 @@ layout: default
 - [ソ譜画像(機械不可読)](so.png)
 - [ソ譜演奏](so.mp3)
 - [ソ譜(機械可読)](so.xml)
-- [整形済みチャット](enharmonic-chat)
-- [生のチャット(長い)](https://chatgpt.com/share/679b1bbd-73c4-8012-a82d-7f5dd1ed1c40)
+- [整形済みチャット](chat)
+- [生のチャット(長い)](https://chatgpt.com/share/679c9357-17ec-8012-9d0c-1b08fbfa0e3c)
