@@ -30,8 +30,17 @@ $(@@.png) $(@@.mp3) $(@@.pdf):
 $(@@.xml)	:%.xml		:%.musicxml
 	cp $< $@
 
-chat.pdf:	chat.md
-	open https://efvock.github.io/music/enharmonic/chat
+//chat	:=https://efvock.github.io/music/enharmonic/chat
+/chat	:=$(HOME)/Downloads/chat.pdf
+
+$(/chat)	:chat.md
+	open -na "Google Chrome" --args --incognito $(//chat)
 	read -p 'done? '
 
-all:	$(@@.*) so.pdf chat.pdf
+chat.pdf	:$(/chat)
+	cp $(/chat) $@
+
+all			:	$(@@.*) so.pdf chat.pdf
+
+clean		:
+	rm -f *.xml *.png *.mp3 *.pdf
