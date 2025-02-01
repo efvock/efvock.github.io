@@ -19,68 +19,6 @@ Based on: "春の小川" (effectively in the public domain)</rights>
       <supports element="stem" type="yes" />
       </encoding>
     </identification>
-  <defaults>
-    <scaling>
-      <millimeters>6.99912</millimeters>
-      <tenths>40</tenths>
-      </scaling>
-    <page-layout>
-      <page-height>1696.93</page-height>
-      <page-width>1200.48</page-width>
-      <page-margins type="even">
-        <left-margin>85.725</left-margin>
-        <right-margin>85.725</right-margin>
-        <top-margin>85.725</top-margin>
-        <bottom-margin>85.725</bottom-margin>
-        </page-margins>
-      <page-margins type="odd">
-        <left-margin>85.725</left-margin>
-        <right-margin>85.725</right-margin>
-        <top-margin>85.725</top-margin>
-        <bottom-margin>85.725</bottom-margin>
-        </page-margins>
-      </page-layout>
-    <appearance>
-      <line-width type="light barline">1.8</line-width>
-      <line-width type="heavy barline">5.5</line-width>
-      <line-width type="beam">5</line-width>
-      <line-width type="bracket">4.5</line-width>
-      <line-width type="dashes">1</line-width>
-      <line-width type="enclosure">1</line-width>
-      <line-width type="ending">1.1</line-width>
-      <line-width type="extend">1</line-width>
-      <line-width type="leger">1.6</line-width>
-      <line-width type="pedal">1.1</line-width>
-      <line-width type="octave shift">1.1</line-width>
-      <line-width type="slur middle">2.1</line-width>
-      <line-width type="slur tip">0.5</line-width>
-      <line-width type="staff">1.1</line-width>
-      <line-width type="stem">1</line-width>
-      <line-width type="tie middle">2.1</line-width>
-      <line-width type="tie tip">0.5</line-width>
-      <line-width type="tuplet bracket">1</line-width>
-      <line-width type="wedge">1.2</line-width>
-      <note-size type="cue">70</note-size>
-      <note-size type="grace">70</note-size>
-      <note-size type="grace-cue">49</note-size>
-      </appearance>
-    <music-font font-family="Leland" />
-    <word-font font-family="Edwin" font-size="10" />
-    <lyric-font font-family="Edwin" font-size="10" />
-    </defaults>
-  <credit page="1">
-    <credit-type>title</credit-type>
-    <credit-words default-x="600.241173" default-y="1611.208292" justify="center" valign="top" font-size="22">白鍵の異名同音(ファ譜)</credit-words>
-    </credit>
-  <credit page="1">
-    <credit-type>subtitle</credit-type>
-    <credit-words default-x="600.241173" default-y="1554.058251" justify="center" valign="top" font-size="14">ミ♯ が現れるとき</credit-words>
-    </credit>
-  <credit page="1">
-    <credit-type>rights</credit-type>
-    <credit-words default-x="600.241173" default-y="85.725036" justify="center" valign="bottom" font-size="9">© 2025 堀内寛己, Licensed under CC BY-SA 4.0
-Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</credit-words>
-    </credit>
   <part-list>
     <score-part id="P1">
       <part-name>Piano</part-name>
@@ -99,17 +37,8 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
       </score-part>
     </part-list>
   <part id="P1">
-    <measure number="1" width="302.43">
-      <print new-system="yes" /><print>
-        <system-layout>
-          <system-margins>
-            <left-margin>50</left-margin>
-            <right-margin>0</right-margin>
-            </system-margins>
-          <top-system-distance>329.81</top-system-distance>
-          </system-layout>
-        </print>
-      <attributes>
+    <measure number="1">
+      <print new-system="yes" /><attributes>
         <divisions>1</divisions>
         <key>
           <fifths>0</fifths>
@@ -125,10 +54,10 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         </attributes>
       <direction placement="above">
         <direction-type>
-          <words default-x="-50" default-y="89.81" valign="top">①. 原曲(ハ長調)「春の小川」より。</words>
+          <words valign="top">①. 原曲(ハ長調)「春の小川」より。</words>
           </direction-type>
         </direction>
-      <note default-x="80.21" default-y="-40">
+      <note>
         <pitch>
           <step>E</step>
           <octave>4</octave>
@@ -138,7 +67,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="135.32" default-y="-30">
+      <note>
         <pitch>
           <step>G</step>
           <octave>4</octave>
@@ -148,7 +77,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="190.42" default-y="-25">
+      <note>
         <pitch>
           <step>A</step>
           <octave>4</octave>
@@ -158,7 +87,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="245.53" default-y="-30">
+      <note>
         <pitch>
           <step>G</step>
           <octave>4</octave>
@@ -169,8 +98,8 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <stem>up</stem>
         </note>
       </measure>
-    <measure number="2" width="234.72">
-      <note default-x="12.5" default-y="-40">
+    <measure number="2">
+      <note>
         <pitch>
           <step>E</step>
           <octave>4</octave>
@@ -180,7 +109,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="67.6" default-y="-30">
+      <note>
         <pitch>
           <step>G</step>
           <octave>4</octave>
@@ -190,7 +119,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="122.71" default-y="-15">
+      <note>
         <pitch>
           <step>C</step>
           <octave>5</octave>
@@ -200,7 +129,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>down</stem>
         </note>
-      <note default-x="177.81" default-y="-15">
+      <note>
         <pitch>
           <step>C</step>
           <octave>5</octave>
@@ -211,8 +140,8 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <stem>down</stem>
         </note>
       </measure>
-    <measure number="3" width="234.72">
-      <note default-x="12.5" default-y="-25">
+    <measure number="3">
+      <note>
         <pitch>
           <step>A</step>
           <octave>4</octave>
@@ -222,7 +151,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="67.6" default-y="-25">
+      <note>
         <pitch>
           <step>A</step>
           <octave>4</octave>
@@ -232,7 +161,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="122.71" default-y="-30">
+      <note>
         <pitch>
           <step>G</step>
           <octave>4</octave>
@@ -242,7 +171,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="177.81" default-y="-40">
+      <note>
         <pitch>
           <step>E</step>
           <octave>4</octave>
@@ -253,8 +182,8 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <stem>up</stem>
         </note>
       </measure>
-    <measure number="4" width="207.17">
-      <note default-x="12.5" default-y="-45">
+    <measure number="4">
+      <note>
         <pitch>
           <step>D</step>
           <octave>4</octave>
@@ -264,7 +193,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="67.6" default-y="-40">
+      <note>
         <pitch>
           <step>E</step>
           <octave>4</octave>
@@ -274,7 +203,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="122.71" default-y="-50">
+      <note>
         <pitch>
           <step>C</step>
           <octave>4</octave>
@@ -285,13 +214,14 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <stem>up</stem>
         </note>
       </measure>
-    <measure number="5" width="292.41">
-      <print new-system="yes" /><direction placement="above">
+    <measure number="5">
+      <print new-system="yes" /><print new-system="yes" />
+      <direction placement="above">
         <direction-type>
-          <words default-y="89.33" valign="top">②. ① をラシドで終止。</words>
+          <words valign="top">②. ① をラシドで終止。</words>
           </direction-type>
         </direction>
-      <note default-x="58.09" default-y="-40">
+      <note>
         <pitch>
           <step>E</step>
           <octave>4</octave>
@@ -301,7 +231,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="116.22" default-y="-30">
+      <note>
         <pitch>
           <step>G</step>
           <octave>4</octave>
@@ -311,7 +241,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="174.35" default-y="-25">
+      <note>
         <pitch>
           <step>A</step>
           <octave>4</octave>
@@ -321,7 +251,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="232.48" default-y="-30">
+      <note>
         <pitch>
           <step>G</step>
           <octave>4</octave>
@@ -332,8 +262,8 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <stem>up</stem>
         </note>
       </measure>
-    <measure number="6" width="246.81">
-      <note default-x="12.5" default-y="-40">
+    <measure number="6">
+      <note>
         <pitch>
           <step>E</step>
           <octave>4</octave>
@@ -343,7 +273,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="70.63" default-y="-30">
+      <note>
         <pitch>
           <step>G</step>
           <octave>4</octave>
@@ -353,7 +283,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="128.76" default-y="-15">
+      <note>
         <pitch>
           <step>C</step>
           <octave>5</octave>
@@ -363,7 +293,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>down</stem>
         </note>
-      <note default-x="186.88" default-y="-15">
+      <note>
         <pitch>
           <step>C</step>
           <octave>5</octave>
@@ -374,8 +304,8 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <stem>down</stem>
         </note>
       </measure>
-    <measure number="7" width="246.81">
-      <note default-x="12.5" default-y="-25">
+    <measure number="7">
+      <note>
         <pitch>
           <step>A</step>
           <octave>4</octave>
@@ -385,7 +315,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="70.63" default-y="-25">
+      <note>
         <pitch>
           <step>A</step>
           <octave>4</octave>
@@ -395,7 +325,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="128.76" default-y="-30">
+      <note>
         <pitch>
           <step>G</step>
           <octave>4</octave>
@@ -405,7 +335,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="186.88" default-y="-40">
+      <note>
         <pitch>
           <step>E</step>
           <octave>4</octave>
@@ -416,8 +346,8 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <stem>up</stem>
         </note>
       </measure>
-    <measure number="8" width="243">
-      <note default-x="12.5" default-y="-60">
+    <measure number="8">
+      <note>
         <pitch>
           <step>A</step>
           <octave>3</octave>
@@ -427,7 +357,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="70.63" default-y="-55">
+      <note>
         <pitch>
           <step>B</step>
           <octave>3</octave>
@@ -437,7 +367,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="128.76" default-y="-50">
+      <note>
         <pitch>
           <step>C</step>
           <octave>4</octave>
@@ -451,18 +381,19 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <bar-style>light-light</bar-style>
         </barline>
       </measure>
-    <measure number="9" width="311.73">
-      <print new-system="yes" /><attributes>
+    <measure number="9">
+      <print new-system="yes" /><print new-system="yes" />
+      <attributes>
         <key>
           <fifths>1</fifths>
           </key>
         </attributes>
       <direction placement="above">
         <direction-type>
-          <words default-y="89.33" valign="top">③. ② をト長調に転調。</words>
+          <words valign="top">③. ② をト長調に転調。</words>
           </direction-type>
         </direction>
-      <note default-x="75.35" default-y="-20">
+      <note>
         <pitch>
           <step>B</step>
           <octave>4</octave>
@@ -472,7 +403,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>down</stem>
         </note>
-      <note default-x="133.99" default-y="-10">
+      <note>
         <pitch>
           <step>D</step>
           <octave>5</octave>
@@ -482,7 +413,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>down</stem>
         </note>
-      <note default-x="192.64" default-y="-5">
+      <note>
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -492,7 +423,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>down</stem>
         </note>
-      <note default-x="251.28" default-y="-10">
+      <note>
         <pitch>
           <step>D</step>
           <octave>5</octave>
@@ -503,8 +434,8 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <stem>down</stem>
         </note>
       </measure>
-    <measure number="10" width="248.88">
-      <note default-x="12.5" default-y="-20">
+    <measure number="10">
+      <note>
         <pitch>
           <step>B</step>
           <octave>4</octave>
@@ -514,7 +445,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>down</stem>
         </note>
-      <note default-x="71.14" default-y="-10">
+      <note>
         <pitch>
           <step>D</step>
           <octave>5</octave>
@@ -524,7 +455,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>down</stem>
         </note>
-      <note default-x="129.79" default-y="5">
+      <note>
         <pitch>
           <step>G</step>
           <octave>5</octave>
@@ -534,7 +465,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>down</stem>
         </note>
-      <note default-x="188.43" default-y="5">
+      <note>
         <pitch>
           <step>G</step>
           <octave>5</octave>
@@ -545,8 +476,8 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <stem>down</stem>
         </note>
       </measure>
-    <measure number="11" width="248.88">
-      <note default-x="12.5" default-y="-5">
+    <measure number="11">
+      <note>
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -556,7 +487,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>down</stem>
         </note>
-      <note default-x="71.14" default-y="-5">
+      <note>
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -566,7 +497,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>down</stem>
         </note>
-      <note default-x="129.79" default-y="-10">
+      <note>
         <pitch>
           <step>D</step>
           <octave>5</octave>
@@ -576,7 +507,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>down</stem>
         </note>
-      <note default-x="188.43" default-y="-20">
+      <note>
         <pitch>
           <step>B</step>
           <octave>4</octave>
@@ -587,8 +518,8 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <stem>down</stem>
         </note>
       </measure>
-    <measure number="12" width="219.55">
-      <note default-x="12.5" default-y="-40">
+    <measure number="12">
+      <note>
         <pitch>
           <step>E</step>
           <octave>4</octave>
@@ -598,7 +529,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="71.14" default-y="-35">
+      <note>
         <pitch>
           <step>F</step>
           <alter>1</alter>
@@ -609,7 +540,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="129.79" default-y="-30">
+      <note>
         <pitch>
           <step>G</step>
           <octave>4</octave>
@@ -620,18 +551,19 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <stem>up</stem>
         </note>
       </measure>
-    <measure number="13" width="310.11">
-      <print new-system="yes" /><attributes>
+    <measure number="13">
+      <print new-system="yes" /><print new-system="yes" />
+      <attributes>
         <key>
           <fifths>1</fifths>
           </key>
         </attributes>
       <direction placement="above">
         <direction-type>
-          <words default-y="89.33" valign="top">④. ③ の最後のミにスパイスを効かす (♯ を付ける)。ミ♯ が現れる!</words>
+          <words valign="top">④. ③ の最後のミにスパイスを効かす (♯ を付ける)。ミ♯ が現れる!</words>
           </direction-type>
         </direction>
-      <note default-x="75.35" default-y="-20">
+      <note>
         <pitch>
           <step>B</step>
           <octave>4</octave>
@@ -641,7 +573,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>down</stem>
         </note>
-      <note default-x="133.59" default-y="-10">
+      <note>
         <pitch>
           <step>D</step>
           <octave>5</octave>
@@ -651,7 +583,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>down</stem>
         </note>
-      <note default-x="191.83" default-y="-5">
+      <note>
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -661,7 +593,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>down</stem>
         </note>
-      <note default-x="250.07" default-y="-10">
+      <note>
         <pitch>
           <step>D</step>
           <octave>5</octave>
@@ -672,8 +604,8 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <stem>down</stem>
         </note>
       </measure>
-    <measure number="14" width="247.26">
-      <note default-x="12.5" default-y="-20">
+    <measure number="14">
+      <note>
         <pitch>
           <step>B</step>
           <octave>4</octave>
@@ -683,7 +615,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>down</stem>
         </note>
-      <note default-x="70.74" default-y="-10">
+      <note>
         <pitch>
           <step>D</step>
           <octave>5</octave>
@@ -693,7 +625,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>down</stem>
         </note>
-      <note default-x="128.98" default-y="5">
+      <note>
         <pitch>
           <step>G</step>
           <octave>5</octave>
@@ -703,7 +635,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>down</stem>
         </note>
-      <note default-x="187.22" default-y="5">
+      <note>
         <pitch>
           <step>G</step>
           <octave>5</octave>
@@ -714,8 +646,8 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <stem>down</stem>
         </note>
       </measure>
-    <measure number="15" width="247.26">
-      <note default-x="12.5" default-y="-5">
+    <measure number="15">
+      <note>
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -725,7 +657,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>down</stem>
         </note>
-      <note default-x="70.74" default-y="-5">
+      <note>
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -735,7 +667,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>down</stem>
         </note>
-      <note default-x="128.98" default-y="-10">
+      <note>
         <pitch>
           <step>D</step>
           <octave>5</octave>
@@ -745,7 +677,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>down</stem>
         </note>
-      <note default-x="187.22" default-y="-20">
+      <note>
         <pitch>
           <step>B</step>
           <octave>4</octave>
@@ -756,8 +688,8 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <stem>down</stem>
         </note>
       </measure>
-    <measure number="16" width="224.4">
-      <note default-x="18.76" default-y="-40">
+    <measure number="16">
+      <note>
         <pitch>
           <step>E</step>
           <alter>1</alter>
@@ -769,7 +701,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <accidental>sharp</accidental>
         <stem>up</stem>
         </note>
-      <note default-x="77" default-y="-35">
+      <note>
         <pitch>
           <step>F</step>
           <alter>1</alter>
@@ -780,7 +712,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="135.24" default-y="-30">
+      <note>
         <pitch>
           <step>G</step>
           <octave>4</octave>
@@ -791,18 +723,19 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <stem>up</stem>
         </note>
       </measure>
-    <measure number="17" width="305.1">
-      <print new-system="yes" /><attributes>
+    <measure number="17">
+      <print new-system="yes" /><print new-system="yes" />
+      <attributes>
         <key>
           <fifths>1</fifths>
           </key>
         </attributes>
       <direction placement="above">
         <direction-type>
-          <words default-y="89.43" valign="top">⑤. ④ と同じメロディーだが、ファを文字通りファと記譜している。④ と ⑤ のどちらが自然かは言うまでもない。</words>
+          <words valign="top">⑤. ④ と同じメロディーだが、ファを文字通りファと記譜している。④ と ⑤ のどちらが自然かは言うまでもない。</words>
           </direction-type>
         </direction>
-      <note default-x="75.35" default-y="-20">
+      <note>
         <pitch>
           <step>B</step>
           <octave>4</octave>
@@ -812,7 +745,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>down</stem>
         </note>
-      <note default-x="132.34" default-y="-10">
+      <note>
         <pitch>
           <step>D</step>
           <octave>5</octave>
@@ -822,7 +755,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>down</stem>
         </note>
-      <note default-x="189.33" default-y="-5">
+      <note>
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -832,7 +765,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>down</stem>
         </note>
-      <note default-x="246.31" default-y="-10">
+      <note>
         <pitch>
           <step>D</step>
           <octave>5</octave>
@@ -843,8 +776,8 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <stem>down</stem>
         </note>
       </measure>
-    <measure number="18" width="242.25">
-      <note default-x="12.5" default-y="-20">
+    <measure number="18">
+      <note>
         <pitch>
           <step>B</step>
           <octave>4</octave>
@@ -854,7 +787,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>down</stem>
         </note>
-      <note default-x="69.49" default-y="-10">
+      <note>
         <pitch>
           <step>D</step>
           <octave>5</octave>
@@ -864,7 +797,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>down</stem>
         </note>
-      <note default-x="126.48" default-y="5">
+      <note>
         <pitch>
           <step>G</step>
           <octave>5</octave>
@@ -874,7 +807,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>down</stem>
         </note>
-      <note default-x="183.46" default-y="5">
+      <note>
         <pitch>
           <step>G</step>
           <octave>5</octave>
@@ -885,8 +818,8 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <stem>down</stem>
         </note>
       </measure>
-    <measure number="19" width="242.25">
-      <note default-x="12.5" default-y="-5">
+    <measure number="19">
+      <note>
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -896,7 +829,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>down</stem>
         </note>
-      <note default-x="69.49" default-y="-5">
+      <note>
         <pitch>
           <step>E</step>
           <octave>5</octave>
@@ -906,7 +839,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>down</stem>
         </note>
-      <note default-x="126.48" default-y="-10">
+      <note>
         <pitch>
           <step>D</step>
           <octave>5</octave>
@@ -916,7 +849,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>down</stem>
         </note>
-      <note default-x="183.46" default-y="-20">
+      <note>
         <pitch>
           <step>B</step>
           <octave>4</octave>
@@ -927,8 +860,8 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <stem>down</stem>
         </note>
       </measure>
-    <measure number="20" width="239.43">
-      <note default-x="15.84" default-y="-35">
+    <measure number="20">
+      <note>
         <pitch>
           <step>F</step>
           <octave>4</octave>
@@ -939,7 +872,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <accidental>natural</accidental>
         <stem>up</stem>
         </note>
-      <note default-x="72.83" default-y="-35">
+      <note>
         <pitch>
           <step>F</step>
           <alter>1</alter>
@@ -951,7 +884,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <accidental>sharp</accidental>
         <stem>up</stem>
         </note>
-      <note default-x="129.81" default-y="-30">
+      <note>
         <pitch>
           <step>G</step>
           <octave>4</octave>
@@ -965,18 +898,19 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <bar-style>light-light</bar-style>
         </barline>
       </measure>
-    <measure number="21" width="294.26">
-      <print new-system="yes" /><attributes>
+    <measure number="21">
+      <print new-system="yes" /><print new-system="yes" />
+      <attributes>
         <key>
           <fifths>0</fifths>
           </key>
         </attributes>
       <direction placement="above">
         <direction-type>
-          <words default-y="89.33" valign="top">⑥. 参考までに ② にスパイスを効かす。見慣れたラ♯ である。</words>
+          <words valign="top">⑥. 参考までに ② にスパイスを効かす。見慣れたラ♯ である。</words>
           </direction-type>
         </direction>
-      <note default-x="58.09" default-y="-40">
+      <note>
         <pitch>
           <step>E</step>
           <octave>4</octave>
@@ -986,7 +920,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="116.69" default-y="-30">
+      <note>
         <pitch>
           <step>G</step>
           <octave>4</octave>
@@ -996,7 +930,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="175.28" default-y="-25">
+      <note>
         <pitch>
           <step>A</step>
           <octave>4</octave>
@@ -1006,7 +940,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="233.87" default-y="-30">
+      <note>
         <pitch>
           <step>G</step>
           <octave>4</octave>
@@ -1017,8 +951,8 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <stem>up</stem>
         </note>
       </measure>
-    <measure number="22" width="248.67">
-      <note default-x="12.5" default-y="-40">
+    <measure number="22">
+      <note>
         <pitch>
           <step>E</step>
           <octave>4</octave>
@@ -1028,7 +962,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="71.09" default-y="-30">
+      <note>
         <pitch>
           <step>G</step>
           <octave>4</octave>
@@ -1038,7 +972,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="129.68" default-y="-15">
+      <note>
         <pitch>
           <step>C</step>
           <octave>5</octave>
@@ -1048,7 +982,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>down</stem>
         </note>
-      <note default-x="188.28" default-y="-15">
+      <note>
         <pitch>
           <step>C</step>
           <octave>5</octave>
@@ -1059,8 +993,8 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <stem>down</stem>
         </note>
       </measure>
-    <measure number="23" width="248.67">
-      <note default-x="12.5" default-y="-25">
+    <measure number="23">
+      <note>
         <pitch>
           <step>A</step>
           <octave>4</octave>
@@ -1070,7 +1004,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="71.09" default-y="-25">
+      <note>
         <pitch>
           <step>A</step>
           <octave>4</octave>
@@ -1080,7 +1014,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="129.68" default-y="-30">
+      <note>
         <pitch>
           <step>G</step>
           <octave>4</octave>
@@ -1090,7 +1024,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="188.28" default-y="-40">
+      <note>
         <pitch>
           <step>E</step>
           <octave>4</octave>
@@ -1101,8 +1035,8 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <stem>up</stem>
         </note>
       </measure>
-    <measure number="24" width="237.43">
-      <note default-x="21.36" default-y="-60">
+    <measure number="24">
+      <note>
         <pitch>
           <step>A</step>
           <alter>1</alter>
@@ -1114,7 +1048,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <accidental>sharp</accidental>
         <stem>up</stem>
         </note>
-      <note default-x="79.95" default-y="-55">
+      <note>
         <pitch>
           <step>B</step>
           <octave>3</octave>
@@ -1124,7 +1058,7 @@ Based on: &amp;quot;春の小川&amp;quot; (effectively in the public domain)</c
         <type>quarter</type>
         <stem>up</stem>
         </note>
-      <note default-x="138.54" default-y="-50">
+      <note>
         <pitch>
           <step>C</step>
           <octave>4</octave>
