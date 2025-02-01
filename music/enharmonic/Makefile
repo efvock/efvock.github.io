@@ -43,4 +43,4 @@ chat.pdf	:$(/chat)
 all			:	$(@@.*) so.pdf chat.pdf
 
 clean		:
-	rm -f *.xml *.png *.mp3 *.pdf
+	rm -f *.xml *.musicxml *.png *.mp3 *.pdf
