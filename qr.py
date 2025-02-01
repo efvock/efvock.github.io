@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import qrcode
-from PIL import ImageDraw
 from sys import argv
 
 box_size = 3

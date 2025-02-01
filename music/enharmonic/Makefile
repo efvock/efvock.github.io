@@ -30,17 +30,27 @@ $(@@.png) $(@@.mp3) $(@@.pdf):
 $(@@.xml)	:%.xml		:%.musicxml
 	cp $< $@
 
-//chat	:=https://efvock.github.io/music/enharmonic/chat
 /chat	:=$(HOME)/Downloads/chat.pdf
+//base	:=https://efvock.github.io/music/enharmonic
+//chat	:=$(//base)/chat
+//annex	:=$(//base)/annex
 
-$(/chat)	:chat.md
+annex	:=annex.qrcode.png
+
+$(/chat)	:chat.md $(annex)
+	git add .
+	git commit -a -m -
+	git push
 	open -na "Google Chrome" --args --incognito $(//chat)
 	read -p 'done? '
 
 chat.pdf	:$(/chat)
 	cp $(/chat) $@
 
-all			:	$(@@.*) so.pdf chat.pdf
+$(annex)	:
+		../../qr.py $(//annex) annex
+
+all			:	$(@@.*) so.pdf chat.pdf $(annex)
 
 clean		:
 	rm -f *.xml *.musicxml *.png *.mp3 *.pdf
