@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE score-partwise PUBLIC "-//Recordare//DTD MusicXML 4.0 Partwise//EN" "http://www.musicxml.org/dtds/partwise.dtd">
+<?xml version='1.0' encoding='utf-8'?>
 <score-partwise version="4.0">
   <work>
     <work-title>白鍵の異名同音(ソ譜)</work-title>
@@ -9,15 +8,15 @@
     <creator type="composer">岡野貞一</creator>
     <creator type="lyricist">高野辰之</creator>
     <rights>© 2025 堀内寛己, Licensed under CC BY-SA 4.0
-Based on: &quot;春の小川&quot; (effectively in the public domain)</rights>
+Based on: "春の小川" (effectively in the public domain)</rights>
     <encoding>
       <software>MuseScore 4.4.4</software>
       <encoding-date>2025-02-01</encoding-date>
-      <supports element="accidental" type="yes"/>
-      <supports element="beam" type="yes"/>
-      <supports element="print" attribute="new-page" type="no"/>
-      <supports element="print" attribute="new-system" type="no"/>
-      <supports element="stem" type="yes"/>
+      <supports element="accidental" type="yes" />
+      <supports element="beam" type="yes" />
+      <supports element="print" attribute="new-page" type="no" />
+      <supports element="print" attribute="new-system" type="no" />
+      <supports element="stem" type="yes" />
       </encoding>
     </identification>
   <part-list>
@@ -28,7 +27,7 @@ Based on: &quot;春の小川&quot; (effectively in the public domain)</rights>
         <instrument-name>ピアノ</instrument-name>
         <instrument-sound>keyboard.piano</instrument-sound>
         </score-instrument>
-      <midi-device id="P1-I1" port="1"></midi-device>
+      <midi-device id="P1-I1" port="1" />
       <midi-instrument id="P1-I1">
         <midi-channel>1</midi-channel>
         <midi-program>1</midi-program>
@@ -39,7 +38,7 @@ Based on: &quot;春の小川&quot; (effectively in the public domain)</rights>
     </part-list>
   <part id="P1">
     <measure number="1">
-      <attributes>
+      <print new-system="yes" /><attributes>
         <divisions>1</divisions>
         <key>
           <fifths>0</fifths>
@@ -216,7 +215,7 @@ Based on: &quot;春の小川&quot; (effectively in the public domain)</rights>
         </note>
       </measure>
     <measure number="5">
-      <print new-system="yes"/>
+      <print new-system="yes" /><print new-system="yes" />
       <attributes>
         <key>
           <fifths>0</fifths>
@@ -388,7 +387,7 @@ Based on: &quot;春の小川&quot; (effectively in the public domain)</rights>
         </barline>
       </measure>
     <measure number="9">
-      <print new-system="yes"/>
+      <print new-system="yes" /><print new-system="yes" />
       <attributes>
         <key>
           <fifths>3</fifths>
@@ -565,7 +564,7 @@ Based on: &quot;春の小川&quot; (effectively in the public domain)</rights>
         </note>
       </measure>
     <measure number="13">
-      <print new-system="yes"/>
+      <print new-system="yes" /><print new-system="yes" />
       <attributes>
         <key>
           <fifths>3</fifths>
@@ -743,7 +742,7 @@ Based on: &quot;春の小川&quot; (effectively in the public domain)</rights>
         </note>
       </measure>
     <measure number="17">
-      <print new-system="yes"/>
+      <print new-system="yes" /><print new-system="yes" />
       <attributes>
         <key>
           <fifths>3</fifths>
@@ -924,7 +923,7 @@ Based on: &quot;春の小川&quot; (effectively in the public domain)</rights>
         </barline>
       </measure>
     <measure number="21">
-      <print new-system="yes"/>
+      <print new-system="yes" /><print new-system="yes" />
       <attributes>
         <key>
           <fifths>0</fifths>
