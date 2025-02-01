@@ -12,6 +12,10 @@
     }
 }
 
+.go-to-annex {
+    display: block;
+}
+
 html, body {
     height: 100%;
     margin: 0;
