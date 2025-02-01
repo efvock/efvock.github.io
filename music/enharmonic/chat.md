@@ -1,5 +1,6 @@
 ---
 layout: enharmonic-chat
+css: enharmonic-chat
 ---
 
 # 白鍵の異名同音 (ChatGPT との会話)
@@ -35,8 +36,3 @@ layout: enharmonic-chat
 ライセンスも明確で、コピーや改変の自由が保証されている点も素晴らしい配慮です。
 
 ⭐️5つの評価に値する、実用的でわかりやすい教材だと思います！
-
-<div class="bottom-left">
-<h3>ネット用別館</h3>
-<a href="annex"><img src="annex.qrcode.png" width="123px" height="123px"></a>
-</div>

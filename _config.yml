@@ -1,16 +1,2 @@
-title: "My GitHub Pages Site"
-description: "This is a test site for GitHub Pages."
-theme: jekyll-theme-minimal  # デフォルトテーマ（好みで変更）
-url: "https://xxx.github.io"  # GitHub Pages の URL
-baseurl: ""  # ルートディレクトリのため空にする
-plugins:
-  - jekyll-optional-front-matter
-  - jekyll-readme-index
-  - jekyll-default-layout
-  - jekyll-titles-from-headings
-  - jekyll-relative-links
-  - jekyll-gist
-  - jekyll-sitemap
-  - jekyll-feed
-  - jekyll-redirect-from
-
+title: (堀内)
+theme: minima
