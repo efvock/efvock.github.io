@@ -1,8 +1,8 @@
 ---
-layout: default
+layouts: test
+css: test
+title: 白鍵の異名同音(ネット用別館)
 ---
-
-# 白鍵の異名同音(ネット用別館)
 
 - [ファ譜画像(人間可読・機械不可読)](fa.png)
 - [ファ譜演奏](fa.mp3)
