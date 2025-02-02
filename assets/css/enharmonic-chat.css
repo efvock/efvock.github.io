@@ -16,9 +16,9 @@
     display: block;
 }
 
-html, body {
+body {
     height: 100%;
-    margin: 0;
+    margin-left: 20px;
     display: flex;
     flex-direction: column;
 }
@@ -34,12 +34,9 @@ main {
 }
 
 footer {
-    text-align: center;
-    padding: 20px;
     position: relative;
 }
 
 .qr-code {
-    text-align: center;
     margin-bottom: 10px;
 }

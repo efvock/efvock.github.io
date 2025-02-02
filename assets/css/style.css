@@ -38,7 +38,7 @@ ul.checklist li::before {
 }
 
 footer {
-    text-align: center;
+    /* text-align: center; */
     padding: 20px;
     position: relative;
 }
