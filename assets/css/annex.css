@@ -1,3 +1,8 @@
-.go-to-annex {
-    display: block;
+@media print {
+    .go-to-annex {
+        display: block;
+    }
 }
+
+@import url("base.css");
+@import url("footer.css");
