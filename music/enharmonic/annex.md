@@ -1,7 +1,7 @@
 ---
-layouts: test
-css: test
+layouts: flex-scroll
 title: 白鍵の異名同音(ネット用別館)
+style: stay
 ---
 
 - [ファ譜画像(人間可読・機械不可読)](fa.png)

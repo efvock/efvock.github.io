@@ -1,8 +1,9 @@
 ---
-layout: enharmonic-chat
+layouts: flex-scroll
+style: goto
+title: 白鍵の異名同音 (ChatGPT との会話)
+show_qr: true
 ---
-
-# 白鍵の異名同音 (ChatGPT との会話)
 
 [堀内]
 
