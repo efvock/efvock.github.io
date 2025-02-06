@@ -1,31 +1,20 @@
 all:
 
 @@.mscz		:=$(wildcard *.mscz)
+
 @@.music	:=$(@@.mscz:%.mscz=%.musicxml)
 @@.xml		:=$(@@.mscz:%.mscz=%.xml)
-@@.png		:=$(@@.mscz:%.mscz=%.png)
-@@.mp3		:=$(@@.mscz:%.mscz=%.mp3)
 @@.pdf		:=$(@@.mscz:%.mscz=%.pdf)
-@@.export	:=$(@@.png) $(@@.mp3)
-@@.*		:=$(@@.music) $(@@.export) $(@@.xml) so.pdf
-
-define export
-	open -a 'MuseScore 4' $<
-	read -p 'done? '
-endef
+@@.*		:=$(@@.music) $(@@.xml) $(@@.pdf)
 
 $(@@.music)	:%.musicxml	:%.mscz
 $(@@.xml)	:%.xml		:%.musicxml
-$(@@.png)	:%.png		:%.mscz
-$(@@.mp3)	:%.mp3		:%.mscz
 $(@@.pdf)	:%.pdf		:%.mscz
 
-$(@@.music):
-	$(export)
+$(@@.music)	:
+	open -a 'MuseScore 4' $<
+	read -p 'done? '
 	../../system_breaks.py $@
-
-$(@@.png) $(@@.mp3) $(@@.pdf):
-	$(export)
 
 $(@@.xml)	:%.xml		:%.musicxml
 	cp $< $@
@@ -50,7 +39,7 @@ chat.pdf	:$(/chat)
 $(annex)	:
 		../../qr.py $(//annex) annex
 
-all			:	$(@@.*) so.pdf chat.pdf
+all		:	$(@@.*) $(@@.pdf) chat.pdf
 
 clean		:
-	rm -f *.xml *.musicxml *.png *.mp3 *.pdf
+	rm -f *.xml *.musicxml *.pdf
