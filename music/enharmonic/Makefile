@@ -28,8 +28,8 @@ annex	:=annex.qrcode.png
 
 $(/chat)	:chat.md $(annex)
 	git add .
-	git commit -a -m -
-	git push
+	git commit -a -m - || :
+	git push || :
 	open -na "Google Chrome" --args --incognito $(//chat)
 	read -p 'done? '
 
