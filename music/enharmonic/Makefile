@@ -39,7 +39,7 @@ chat.pdf	:$(/chat)
 $(annex)	:
 		../../qr.py $(//annex) annex
 
-all		:	$(@@.*) $(@@.pdf) chat.pdf
+all		:$(@@.*) $(@@.pdf) chat.pdf
 
 clean		:
 	rm -f *.xml *.musicxml *.pdf
