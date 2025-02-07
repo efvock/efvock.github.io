@@ -5,16 +5,29 @@ all:
 @@.music	:=$(@@.mscz:%.mscz=%.musicxml)
 @@.xml		:=$(@@.mscz:%.mscz=%.xml)
 @@.pdf		:=$(@@.mscz:%.mscz=%.pdf)
-@@.*		:=$(@@.music) $(@@.xml) $(@@.pdf)
+@@.png		:=$(@@.mscz:%.mscz=%.png)
+@@.mp3		:=$(@@.mscz:%.mscz=%.mp3)
+@@.export	:=$(@@.pdf) $(@@.png) $(@@.mp3)
+@@.*		:=$(@@.music) $(@@.xml) $(@@.export)
 
 $(@@.music)	:%.musicxml	:%.mscz
 $(@@.xml)	:%.xml		:%.musicxml
 $(@@.pdf)	:%.pdf		:%.mscz
+$(@@.png)	:%.png		:%.mscz
+$(@@.mp3)	:%.mp3		:%.mscz
 
-$(@@.music)	:
+define export
 	open -a 'MuseScore 4' $<
 	read -p 'done? '
+endef
+
+$(@@.music)	:
+	$(export)
 	../../system_breaks.py $@
+
+$(@@.png) \
+$(@@.mp3)	:
+	$(export)
 
 $(@@.xml)	:%.xml		:%.musicxml
 	cp $< $@
