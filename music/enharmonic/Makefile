@@ -23,7 +23,7 @@ endef
 
 $(@@.music)	:
 	$(export)
-	../../system_breaks.py $@
+	../../system_breaks.py 4 $@
 
 $(@@.png) \
 $(@@.mp3)	:

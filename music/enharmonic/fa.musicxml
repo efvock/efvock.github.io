@@ -38,7 +38,7 @@ Based on: "春の小川" (effectively in the public domain)</rights>
     </part-list>
   <part id="P1">
     <measure number="1">
-      <print new-system="yes" /><attributes>
+      <print new-system="yes" /><print new-system="yes" /><print new-system="yes" /><attributes>
         <divisions>1</divisions>
         <key>
           <fifths>0</fifths>
@@ -215,7 +215,7 @@ Based on: "春の小川" (effectively in the public domain)</rights>
         </note>
       </measure>
     <measure number="5">
-      <print new-system="yes" /><print new-system="yes" />
+      <print new-system="yes" /><print new-system="yes" /><print new-system="yes" /><print new-system="yes" />
       <attributes>
         <key>
           <fifths>0</fifths>
@@ -384,7 +384,7 @@ Based on: "春の小川" (effectively in the public domain)</rights>
         </note>
       </measure>
     <measure number="9">
-      <print new-system="yes" /><print new-system="yes" />
+      <print new-system="yes" /><print new-system="yes" /><print new-system="yes" /><print new-system="yes" />
       <attributes>
         <key>
           <fifths>0</fifths>
@@ -558,7 +558,7 @@ Based on: "春の小川" (effectively in the public domain)</rights>
         </barline>
       </measure>
     <measure number="13">
-      <print new-system="yes" /><print new-system="yes" />
+      <print new-system="yes" /><print new-system="yes" /><print new-system="yes" /><print new-system="yes" />
       <attributes>
         <key>
           <fifths>1</fifths>
@@ -728,7 +728,7 @@ Based on: "春の小川" (effectively in the public domain)</rights>
         </note>
       </measure>
     <measure number="17">
-      <print new-system="yes" /><print new-system="yes" />
+      <print new-system="yes" /><print new-system="yes" /><print new-system="yes" /><print new-system="yes" />
       <attributes>
         <key>
           <fifths>1</fifths>
@@ -902,7 +902,7 @@ Based on: "春の小川" (effectively in the public domain)</rights>
         </note>
       </measure>
     <measure number="21">
-      <print new-system="yes" /><print new-system="yes" />
+      <print new-system="yes" /><print new-system="yes" /><print new-system="yes" /><print new-system="yes" />
       <attributes>
         <key>
           <fifths>1</fifths>

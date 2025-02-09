@@ -3,7 +3,7 @@
 import xml.etree.ElementTree as ET
 
 
-def insert_system_breaks(musicxml):
+def insert_system_breaks(n, musicxml):
     # MusicXML ファイルを読み込む
     tree = ET.parse(musicxml)
     root = tree.getroot()
@@ -11,9 +11,8 @@ def insert_system_breaks(musicxml):
     # 小節（<measure>）要素を取得
     measures = root.findall(".//measure")
 
-    # 3n+1 小節ごとに <print new-system="yes"/> を挿入
     for i, measure in enumerate(measures):
-        if (i + 1) % 4 == 1:  # 4n+1 条件
+        if (i + 1) % n == 1:
             print_tag = ET.Element("print")
             print_tag.set("new-system", "yes")
             measure.insert(0, print_tag)
@@ -24,5 +23,6 @@ def insert_system_breaks(musicxml):
 
 from sys import argv
 
-for musicxml in argv[1:]:
-    insert_system_breaks(musicxml)
+n = int(argv[1])
+for musicxml in argv[2:]:
+    insert_system_breaks(n, musicxml)
