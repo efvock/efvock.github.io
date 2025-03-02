@@ -1,0 +1,100 @@
+僕は、臨時記号はメロディーのスパイスだという考えを持っています。
+
+具体的には、以下のドレミの歌の 13~16 小節の抜粋
+
+\version "2.24.4"
+% automatically converted by musicxml2ly from ly-spicy.musicxml
+\pointAndClickOff
+
+\header {
+    title =  ly
+    encodingsoftware =  "MuseScore 4.4.4"
+    encodingdate =  "2025-02-03"
+    }
+
+\layout {
+    \context { \Score
+        autoBeaming = ##f
+        }
+    }
+PartPOneVoiceOne =  \relative b' {
+    \clef "treble" \numericTimeSignature\time 4/4 \key c \major | % 1
+    \stemDown b4. \stemUp e,8 \stemUp fis8 [ \stemUp gis8 \stemUp a8
+    \stemUp b8 ] | % 2
+    \stemDown c2. \stemDown ces8 [ \stemDown bes8 ] | % 3
+    \stemUp a4 \stemUp f4 \stemDown b4 \stemUp g4 | % 4
+    \stemDown c4 \stemUp g4 \stemUp e4 \stemUp d4 \bar "|."
+    }
+
+
+% The score definition
+\score {
+    <<
+        
+        \new Staff
+        <<
+            \set Staff.instrumentName = "Piano"
+            \set Staff.shortInstrumentName = "Pno."
+            
+            \context Staff << 
+                \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
+                \context Voice = "PartPOneVoiceOne" {  \PartPOneVoiceOne }
+                >>
+            >>
+        
+        >>
+    \layout {}
+    % To create MIDI output, uncomment the following line:
+    %  \midi {\tempo 4 = 100 }
+    }
+
+は、以下に適切にスパイスを効かせた結果だと思っています。
+
+スパイスレスの方の 2 小節目(原曲 14 小節目)の C は、あらかじめ C♭ というスパイスがよく効くように計画された C なのであり、ここに典型的な C♭ という白鍵の異名が使われる余地があります。
+
+\version "2.24.4"
+% automatically converted by musicxml2ly from ly-spiceless.musicxml
+\pointAndClickOff
+
+\header {
+    title =  ly
+    encodingsoftware =  "MuseScore 4.4.4"
+    encodingdate =  "2025-02-03"
+    }
+
+\layout {
+    \context { \Score
+        autoBeaming = ##f
+        }
+    }
+PartPOneVoiceOne =  \relative b' {
+    \clef "treble" \numericTimeSignature\time 4/4 \key c \major | % 1
+    \stemDown b4. \stemUp e,8 \stemUp f8 [ \stemUp g8 \stemUp a8 \stemUp
+    b8 ] | % 2
+    \stemDown c2. \stemDown c8 [ \stemDown b8 ] | % 3
+    \stemUp a4 \stemUp f4 \stemDown b4 \stemUp g4 | % 4
+    \stemDown c4 \stemUp g4 \stemUp e4 \stemUp d4 \bar "|."
+    }
+
+
+% The score definition
+\score {
+    <<
+        
+        \new Staff
+        <<
+            \set Staff.instrumentName = "Piano"
+            \set Staff.shortInstrumentName = "Pno."
+            
+            \context Staff << 
+                \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
+                \context Voice = "PartPOneVoiceOne" {  \PartPOneVoiceOne }
+                >>
+            >>
+        
+        >>
+    \layout {}
+    % To create MIDI output, uncomment the following line:
+    %  \midi {\tempo 4 = 100 }
+    }
+

@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+body {
+    margin: 0 8px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+main {
+    flex: 1;
+    overflow-y: auto;
+}
+
+p {
+    margin: 10px;
+}
+
+ol,
+ul {
+    padding-left: 40px;
+    margin: 16px 0 16px 0;
+}
+
+footer {
+    padding-bottom: 16px;
+    font-size: 75%;
+}
+
+header,
+main,
+footer {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+
+.copying {
+    text-align: center;
+}
