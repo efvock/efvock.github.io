@@ -9,6 +9,10 @@ h1 {
     margin: 0.67em 0;
 }
 
+h2 {
+    margin: 10px;
+}
+
 body {
     margin: 0 8px;
 }
@@ -47,11 +51,11 @@ footer {
     margin-right: 16px;
 }
 
-h1 {
-    font-size: 2em;
-    margin-bottom: 1em;
-}
-
 .copying {
     text-align: center;
+}
+
+blockquote {
+    padding-left: 40px;
+    margin: 16px 0;
 }

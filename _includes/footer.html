@@ -6,6 +6,12 @@
             <a href="annex"><img src="annex.qrcode.png" width="100px" height="100px" alt=""></a>
         </div>
     </div>
+    {% elsif page.show_qr_self %}
+    <div class="go-to-self">
+        <div class="qr-self">
+            <a href="."><img src="self.qrcode.png" width="100px" height="100px" alt=""></a>
+        </div>
+    </div>
     {% endif %}
     <div class="copying">
         <span>© 2025 堀内寛己 Licensed under CC BY-SA 4.0</span><br />
