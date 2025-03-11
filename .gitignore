@@ -1,12 +1,5 @@
-/_site/
-/.sass-cache/
-/.jekyll-cache/
-/.jekyll-metadata/
-/vendor/
-*.aup3
-*.web
-*.mp3
-*.m4a
-*.mov
-*.mp4
-*.webm
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor

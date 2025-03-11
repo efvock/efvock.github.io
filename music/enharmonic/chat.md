@@ -1,6 +1,6 @@
 ---
 title: 白鍵の異名同音 (ChatGPT との会話)
-show_qr: true
+show_qr_annex: true
 ---
 
 [堀内]
