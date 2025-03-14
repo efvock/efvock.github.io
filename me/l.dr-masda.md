@@ -5,10 +5,10 @@ layout: home
 最初の入院の前後で、益田裕介という精神科医 YouTuber の動画をよく見ていた。
 
 入院前に観て印象に残っていたのは:
-1. [考え方の幼い人](https://www.youtube.com/watch?v=A-IRYSIgk-M)
-2. [神経発達症（発達障害）の受容](https://www.youtube.com/watch?v=D0BsVWbEGIQ)
-3. [茗荷さんの話](https://www.youtube.com/watch?v=pXriRFsuYD8&t=637s)
-4. [生きる希望と死なない理由](https://www.youtube.com/watch?v=siQMR9xWKMA)
+1. \[考え方の幼い人](https://www.youtube.com/watch?v=A-IRYSIgk-M)
+2. \[神経発達症（発達障害）の受容](https://www.youtube.com/watch?v=D0BsVWbEGIQ)
+3. \[茗荷さんの話](https://www.youtube.com/watch?v=pXriRFsuYD8&t=637s)
+4. \[生きる希望と死なない理由](https://www.youtube.com/watch?v=siQMR9xWKMA)
 
 1, 2 は、僕を絶望のどん底に突き落とした(ただし、2 の「受容」という言葉は耳に残った)。
 僕の子供病を確定するものだったからだ。
@@ -18,7 +18,12 @@ layout: home
 一方、3, 4 は、大いに救いになった。
 
 入院して躁転したとき、自分は自分の弱点を受容したのだ、と思った。
+「受容」という言葉を知った自分は無敵(ほら出た)だと思った。
+
 プログラミングの能力は無くても、他のことを生き甲斐にすることはいくらでもできる。
 僕は、退院したら本気で父の介護を生き甲斐にしようと思った。
 父の介護が終わったら、福祉の仕事に就こうとも思った。
 プライドだけは高かった以前の嫌な奴の自分にはとてもできなかった発想だった。
+
+しかし、後にこの躁も去った。
+次第にぶり返してきたのは希死念慮だった。
