@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    <style>
+        .answer {
+            display: none;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .toggle {
+            cursor: pointer;
+            user-select: none;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>{{ page.title }}</h1>
+
+<div class="toggle" onclick="toggleAnswer(this)">
+    ▶️ {{ page.question }}
+</div>
+<div class="answer">
+    <ul>
+        {% for item in page.answer %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<script>
+    function toggleAnswer(element) {
+        const answer = element.nextElementSibling;
+        if (answer.style.display === "none" || answer.style.display === "") {
+            answer.style.display = "block";
+            element.textContent = "🔽 " + element.textContent.slice(2);
+        } else {
+            answer.style.display = "none";
+            element.textContent = "▶️ " + element.textContent.slice(2);
+        }
+    }
+</script>
+
+</body>
+</html>

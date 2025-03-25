@@ -2,13 +2,13 @@
 title: Dr. 益田裕介の影響
 layout: home
 ---
-最初の入院の前後で、益田裕介という精神科医 YouTuber の動画をよく見ていた。
+最初の入院の前後で、益田裕介という精神科医の YouTube をよく見ていた。
 
 入院前に観て印象に残っていたのは:
-1. \[考え方の幼い人](https://www.youtube.com/watch?v=A-IRYSIgk-M)
-2. \[神経発達症（発達障害）の受容](https://www.youtube.com/watch?v=D0BsVWbEGIQ)
-3. \[茗荷さんの話](https://www.youtube.com/watch?v=pXriRFsuYD8&t=637s)
-4. \[生きる希望と死なない理由](https://www.youtube.com/watch?v=siQMR9xWKMA)
+1. [考え方の幼い人](https://www.youtube.com/watch?v=A-IRYSIgk-M)
+2. [神経発達症（発達障害）の受容](https://www.youtube.com/watch?v=D0BsVWbEGIQ)
+3. [茗荷さんの話](https://www.youtube.com/watch?v=pXriRFsuYD8&t=637s)
+4. [生きる希望と死なない理由](https://www.youtube.com/watch?v=siQMR9xWKMA)
 
 1, 2 は、僕を絶望のどん底に突き落とした(ただし、2 の「受容」という言葉は耳に残った)。
 僕の子供病を確定するものだったからだ。

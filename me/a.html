@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三角トグルメニュー</title>
+    <style>
+        .content {
+            display: none;
+            margin-left: 20px;
+        }
+        .toggle {
+            cursor: pointer;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="toggle" onclick="toggleContent(this)">
+    ▶️ 表示する内容
+</div>
+<div class="content">
+    これは隠れていた文章です。
+</div>
+
+<script>
+    function toggleContent(element) {
+        const content = element.nextElementSibling;
+        if (content.style.display === "none" || content.style.display === "") {
+            content.style.display = "block";
+            element.textContent = "🔽 表示する内容";
+        } else {
+            content.style.display = "none";
+            element.textContent = "▶️ 表示する内容";
+        }
+    }
+</script>
+
+</body>
+</html>
