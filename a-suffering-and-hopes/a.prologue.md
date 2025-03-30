@@ -172,7 +172,7 @@ layout: default0
 
 必要があれば、副題を添えるのもいいかもしれませんね：
 
-> **A Suffering and Hopes**
+> **A Suffering and Hopes**  
 > *Fragments of a Mind Seeking Compassion*
 
 こんな感じで。
