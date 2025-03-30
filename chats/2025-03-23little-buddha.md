@@ -1,6 +1,6 @@
 ---
 title: 映画「リトル・ブッダ」のクライマックス
-layout: home
+layout: default0
 ---
 ……
 ## 堀内

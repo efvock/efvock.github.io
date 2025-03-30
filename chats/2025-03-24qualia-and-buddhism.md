@@ -1,6 +1,6 @@
 ---
 title: クオリアと仏教
-layout: home
+layout: default0
 ---
 ……
 ## 堀内
