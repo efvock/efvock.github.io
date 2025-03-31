@@ -1,5 +1,6 @@
 ---
-title: プロローグ | ある苦悩と希望
+site: ある苦悩と希望
+title: プロローグ
 layout: default0
 ---
 

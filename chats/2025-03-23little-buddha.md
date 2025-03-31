@@ -1,4 +1,5 @@
 ---
+site: chats
 title: 映画「リトル・ブッダ」のクライマックス
 layout: default0
 ---

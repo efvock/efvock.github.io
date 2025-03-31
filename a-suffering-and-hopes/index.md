@@ -1,5 +1,6 @@
 ---
-title: 目次 | ある苦悩と希望
+site: ある苦悩と希望
+title: 目次
 layout: default0
 ---
-[プロローグ](a.prologue)
+- [プロローグ](a.prologue)

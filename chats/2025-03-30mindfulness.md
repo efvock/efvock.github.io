@@ -1,4 +1,5 @@
 ---
+site: chats
 title: 僕の悩みにマインドフルネスでは不十分だという理由
 layout: default0
 ---

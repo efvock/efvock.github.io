@@ -1,4 +1,5 @@
 ---
+site: chats
 title: クオリアと仏教
 layout: default0
 ---
