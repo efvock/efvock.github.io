@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <title>注釈ハイライトデモ</title>
@@ -23,21 +24,19 @@
     }
 
     .highlighted {
-      background-color: #ffff99; /* やさしい黄色 */
+      background-color: #ffff99;
+      /* やさしい黄色 */
     }
   </style>
 </head>
+
 <body>
 
   <p>
-    特に、東南アジアの仏教徒の中には、六道輪廻や因果応報の法則を深く信じ、その教えに基づいて日常生活を送る人々がいます。
-    <span class="annotation" data-target="quote1">現代宗教研究所</span>
-    。彼らにとって、これらの教えは現実のものであり、象徴的な解釈は受け入れがたい場合もあります。
+    しかし、​伝統的な仏教徒の中には、六道輪廻を文字通りの教えとして受け入れている人々も多く存在します。
+    <span id="quote1" class="quote">特に、東南アジアの仏教徒の中には、六道輪廻や因果応報の法則を深く信じ、その教えに基づいて日常生活を送る人々がいます。
+      彼らにとって、これらの教えは現実のものであり、象徴的な解釈は受け入れがたい場合もあります。</span><span class="annotation" data-target="quote1">現代宗教研究所</span>
   </p>
-
-  <blockquote id="quote1" class="quote">
-    六道輪廻や因果応報を信じ、日常生活の中でそれに沿って行動する人々がいる。彼らにとって仏教の教えは「象徴」ではなく、実際的な指針である。
-  </blockquote>
 
   <script>
     // JavaScriptでホバー処理を設定
@@ -56,4 +55,5 @@
   </script>
 
 </body>
+
 </html>
