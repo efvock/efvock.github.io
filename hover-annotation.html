@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>注釈ハイライトデモ</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      line-height: 1.6;
+      margin: 40px;
+    }
+
+    .annotation {
+      background-color: #eee;
+      padding: 2px 6px;
+      border-radius: 9999px;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .quote {
+      transition: background-color 0.3s ease;
+    }
+
+    .highlighted {
+      background-color: #ffff99;
+      padding: 4px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div>
+    しかし、​伝統的な仏教徒の中には、六道輪廻を文字通りの教えとして受け入れている人々も多く存在します。
+    <span id="quote1" class="quote">特に、東南アジアの仏教徒の中には、六道輪廻や因果応報の法則を深く信じ、その教えに基づいて日常生活を送る人々がいます。
+      彼らにとって、これらの教えは現実のものであり、象徴的な解釈は受け入れがたい場合もあります。</span><span class="annotation" data-target="quote1">現代宗教研究所</span>
+  </div>
+
+  <script>
+    // JavaScriptでホバー処理を設定
+    document.querySelectorAll('.annotation').forEach(annotation => {
+      const targetId = annotation.dataset.target;
+      const target = document.getElementById(targetId);
+
+      annotation.addEventListener('mouseenter', () => {
+        target.classList.add('highlighted');
+      });
+
+      annotation.addEventListener('mouseleave', () => {
+        target.classList.remove('highlighted');
+      });
+    });
+  </script>
+
+</body>
+
+</html>
