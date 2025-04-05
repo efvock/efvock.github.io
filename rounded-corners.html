@@ -1,17 +1,16 @@
-<button class="pill-button">クリックしてね</button>
+<span style="font-size: 2em; line-height: 1;">WWW</span>
+<span class="pill-button">WWW</span>
 
 <style>
   .pill-button {
-    padding: 10px 30px;
-    border: none;
+    display: inline-block;
+    padding: 0.2em 0.8em;
+    font-size: 0.9em; /* 微調整：中央線が揃いやすい */
+    line-height: 1;
     background-color: #007bff;
     color: white;
-    font-size: 16px;
-    border-radius: 9999px; /* 長円形のポイント！ */
-    cursor: pointer;
-  }
-
-  .pill-button:hover {
-    background-color: #0056b3;
+    border: none;
+    border-radius: 9999px;
+    vertical-align: middle; /* 中央線揃えの鍵 */
   }
 </style>
