@@ -1,11 +1,179 @@
 <style>
+    .token-badge {
+        background-color: #f9f9f9 !important;
+        /* より白に近い */
+        color: #9ca3af !important;
+        /* Tailwindの Gray-400 相当 */
+        font-weight: 500;
+        font-size: 0.5625em;
+        border-radius: 0.75rem;
+        padding: 0 0.625rem;
+        height: 1.5rem;
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+        transition: background-color 0.2s;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .token-badge {
+            background-color: #303030 !important;
+            color: #d1d5db !important;
+            /* Tailwind Gray-300 相当 */
+        }
+    }
+
+    /* レイアウト系 */
+    .flex {
+        display: flex;
+    }
+
+    .inline-flex {
+        display: inline-flex;
+    }
+
+    .items-center {
+        align-items: center;
+    }
+
+    .justify-between {
+        justify-content: space-between;
+    }
+
+    .grow {
+        flex-grow: 1;
+    }
+
+    .max-w-full {
+        max-width: 100%;
+    }
+
+    .w-full {
+        width: 100%;
+    }
+
+    .h-full {
+        height: 100%;
+    }
+
+    .h-6 {
+        height: 1.5rem;
+        /* 24px */
+    }
+
+    .h-4 {
+        height: 1rem;
+        /* 16px */
+    }
+
+    /* 位置・空間調整 */
+    .relative {
+        position: relative;
+    }
+
+    .left-0 {
+        left: 0;
+    }
+
+    .right-0 {
+        right: 0;
+    }
+
+    .bottom-0 {
+        bottom: 0;
+    }
+
+    .top-\[-0\.094rem\] {
+        top: -0.094rem;
+    }
+
+    .ms-1 {
+        margin-inline-start: 0.25rem;
+    }
+
+    .my-\[\-0\.2rem\] {
+        margin-top: -0.2rem;
+        margin-bottom: -0.2rem;
+    }
+
+    .-mx-px {
+        margin-left: -1px;
+        margin-right: -1px;
+    }
+
+    .px-2\.5 {
+        padding-left: 0.625rem;
+        padding-right: 0.625rem;
+    }
+
+    .px-px {
+        padding-left: 1px;
+        padding-right: 1px;
+    }
+
+    .py-\[0\.2rem\] {
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
+    }
+
+    /* 外観 */
+    .rounded-sm {
+        border-radius: 0.125rem;
+    }
+
+    .rounded-xl {
+        border-radius: 0.75rem;
+    }
+
+    .overflow-hidden {
+        overflow: hidden;
+    }
+
+    /* 文字スタイル */
+    .font-medium {
+        font-weight: 500;
+    }
+
+    .text-\[0\.5625em\] {
+        font-size: 0.5625em;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .truncate {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    /* 色 */
+    .text-token-text-secondary\! {
+        color: #6b7280 !important;
+        /* 例：Tailwind Gray-500～600相当 */
+    }
+
+    .bg-\[\#F4F4F4\]\! {
+        background-color: #F4F4F4 !important;
+    }
+
+    .dark\:bg-\[\#303030\]\! {
+        background-color: #303030 !important;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .dark\:bg-\[\#303030\]\! {
+            background-color: #303030 !important;
+        }
+    }
 </style>
 
 <p data-start="164" data-end="382" class="">しかし、​<span
         class="relative -mx-px my-[-0.2rem] rounded-sm px-px py-[0.2rem]">伝統的な仏教徒の中には、六道輪廻を文字通りの教えとして受け入れている人々も多く存在します。</span>​<span
         class="relative -mx-px my-[-0.2rem] rounded-sm px-px py-[0.2rem]">特に、東南アジアの仏教徒の中には、六道輪廻や因果応報の法則を深く信じ、その教えに基づいて日常生活を送る人々がいます。</span>​<span
         class="relative -mx-px my-[-0.2rem] rounded-sm px-px py-[0.2rem]">彼らにとって、これらの教えは現実のものであり、象徴的な解釈は受け入れがたい場合もあります。</span>
-    ​<span class="" data-state="closed"><span
+    ​<span class="token-badge" data-state="closed"><span
             class="ms-1 inline-flex max-w-full items-center relative top-[-0.094rem]"><a
                 href="https://genshu.nichiren.or.jp/publications/post-5624/id-5651/" target="_blank" rel="noopener"
                 class="flex h-6 overflow-hidden rounded-xl px-2.5 text-[0.5625em] font-medium text-token-text-secondary! bg-[#F4F4F4]! dark:bg-[#303030]!"><span

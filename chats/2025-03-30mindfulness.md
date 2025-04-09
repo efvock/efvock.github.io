@@ -1,7 +1,7 @@
 ---
 site: chats
 title: 僕の悩みにマインドフルネスでは不十分だという理由
-layout: default0
+layout: default
 ---
 ### 堀内
 僕の悩みにマインドフルネスでは不十分だという理由

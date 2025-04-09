@@ -1,7 +1,7 @@
 ---
 site: chats
 title: クオリアと仏教
-layout: default0
+layout: default
 ---
 ……
 ## 堀内

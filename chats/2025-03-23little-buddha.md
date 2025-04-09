@@ -1,7 +1,7 @@
 ---
 site: chats
 title: 映画「リトル・ブッダ」のクライマックス
-layout: default0
+layout: default
 ---
 ……
 ## 堀内
