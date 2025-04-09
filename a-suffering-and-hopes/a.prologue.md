@@ -1,7 +1,7 @@
 ---
 site: ある苦悩と希望
 title: プロローグ
-layout: default0
+layout: default
 ---
 
 ### 堀内

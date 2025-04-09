@@ -1,7 +1,7 @@
 ---
 site: ある苦悩と希望
 title: 草稿
-layout: default0
+layout: default
 ---
 
 You: 
