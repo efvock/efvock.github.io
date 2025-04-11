@@ -4,3 +4,4 @@
 
 layout: home
 ---
+- [ある苦悩と希望](a-suffering-and-hopes)
