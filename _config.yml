@@ -23,7 +23,8 @@ title: 堀内寛己(ほりうちひろき)
 description: >- # this means to ignore newlines until "baseurl:"
   堀内からのお知らせ
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+# url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://efvock.github.io"
 # twitter_username: jekyllrb
 github_username:  efvock
 
