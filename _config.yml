@@ -53,7 +53,4 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
-collections:
-  questions:
-    output: true
-    permalink: /questions/:name/
+permalink: pretty
