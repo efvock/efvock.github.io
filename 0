@@ -1,0 +1,24 @@
+sitemap は以下の通りです:
+
+$ curl https://efvock.github.io/sitemap.xml
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://efvock.github.io/test</loc>
+</url>
+</urlset>
+
+これを送信すると:
+
+サイトマップ: /sitemap.xml
+
+最終読み込み日時
+  2025/04/20
+検出されたページ数
+  0
+検出された動画数
+  0
+
+サイトマップを読み込めませんでした
+
+となってしまいます。
+1 日おいても同じです。
