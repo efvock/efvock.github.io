@@ -5,4 +5,4 @@
 title: 堀内寛己(ほりうちひろき)
 layout: default0
 ---
-- [ある苦悩と希望](/a-suffering-and-hopes/)
+- [ある苦悩と希望](a-suffering-and-hopes/)
