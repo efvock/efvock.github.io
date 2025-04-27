@@ -4,6 +4,9 @@
 def main():
     from json import load
     from pathlib import Path
+    import re
+
+    video_cre = re.compile(r'.*<iframe\s+src="(\S*)".*')
 
     seen = set()
 
@@ -20,9 +23,11 @@ def main():
         elif t in ("Column", "Row", "Section"):
             name = v["htmlAttrId"]
         elif t == "Headline":
-            name =v["html"]
+            name = v["html"]
         else:
             name = "?" + t
+        if t == "Video":
+            name = video_cre.match(name).group(1)
         print(indent + k, name)
         try:
             chids = v["childIds"]

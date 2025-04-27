@@ -4,6 +4,15 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 
+def main():
+    html = Path("train-mix-voice.html").read_text()
+    for i, script in enumerate(extract_scripts(html)):
+        from json import dumps, loads
+        o = loads(script)
+        ser = dumps(o, indent="  ")
+        Path(f"{i}.json").write_text(ser + "\n")
+
+
 def extract_scripts(html_text):
     rv = []
 
@@ -37,6 +46,5 @@ def extract_scripts(html_text):
         yield y[trim:]
 
 
-html = Path("train-mix-voice.html").read_text()
-for i, script in enumerate(extract_scripts(html)):
-    Path(f"{i}.json").write_text(script)
+if __name__ == "__main__":
+    main()
