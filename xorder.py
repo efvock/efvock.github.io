@@ -2,6 +2,10 @@
 
 from json import dumps, loads
 from pathlib import Path
+import re
+
+video_cre = re.compile(r'.*<iframe\s+src="(.*?)".*')
+headline_cre = re.compile(r"<.*?>(.*?)<.*>")
 
 from xids import ids
 from xscripts import extract_scripts
@@ -14,20 +18,23 @@ script = extract_scripts(html).__next__()
 script = loads(script)
 script = script["page"]["entities"]
 
-normal = {}
-id2html_attr = {}
-for v in script.values():
+Path("1.json").write_text(
+    dumps(script, indent="  ") + "\n"
+)
+
+map = {}
+for k, v in script.items():
     try:
-        html_attr = v["htmlAttrId"]
-        normal[html_attr] = v
-        id2html_attr[v["id"]] = html_attr
+        map[v["htmlAttrId"]] = k
     except KeyError:
         pass
 
-
-Path("1.json").write_text(
-    dumps(normal, indent="  ") + "\n"
-)
+ordered = {}
+for k in html_attr_ids:
+    try:
+        ordered[k] = script[map[k]]
+    except KeyError:
+        pass
 
 
 def get_children(v):
@@ -37,18 +44,22 @@ def get_children(v):
         pass
     else:
         for k in childids:
-            html_attr = id2html_attr[k]
-            yield html_attr
-            yield from get_children(normal[html_attr])
+            yield k
+            yield from get_children(script[k])
 
 
-for k, v in normal.items():
-    children = tuple(get_children(v))
+for k, v in ordered.items():
     map = {}
-    for y in children:
-        spl = y.split("-")
-        map[spl[0]] = y
-    if "video" in map and "headline" in map:
-        video, headline = map["video"], map["headline"]
-        video, headline = normal[video], normal[headline]
-        print(video["embedCode"], headline["html"])
+    for kk in get_children(v):
+        vv = script[kk]
+        html_attr_id = vv["htmlAttrId"]
+        spl = html_attr_id.split("-")
+        map[spl[0]] = vv
+    if "video" not in map or "headline" not in map:
+        continue
+    video = map["video"]["embedCode"]
+    video = video_cre.match(video).group(1)
+    print(video)
+    headline = map["headline"]["html"]
+    headline = headline_cre.match(headline).group(1)
+    print(headline)
