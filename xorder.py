@@ -48,7 +48,7 @@ def get_children(v):
             yield from get_children(script[k])
 
 
-for k, v in ordered.items():
+for v in ordered.values():
     map = {}
     for kk in get_children(v):
         vv = script[kk]
