@@ -4,7 +4,7 @@ from json import dumps, loads
 from pathlib import Path
 import re
 
-video_cre = re.compile(r'.*<iframe\s+src="(.*?)".*')
+video_cre = re.compile(r'.*<iframe\s+src="(.*?)"')
 headline_cre = re.compile(r"<.*?>(.*?)<.*>")
 
 from xids import ids
