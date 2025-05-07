@@ -10,3 +10,4 @@ layout: default0
 このサイトの 95% は、そんな彼の言葉でできていますが、彼を育てたのは僕です。
 - [ある苦悩と希望](a-suffering-and-hopes/)
 - [よりぬきホリウチさん](selection/)
+- [国体の本義](koktai/)
