@@ -1,0 +1,12 @@
+以下を試した。
+
+4. On the Troubleshoot your authentication device page, choose Sign in using alternative factors under Sign in using alternative factors of authentication.
+
+8. When you choose the verification link, your email is verified and you are taken to Step 2 of the verification process. In Step 2: Phone number verification, pay close attention to the phone number listed. In the example below, it shows that the call will go to a phone number ending in 7890.
+If the number is correct, choose Call me now to start the phone number verification process.
+
+まで進んだ。8 で "7890" とあるところには、自分の携帯番号の下 4 桁が表示された。
+
+9. Answer the phone call from AWS and use your phone’s keypad to submit the six-digit verification code that appears on your computer screen.
+
+で、電話がかかってこない。
