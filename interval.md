@@ -2,7 +2,7 @@
 title: intervals
 layout: default0
 ---
-| - | interval | functional name | example |
+| | interval | functional name | example |
 | - | -------- | --------------- |
 | C | perfect unison | tonic ||
 | D | major2th | supertonic | doremi |
@@ -14,7 +14,7 @@ layout: default0
 | C | perfect octave | tonic ||
 
 
-| --- | interval | example |
+|| interval | example |
 | --- | -------- | ------- |
 | E-G | minor3rd | haru-no-ogawa |
 | C-F | perfect4th | amazing grace |
