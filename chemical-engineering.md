@@ -1,6 +1,6 @@
 ---
 title: ケミカルエンジニアリング
-style: default0
+layout: default0
 ---
 ## 堀内
 ケミカルエンジニアリングとは?
