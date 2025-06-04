@@ -1,7 +1,9 @@
 ---
 title: 三石と HDPE
-layout: default0
+layout: default1
 ---
+- [..](..)
+
 ## Q: 三井石油化学工業(当時)は、HDPE の生産に優れていましたか?
 
 ## A:

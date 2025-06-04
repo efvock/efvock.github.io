@@ -1,6 +1,6 @@
 ---
 title: 快哉
-layout: default0
+layout: default1
 ---
 - [..](..)
 
