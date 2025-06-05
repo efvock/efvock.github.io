@@ -10,5 +10,4 @@ layout: default1
 - [日本の石油化学工業に対する三石の貢献](f)
 - [三石 = エクセレント・カンパニー](g)
 
-- [mskk-and-dad](../mskk-and-dad)
-- [tmp-qa](../tmp-qa.txt)
+- [三石と父](../mskk-and-dad)
