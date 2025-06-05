@@ -13,4 +13,4 @@ layout: default1
 
 - [三石の技術拠点](i)
 
-- [mskk](../mskk)
+- [三石](../mskk)
