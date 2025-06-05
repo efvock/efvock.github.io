@@ -1,6 +1,6 @@
 ---
 title: 健爺スープ
-layout: default0
+layout: default1
 ---
 1. [鶏むね肉と野菜のポタージュ風流動食](a)
 2. [豆腐と鮭の和風流動食](b)

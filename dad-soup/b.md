@@ -1,6 +1,6 @@
 ---
 title: 2. 豆腐と鮭の和風流動食
-layout: default0
+layout: default1
 ---
 **特徴:** 消化に優しい豆腐と、DHA・EPA豊富な鮭を組み合わせた和風の流動食です。
 
