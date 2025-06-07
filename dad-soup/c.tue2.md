@@ -8,5 +8,5 @@ layout: default1
 | ---- | ---- |
 | フルグラ | マグカップ8分目 x 2 |
 | 牛乳 | 300ml |
-| プロテイン | Kentaiさじ1 |
+| Kentai | Kentaiさじ2 |
 | とろみ剤 | 小さじ2
