@@ -1,4 +1,4 @@
 ---
-title: 木曜 TBD
+title: 木曜日曜
 layout: default1
 ---
