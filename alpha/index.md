@@ -6,3 +6,4 @@ layout: default1
 - [はじめに仏ありき](awaken)
 - [ネタ切れ](no-more-words)
 - [無実](innocence)
+- [観世音](kanzeon)
