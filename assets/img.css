@@ -3,3 +3,6 @@ img {
     height: auto;    /* アスペクト比を維持する */
     display: block;  /* 画像の下に不要な余白が入るのを防ぐ */
 }
+.large {
+    font-size: 2em;
+}
