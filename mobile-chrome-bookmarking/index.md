@@ -3,7 +3,7 @@ title: モバイル Chrome でのブックマークの使い方
 layout: default1
 ---
 <i class="fa fa-car"></i>
-
+★
 <i class="fa-solid fa-star"></i>
 
 ブックマークについての操作は二つあります。
