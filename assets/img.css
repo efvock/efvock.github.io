@@ -4,5 +4,5 @@ img {
     display: block;  /* 画像の下に不要な余白が入るのを防ぐ */
 }
 .large {
-    font-size: 300%;
+    font-size: 3em;
 }
