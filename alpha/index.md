@@ -8,3 +8,4 @@ layout: default1
 - [無実](innocence)
 - [観世音](kanzeon)
 - [僕の菩薩道](bodhisattva)
+- [言葉の薬草園](healing-words)
