@@ -9,4 +9,4 @@ layout: default1
 - [観世音](kanzeon)
 - [僕の菩薩道](bodhisattva)
 - [言葉の薬草園](healing-words)
-- [ケータイでのブックマーク](../mobile-chrome-bookmarking/)
+- [Chrome](chrome)
