@@ -9,4 +9,6 @@ layout: default1
 - [観世音](kanzeon)
 - [僕の菩薩道](bodhisattva)
 - [言葉の薬草園](healing-words)
-- [Chrome](chrome)
+- [六道輪廻](reincarnation)
+- [人間親鸞](shinran)
+- [悪人正機](amida)
