@@ -15,3 +15,4 @@ layout: default1
 - [自分のために泣いている](sob)
 - [悪より悪いという人へ](worse-than-evil)
 - [ご主人パワー](darling)
+- [幻視丸ごと自分を抱きしめる](urok)
