@@ -12,3 +12,4 @@ layout: default1
 - [六道輪廻](reincarnation)
 - [人間親鸞](shinran)
 - [悪人正機](amida)
+- [自分のために泣いている](sob)
