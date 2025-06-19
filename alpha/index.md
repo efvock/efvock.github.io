@@ -14,3 +14,4 @@ layout: default1
 - [悪人正機](amida)
 - [自分のために泣いている](sob)
 - [悪より悪いという人へ](worse-than-evil)
+- [ご主人パワー](darling)
