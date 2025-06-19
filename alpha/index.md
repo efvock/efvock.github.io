@@ -13,3 +13,4 @@ layout: default1
 - [人間親鸞](shinran)
 - [悪人正機](amida)
 - [自分のために泣いている](sob)
+- [悪より悪いという人へ](worse-than-evil)
