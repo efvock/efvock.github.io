@@ -9,6 +9,11 @@ layout: default1
 - [ピンチ——研究所行きなら辞めます](eprime)
 - [世界へ](fprime)
 - [忘れられないトラブル：千葉工場PPプラントの爆発事故](gprime)
+- [h](hprime)
+- [i](iprime)
+- [j](jprime)
+- [k](kprime)
+- [l](lprime)
 
 - [M社の技術拠点](h)
 
