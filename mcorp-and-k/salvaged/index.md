@@ -6,7 +6,7 @@ layout: default1
 - [素晴らしきエンジニアたち](bprime)
 - [快哉](cprime)
 - [堂々たる人生](dprime)
-- [ピンチ——研究所行きなら辞めます](eprime)
+- [ピンチ――研究所行きなら辞めます](eprime)
 - [世界へ](fprime)
 - [忘れられないトラブル：千葉工場PPプラントの爆発事故](gprime)
 - [h](hprime)
