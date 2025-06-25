@@ -14,8 +14,8 @@ sss = "**『石油化学工業』**という本が出版された。"
 
 
 def main():
-    s = wakachi(sss)
-    return
+    # s = wakachi(sss)
+    # return
     from io import StringIO
     from sys import argv
     from pathlib import Path
@@ -34,6 +34,8 @@ jpunct = r'[\u3000-\u303F\u30FB]'
 epunct = r'[!-/:-@[-`{-~]'
 epunct = r'[!?.,]'
 sp = r'\s*'
+strong_a = re.compile(r'\*\* ')
+strong_b = re.compile(r' \*\*')
 j2e = re.compile(f'({ja}){sp}({en})')
 e2j = re.compile(f'({en}){sp}({ja})')
 p2e = re.compile(f"({jpunct}) ({en})")
@@ -45,10 +47,9 @@ gap = re.compile(f">({jpunct})")
 # em_ej = re.compile(f"({en}) \* ({ja})")
 # em_je = re.compile(f"({ja}) \* ({en})")
 # em_jj = re.compile(f"({ja}) \* ({ja})")
-strong_ee = re.compile(f"({en}) \*\* ({en})")
-strong_ej = re.compile(f"({en}) \*\* ({ja})")
-strong_je = re.compile(f"({ja}) \*\* ({en})")
-strong_jj = re.compile(f"({ja}) \*\* ({ja})")
+# strong_ee = re.compile(f"({en}) \*\* ({en})")
+# strong_ej = re.compile(f"({en}) \*\* ({ja})")
+# strong_je = re.compile(f"({ja}) \*\* ({en})")
 
 
 def wakachi(s):
@@ -58,7 +59,8 @@ def wakachi(s):
     s = e2p.sub(r"\1\2", s)
     # s = p2j.sub(r"\1\2", s)
     s = j2p.sub(r"\1\2", s)
-    s = strong_jj.sub(r"\1**\2", s)
+    s = strong_a.sub(r"**", s)
+    s = strong_b.sub(r"**", s)
     s = gap.sub(r"> \1", s)
     return s
 
