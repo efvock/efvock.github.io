@@ -1,5 +1,5 @@
 ---
-title: 健爺スープ (2 人分)
+title: 健爺スープ (2 人分 )
 layout: default1
 ---
 
