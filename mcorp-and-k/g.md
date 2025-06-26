@@ -2,6 +2,8 @@
 title: 🎯快哉――ゲル化現象を制す
 layout: default1
 ---
+[⇐目次](..)
+
 > PROMPT NOT AVAILABLE
 
 ## ――K の仮説と現場の知、そしてみんなの歓声
