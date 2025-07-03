@@ -6,7 +6,7 @@ layout: default0
 | - | -------- | --------------- |
 | C | perfect unison | tonic ||
 | D | major2th | supertonic | doremi |
-| D# | minor3rd || greensleeves |
+| D♯ | minor3rd || greensleeves |
 | E | major3rd | mediant | marching in |
 | F | perfect4th | subdominant ||
 | G | perfect5th | dominant | twinkle |
