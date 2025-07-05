@@ -7,4 +7,4 @@ layout: default1
 
 当ページ
 
-![](qr.png)
+<a href="https://efvock.github.io/sugimoto"><img src="qr.png" style="display: inline; margin: 0;"></a>
