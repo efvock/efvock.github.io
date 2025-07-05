@@ -1,4 +1,5 @@
 ---
+title: 供物
 layout: default
 ---
 30 年間
