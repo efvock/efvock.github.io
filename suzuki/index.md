@@ -1,5 +1,5 @@
 ---
-title: alpha さんへ
+title: 草野亜百合様の回復について
 layout: default1
 ---
 * [🌈希望](the-hope)
