@@ -1,0 +1,73 @@
+<!-- pfc_calc.html -->
+<h2>PFC バランス計算器</h2>
+<form id="form">
+  年齢: <input type="number" id="age"><br>
+  性別: 
+    <select id="gender">
+      <option value="male">男</option>
+      <option value="female">女</option>
+    </select><br>
+  身長(cm): <input type="number" id="height"><br>
+  体重(kg): <input type="number" id="weight"><br>
+  有酸素運動(分/週): <input type="number" id="cardio"><br>
+  筋トレ(分/週): <input type="number" id="strength"><br>
+  目標: 
+    <select id="goal">
+      <option value="maintain">維持</option>
+      <option value="cut">減量</option>
+    </select><br><br>
+  <button type="submit">計算</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+function calcBMR(age, gender, height, weight) {
+  return gender === 'male'
+    ? 13.397 * weight + 4.799 * height - 5.677 * age + 88.362
+    : 9.247 * weight + 3.098 * height - 4.330 * age + 447.593;
+}
+
+function calcPAL(cardioMin, strengthMin) {
+  const base = 1.2;
+  const extra = (cardioMin / 150 + strengthMin / 120) * 0.2;
+  return base + Math.min(extra, 0.6);  // 上限あり
+}
+
+function calcTDEE(bmr, pal, goal) {
+  let tdee = bmr * pal;
+  if (goal === 'cut') tdee *= 0.85;
+  return tdee;
+}
+
+function showResult(tdee) {
+  const p = (tdee * 0.20) / 4;
+  const f = (tdee * 0.25) / 9;
+  const c = (tdee * 0.55) / 4;
+  return `
+    <h3>目標カロリー: ${Math.round(tdee)} kcal</h3>
+    <ul>
+      <li>タンパク質: ${Math.round(p)} g</li>
+      <li>脂質: ${Math.round(f)} g</li>
+      <li>炭水化物: ${Math.round(c)} g</li>
+    </ul>
+  `;
+}
+
+document.getElementById('form').addEventListener('submit', e => {
+  e.preventDefault();
+  const age = +document.getElementById('age').value;
+  const gender = document.getElementById('gender').value;
+  const height = +document.getElementById('height').value;
+  const weight = +document.getElementById('weight').value;
+  const cardio = +document.getElementById('cardio').value;
+  const strength = +document.getElementById('strength').value;
+  const goal = document.getElementById('goal').value;
+
+  const bmr = calcBMR(age, gender, height, weight);
+  const pal = calcPAL(cardio, strength);
+  const tdee = calcTDEE(bmr, pal, goal);
+
+  document.getElementById('result').innerHTML = showResult(tdee);
+});
+</script>
