@@ -85,7 +85,7 @@ Usually the `site.title` itself would suffice as the implicit 'main-title' for a
 This section is optional from Minima v2.2 onwards.<br/>
 It will be automatically included only when your site contains one or more valid posts or drafts (if the site is configured to `show_drafts`).
 
-The title for this section is `Posts` by default and rendered with an `<h2>` tag. You can customize this heading by defining a `list_title` variable in the document's front matter.
+The title for this section is `Posts` by default and rendered with an `<z>` tag. You can customize this heading by defining a `list_title` variable in the document's front matter.
 
 --
 
