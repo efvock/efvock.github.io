@@ -1,5 +1,5 @@
 ---
-title: z の自叙
+title: Z の自叙
 layout: default1
 ---
 - [最初の入院](000pain)
