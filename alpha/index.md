@@ -14,9 +14,11 @@ layout: default1
 * [🚀突破](break-through)
 * [🧘‍♂️突破再び](break-through-extra)
 
+<!--
 - レーズン瞑想
 <audio src="/raisin.mp3" controls></audio>
 - 冷水グラウンディング
 <audio src="/cold-water.mp3" controls></audio>
 
 2025-06-12
+-->
