@@ -14,7 +14,4 @@ layout: default1
 * [🚀突破](break-through)
 * [🧘‍♂️突破再び](break-through-extra)
 
-- [レーズン瞑想音声](https://drive.google.com/file/d/1KoCQ6qfdY5Xx2xWXxFE85z5yZ5PKOt0w/view?usp=drive_link)
-- [冷水グラウンディング音声](https://drive.google.com/file/d/1qpPuhRJvjgMKYRPKyHKv64X9oh0BceBI/view?usp=drive_link)
-
 2025-06-12
