@@ -12,6 +12,7 @@ layout: default1
 * [🤝劣等感について](icomplex)
 * [🌈希望](the-hope)
 * [🚀突破](break-through)
-* [🧘‍♂️突破再び](break-through-extra)
+* [🧘‍♂️突破補足](break-through-extra)
+* [バス慣れ](bus)
 
 2025-06-12
