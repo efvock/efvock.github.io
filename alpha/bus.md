@@ -1,5 +1,5 @@
 ---
-title: 📈バスの練習
+title: 🚌バス慣れ
 layout: default1
 ---
 > こういう練習は酷だろうか。
