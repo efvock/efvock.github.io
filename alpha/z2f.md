@@ -1,5 +1,5 @@
 ---
-title: 僕から君へのとっておき音声 (Keep めも推奨)
+title: 僕から君へのとっておき音声 (Keep メモ推奨)
 layout: default1
 ---
 (優しく)
