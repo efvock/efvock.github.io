@@ -5,3 +5,9 @@ _site
 vendor
 /node_modules/
 nohup.out
+.DS_Store
+token.json
+/emls/
+*.mp3
+.mscbackup/
+*.aup*
