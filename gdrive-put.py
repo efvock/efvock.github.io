@@ -1,52 +1,20 @@
-import os
-from googleapiclient.discovery import build
-from googleapiclient.http import MediaFileUpload
-from google_auth_oauthlib.flow import InstalledAppFlow
-from google.auth.transport.requests import Request
-from google.oauth2.credentials import Credentials
-from pathlib import Path
-
-secrets_dir = Path("~/Secrets")
-credentials_json = secrets_dir / "gdrive-put.json"
-credentials_json = credentials_json.expanduser()
-here = Path(__file__).resolve().parent
-token_json = here / "token.json"
-
-# 認証スコープ
-SCOPES = ['https://www.googleapis.com/auth/drive.file']
-
-def authenticate_google_drive():
-    creds = None
-    # token.json があれば認証情報をロード
-    if os.path.exists(token_json):
-        creds = Credentials.from_authorized_user_file(token_json, SCOPES)
-    # 認証情報がない場合、または期限切れの場合
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            flow = InstalledAppFlow.from_client_secrets_file(
-                credentials_json, SCOPES)
-            creds = flow.run_local_server(port=0)
-        # 認証情報を保存
-        with open(token_json, 'w') as token:
-            token.write(creds.to_json())
-    return creds
-
 def upload_file_to_drive(file_path):
+    from xauth import google_service
+    from googleapiclient.http import MediaFileUpload
+    from pathlib import Path
+    scopes = ["https://www.googleapis.com/auth/drive.file"]
     """
     指定されたファイルを Google Drive にアップロードし、パーマリンクを返す
     """
-    creds = authenticate_google_drive()
-    drive_service = build('drive', 'v3', credentials=creds)
-
-    file_name = os.path.basename(file_path)
+    service = google_service(scopes, "drive", "v3")
+    
+    file_name = Path(file_path).name
     file_metadata = {'name': file_name}
     media = MediaFileUpload(file_path, resumable=True)
 
     try:
         # ファイルをアップロード
-        uploaded_file = drive_service.files().create(
+        uploaded_file = service.files().create(
             body=file_metadata,
             media_body=media,
             fields='id, webViewLink, webContentLink'
@@ -60,7 +28,7 @@ def upload_file_to_drive(file_path):
             'type': 'anyone',
             'role': 'reader',
         }
-        drive_service.permissions().create(
+        service.permissions().create(
             fileId=file_id,
             body=permission,
             fields='id'

@@ -11,3 +11,5 @@ token.json
 *.mp3
 .mscbackup/
 *.aup*
+__pycache__/
+~*
