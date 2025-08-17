@@ -13,18 +13,18 @@ True
 True
 """
 
-from googleapiclient.discovery import build
-from google_auth_oauthlib.flow import InstalledAppFlow as AppFlow
-from google.auth.transport.requests import Request
-from google.oauth2.credentials import Credentials
-from pathlib import Path
-
-secrets_dir = Path("~/Secrets").expanduser()
-credentials_json = secrets_dir / "credentials.json"
-here = Path(__file__).resolve().parent
-token_json = (secrets_dir / here.name).with_suffix(".json")
 
 def xauth(scopes):
+    from google.auth.transport.requests import Request
+    from google_auth_oauthlib.flow import InstalledAppFlow as AppFlow
+    from google.oauth2.credentials import Credentials
+    from pathlib import Path
+
+    secrets_dir = Path("~/Secrets").expanduser()
+    credentials_json = secrets_dir / "credentials.json"
+    here = Path(__file__).resolve().parent
+    token_json = (secrets_dir / here.name).with_suffix(".json")
+
     creds = None
     if token_json.exists():
         creds = Credentials.from_authorized_user_file(token_json, scopes)
@@ -39,6 +39,7 @@ def xauth(scopes):
 
 
 def google_service(service, version, creds):
+    from googleapiclient.discovery import build
     return build(service, version, credentials=creds)
 
 
