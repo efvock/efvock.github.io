@@ -10,6 +10,13 @@
             "request": "launch",
             "program": "google-api/gdrive-put.py",
             "console": "integratedTerminal"
+        },
+        {
+            "name": "xauth",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "google-api/xauth.py",
+            "console": "integratedTerminal"
         }
     ]
 }
