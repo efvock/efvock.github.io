@@ -18,24 +18,19 @@ from pathlib import Path
 secrets_dir = Path("~/Secrets").expanduser()
 credentials_json = secrets_dir / "credentials.json"
 here = Path(__file__).resolve().parent
-token_json = here / "token.json"
+token_json = (secrets_dir / here.name).with_suffix(".json")
 
 def xauth(scopes):
-    """Google認証を行い、Gmail APIサービスオブジェクトを返します。"""
     creds = None
-    # 'token.json' は、以前の実行で保存されたユーザーの認証情報を格納します。
     if token_json.exists():
         creds = Credentials.from_authorized_user_file(token_json, scopes)
-    # 有効な認証情報がない場合
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(credentials_json, scopes)
             creds = flow.run_local_server(port=0)
-        # 次回のために認証情報を保存します
-        with token_json.open('w') as token:
-            token.write(creds.to_json())
+        token_json.write_text(creds.to_json())
     return creds
 
 
