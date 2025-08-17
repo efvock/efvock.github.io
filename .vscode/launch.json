@@ -6,11 +6,18 @@
     "configurations": [
         
         {
-            "name": "wakachi",
+            "name": "oauth",
             "type": "debugpy",
             "request": "launch",
-            "program": "wakachi.py",
-            "args": ["mcorp-and-k/a.md"],
+            "program": "oauth.py",
+            "console": "integratedTerminal"
+        }
+        ,
+        {
+            "name": "gdrive-put",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "gdrive-put.py",
             "console": "integratedTerminal"
         }
     ]
