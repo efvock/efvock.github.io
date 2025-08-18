@@ -18,12 +18,29 @@ def xauth(scopes):
     from google.auth.transport.requests import Request
     from google_auth_oauthlib.flow import InstalledAppFlow as AppFlow
     from google.oauth2.credentials import Credentials
+    from inspect import currentframe, getframeinfo
     from pathlib import Path
+
+    # 呼び出し元のフレームを取得
+    caller_frame = currentframe().f_back
+    filename = None
+    while True:
+        # getframeinfoでフレーム情報を取得
+        frame_info = getframeinfo(caller_frame)
+        
+        # 返されたオブジェクトの'function'属性から関数名を取得
+        function_name = frame_info.function
+        if not function_name.isidentifier():
+            filename = frame_info.filename
+            caller = Path(filename).stem
+            break
+        caller_frame = caller_frame.f_back
 
     secrets_dir = Path("~/Secrets").expanduser()
     credentials_json = secrets_dir / "credentials.json"
     here = Path(__file__).resolve().parent
-    token_json = (secrets_dir / here.name).with_suffix(".json")
+    cache = f"{here.stem}_{caller}"
+    token_json = (secrets_dir / cache).with_suffix(".json")
 
     creds = None
     if token_json.exists():

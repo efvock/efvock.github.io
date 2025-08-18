@@ -5,10 +5,19 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "gdrive-put",
+            "name": "mcorp-and-k",
             "type": "debugpy",
             "request": "launch",
-            "program": "google-api/gdrive-put.py",
+            "cwd": "${workspaceFolder}/google-api",
+            "program": "mcorp-and-k.py",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "gdrive_put",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/google-api",
+            "program": "gdrive_put.py",
             "console": "integratedTerminal"
         },
         {
@@ -16,6 +25,13 @@
             "type": "debugpy",
             "request": "launch",
             "program": "google-api/xauth.py",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "tmp",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "google-api/tmp.py",
             "console": "integratedTerminal"
         }
     ]
