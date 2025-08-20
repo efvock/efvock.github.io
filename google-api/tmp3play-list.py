@@ -22,7 +22,7 @@ def main():
         ix = url.index("/view?usp=drivesdk")
         url = url[:ix]
         url = f"{url}/preview"
-        iframe = f'<iframe src="{url}" width="640" height="480" allow="autoplay"></iframe>'
+        iframe = f'<iframe src="{url}" width="100%" allow="autoplay"></iframe>'
         print("<br/><br/>\n")
         print(f"## {num}. {g2.__next__()}\n")
         print(f"{iframe}\n")
