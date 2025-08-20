@@ -14,7 +14,6 @@ def gdrive_put_service():
     return google_service_ex(scopes, "drive", "v3")
 
 
-
 def gdrive_put_ex(service, g):
     from pathlib import Path
     from googleapiclient.http import MediaFileUpload
@@ -39,7 +38,8 @@ def gdrive_put_ex(service, g):
         # パーミッション設定: リンクを知っている全員が閲覧可能
         permission = {
             "type": "anyone",
-            "role": "commenter",
+            # "role": "commenter",
+            "role": "reader",
         }
         service.permissions().create(fileId=id, body=permission, fields="id").execute()
 
