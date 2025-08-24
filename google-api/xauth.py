@@ -55,13 +55,38 @@ def xauth(scopes):
     return creds
 
 
+def yauth(scopes, name, version):
+    from google.auth.transport.requests import Request
+    from google_auth_oauthlib.flow import InstalledAppFlow as AppFlow
+    from google.oauth2.credentials import Credentials
+    from pathlib import Path
+
+    secrets_dir = Path("~/Secrets").expanduser()
+    credentials_json = secrets_dir / "credentials.json"
+    here = Path(__file__).resolve().parent
+    cache = f"{here.stem}_{name}_{version}"
+    token_json = (secrets_dir / cache).with_suffix(".json")
+
+    creds = None
+    if token_json.exists():
+        creds = Credentials.from_authorized_user_file(token_json, scopes)
+    if not creds or not creds.valid:
+        if creds and creds.expired and creds.refresh_token:
+            creds.refresh(Request())
+        else:
+            flow = AppFlow.from_client_secrets_file(credentials_json, scopes)
+            creds = flow.run_local_server(port=0)
+        token_json.write_text(creds.to_json())
+    return creds
+
+
 def google_service(service, version, creds):
     from googleapiclient.discovery import build
     return build(service, version, credentials=creds)
 
 
 def google_service_ex(scope, service, version):
-    creds = xauth(scope)
+    creds = yauth(scope, service, version)
     return google_service(service, version, creds)
 
 

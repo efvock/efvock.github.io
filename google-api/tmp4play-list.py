@@ -7,18 +7,23 @@ def main():
 
     service = gdrive_put_service()
     g = (
-        ["third-wind.mp3", "Third Wind"],
-        ["beat70.mp3", "Beat 70"],
-        ["better-days-ahead.mp3", "Better Days Ahead"],
-        ["first-circle.mp3", "The First Circle"],
-        ["bilbao.mp3", "Song for Bilbao"],
-        ["straight-on-red.mp3", "Straight on Red"],
+        "風のゆくえ",
+        "すこし風の日",
+        "children's ballad",
+        "gran's wisdom",
+        "your tear",
+        "recollections",
+        "Celeste",
+        "calm tempest",
+        "out of accord",
+        "blossoms",
+        "bright eyes",
     )
-    g2 = (long for _, long in g)
-    dwhelper = Path("~/dwhelper").expanduser()
-    g = ([dwhelper / short, short] for short, _ in g)
+    g2 = g.__iter__()
+    there = Path("~/Downloads").expanduser()
+    g = ([there / f"{short}.mp3", short] for short in g)
 
-    for num, url in enumerate(gdrive_put_ex(service, g), 10):
+    for num, url in enumerate(gdrive_put_ex(service, g), 1):
         ix = url.index("/view?usp=drivesdk")
         url = url[:ix]
         url = f"{url}/preview"
