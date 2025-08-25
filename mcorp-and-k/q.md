@@ -101,6 +101,3 @@ K は、それに対して一言。
 **胸を張り、堂々と生きる。**
 
 それが、**K の歩みであり、誇りだった。**
-
-## 目次
-<a href=".."><img src="../qr.png" style="display: inline; margin: 0;"></a>
