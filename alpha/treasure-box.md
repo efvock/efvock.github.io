@@ -24,7 +24,7 @@ layout: default1
 
 [レーズン瞑想繰り返し(あきら)](https://drive.google.com/file/d/1jkf0O5cDtmI8oqrsiaE-7ur0YKvS751l/view?usp=drive_link)を症状が収まるまで聴く。
 
-## 5. あきらさんの曲を聴きたかったら
+## 5. あきらさんの曲が聴きたかったら
 
 ### 5.1 通しで聞いてみたかったら
 
