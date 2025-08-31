@@ -22,7 +22,7 @@ layout: default1
 
 ### 4.2 料理する時刻ではない、または料理する気力がなかったら
 
-[レーズン瞑想繰り返し(あきら)](https://drive.google.com/file/d/1jkf0O5cDtmI8oqrsiaE-7ur0YKvS751l/view?usp=drive_link)を症状が収まるまで聴く。
+[レーズン瞑想繰り返し(あきら)](https://drive.google.com/file/d/1jkf0O5cDtmI8oqrsiaE-7ur0YKvS751l/view?usp=drive_link)を症状が収まるまでやる。
 
 ## 5. あきらさんの曲が聴きたかったら
 
