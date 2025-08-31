@@ -37,3 +37,9 @@ layout: default1
 ### 5.3 あきらさんの、ほっこりする曲 (bright eyes) を聴くときは
 
 [bright eyes🎵](https://drive.google.com/file/d/1T-WytIp2QH-xu5XjcH0iotJ0jjh1PbZj/view?usp=drive_link)
+
+## エアロバイクのお供に
+
+[pmg-live](https://drive.google.com/file/d/14ut0I4SEeLuIU5D-0zGwXUjMFWAZ867s/view?usp=drive_link)
+
+「TV 音マスク用音源」と全く同じもの
