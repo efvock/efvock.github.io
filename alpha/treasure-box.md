@@ -38,7 +38,7 @@ layout: default1
 
 [bright eyes🎵](https://drive.google.com/file/d/1T-WytIp2QH-xu5XjcH0iotJ0jjh1PbZj/view?usp=drive_link)
 
-## エアロバイクのお供に
+## 6. エアロバイクのお供に
 
 [pmg-live](https://drive.google.com/file/d/14ut0I4SEeLuIU5D-0zGwXUjMFWAZ867s/view?usp=drive_link)
 
