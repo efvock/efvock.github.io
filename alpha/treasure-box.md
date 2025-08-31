@@ -4,7 +4,7 @@ layout: default1
 ---
 ## 1. TV が、F について何か言っているように思えたら
 
-[TV を避ける](../tv-avoidance/) に従う。
+[TV を避ける](../tv-avoidance/)に従う。
 
 ## 2. 家で震えたら
 
