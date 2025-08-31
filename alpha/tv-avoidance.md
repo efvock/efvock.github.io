@@ -11,7 +11,7 @@ layout: default1
 
 ---
 
-2️⃣ **[レーズン瞑想繰り返し(あきら)](https://drive.google.com/file/d/1jkf0O5cDtmI8oqrsiaE-7ur0YKvS751l/view?usp=drive_link)を 2 周する**
+2️⃣ **[レーズン瞑想繰り返し(あきら)](https://drive.google.com/file/d/1jkf0O5cDtmI8oqrsiaE-7ur0YKvS751l/view?usp=drive_link)を 2 周する**(所要時間薬 10 分)
 
 * ここで気持ちが少し落ち着くはず
 
