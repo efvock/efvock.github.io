@@ -28,13 +28,13 @@ layout: default1
 
 ### 5.1 通しで聞いてみたかったら
 
-[あきらさんの曲を一本に繋いでみた](https://drive.google.com/file/d/1ET9xYBoCSzWMgyO79kxAL1zbdg9p3FPM/view?usp=drive_link) を聴く
+[あきらさんの曲を一本に繋いでみた](https://drive.google.com/file/d/1ET9xYBoCSzWMgyO79kxAL1zbdg9p3FPM/view?usp=drive_link)を聴く
 
 ### 5.2 一曲一曲聴きたかったら
 
 [recollections of life](/recollections-of-life)
 
-### 5.3 あきらさんの、ほっこりする曲 (bright eyes) を聴くときは
+### 5.3 ほっこりする曲 (bright eyes) を聴くときは
 
 [bright eyes🎵](https://drive.google.com/file/d/1T-WytIp2QH-xu5XjcH0iotJ0jjh1PbZj/view?usp=drive_link)
 
