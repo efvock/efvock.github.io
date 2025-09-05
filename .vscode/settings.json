@@ -4,5 +4,10 @@
         "creds",
         "gdrive",
         "yauth",
-    ]
+    ],
+    "python.testing.pytestArgs": [
+        "google-api"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
 }
