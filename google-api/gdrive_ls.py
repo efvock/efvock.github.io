@@ -10,8 +10,6 @@ def gdrive_ls(query):
 
 
 def gdrive_ls_ex(service, query):
-    """Google Drive内のすべての音声ファイルを見つけて、そのIDをリストします。"""
-    audio_files = []
     page_token = None
     while True:
         results = (
@@ -25,16 +23,11 @@ def gdrive_ls_ex(service, query):
         )
 
         items = results.get("files", [])
-        audio_files.extend(items)
         page_token = results.get("nextPageToken", None)
         if page_token is None:
             break
 
-    if not audio_files:
-        return
-
-    for file in audio_files:
-        yield file["id"], file["name"]
+    yield from ([y["id"], y["name"]] for y in items)
 
 
 def main():
