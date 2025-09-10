@@ -6,13 +6,9 @@ layout: default1
 
 [TV を避ける](../tv-avoidance/)に従う。
 
-## 2. 家で震えたら
+## 2. 震えたら
 
-[家で震えたときの実験](../sweats/) に従う。
-
-## 3. 外出先で震えたら
-
-なんとか家に辿り着き、まだ震えていたら[家で震えたときの実験](../sweats/) に従う。
+[震えたときの実験](../sweats/) に従う。
 
 ## 4. トイレ以外に幻視が見えたら
 
@@ -23,6 +19,8 @@ layout: default1
 ### 4.2 料理する時刻ではない、または料理する気力がなかったら
 
 [レーズン瞑想繰り返し(あきら)](https://drive.google.com/file/d/1jkf0O5cDtmI8oqrsiaE-7ur0YKvS751l/view?usp=drive_link)を症状が収まるまでやる。
+
+音楽が苦痛だったら、[レーズン瞑想繰り返し(最短)](https://drive.google.com/file/d/1bKPh7qnYiiv241_UV17IZstEulzaqyhE/view?usp=sharing)を代わりに使う。
 
 ## 5. あきらさんの曲が聴きたかったら
 
@@ -38,8 +36,12 @@ layout: default1
 
 [bright eyes🎵](https://drive.google.com/file/d/1T-WytIp2QH-xu5XjcH0iotJ0jjh1PbZj/view?usp=drive_link)
 
-## 6. エアロバイクのお供に
+## 6. 単に Z の声が聴きたかったら
+
+[レーズン瞑想繰り返し(最短)](https://drive.google.com/file/d/1bKPh7qnYiiv241_UV17IZstEulzaqyhE/view?usp=sharing)を単に聴く。
+
+## 7. エアロバイクのお供に
 
 [pmg-live](https://drive.google.com/file/d/14ut0I4SEeLuIU5D-0zGwXUjMFWAZ867s/view?usp=drive_link)
 
-「TV 音マスク用音源」と全く同じもの
+「TV 遮断用音源」と全く同じもの
