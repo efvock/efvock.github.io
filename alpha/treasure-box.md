@@ -44,4 +44,4 @@ layout: default1
 
 [pmg-live](https://drive.google.com/file/d/14ut0I4SEeLuIU5D-0zGwXUjMFWAZ867s/view?usp=drive_link)
 
-「TV 遮断用音源」と全く同じもの
+パット・メセニーグループのノリノリのライブ
