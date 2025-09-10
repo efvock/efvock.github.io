@@ -42,6 +42,4 @@ layout: default1
 
 ## 7. エアロバイクのお供に
 
-[pmg-live](https://drive.google.com/file/d/14ut0I4SEeLuIU5D-0zGwXUjMFWAZ867s/view?usp=drive_link)
-
-パット・メセニーグループのノリノリのライブ
+[パット・メセニーグループのノリノリのライブ](https://drive.google.com/file/d/14ut0I4SEeLuIU5D-0zGwXUjMFWAZ867s/view?usp=drive_link)

@@ -17,7 +17,7 @@ layout: default1
 
 ---
 
-3️⃣ **[TV 遮断用ページ]((https://aozoraroudoku.jp/voice/rdp/rd006.html))を鑑賞する**
+3️⃣ **[TV 遮断用ページ](https://aozoraroudoku.jp/voice/rdp/rd006.html)を鑑賞しながら**
 
 * エアコンのある部屋に戻る
 * 部屋に着いたら、**TV に背を向ける**
