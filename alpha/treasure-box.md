@@ -4,19 +4,19 @@ layout: default1
 ---
 ## 1. TV が、F について何か言っているように思えたら
 
-[TV を避ける](../../tv-avoidance/)に従う。
+[TV を避ける](../tv-avoidance/)に従う。
 
 ## 2. 震えたら
 
-[震えたときの実験](../../sweets-printable/)に従う。
+[震えたときの実験](../sweets-printable/)に従う。
 
 ## 3. トイレ以外で幻視が見えたら
 
-[幻視対策](../../visual-hallucination/)に従う。
+[幻視対策](../visual-hallucination/)に従う。
 
 ## 4. あきらさんの曲が聴きたかったら
 
-[馬場存の世界](../../babazone/)を開く。
+[馬場存の世界](../babazone/)を開く。
 
 ## 5. 単に Z の声が聴きたかったら
 
