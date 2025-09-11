@@ -4,42 +4,24 @@ layout: default1
 ---
 ## 1. TV が、F について何か言っているように思えたら
 
-[TV を避ける](../tv-avoidance/)に従う。
+[TV を避ける](../../tv-avoidance/)に従う。
 
 ## 2. 震えたら
 
-[震えたときの実験](../sweats/) に従う。
+[震えたときの実験](../../sweets-printable/)に従う。
 
-## 4. トイレ以外に幻視が見えたら
+## 3. トイレ以外で幻視が見えたら
 
-### 4.1 料理する時刻で料理する気力があったら
+[幻視対策](../../visual-hallucination/)に従う。
 
-料理をする
+## 4. あきらさんの曲が聴きたかったら
 
-### 4.2 料理する時刻ではない、または料理する気力がなかったら
+[馬場存の世界](../../babazone/)を開く。
 
-[レーズン瞑想繰り返し(あきら)](https://drive.google.com/file/d/1jkf0O5cDtmI8oqrsiaE-7ur0YKvS751l/view?usp=drive_link)を症状が収まるまでやる。
-
-音楽が苦痛だったら、[レーズン瞑想繰り返し(最短)](https://drive.google.com/file/d/1bKPh7qnYiiv241_UV17IZstEulzaqyhE/view?usp=sharing)を代わりに使う。
-
-## 5. あきらさんの曲が聴きたかったら
-
-### 5.1 通しで聞いてみたかったら
-
-[あきらさんの曲を一本に繋いでみた](https://drive.google.com/file/d/1ET9xYBoCSzWMgyO79kxAL1zbdg9p3FPM/view?usp=drive_link)を聴く
-
-### 5.2 一曲一曲聴きたかったら
-
-[recollections of life](/recollections-of-life)
-
-### 5.3 ほっこりする曲 (bright eyes) を聴くときは
-
-[bright eyes🎵](https://drive.google.com/file/d/1T-WytIp2QH-xu5XjcH0iotJ0jjh1PbZj/view?usp=drive_link)
-
-## 6. 単に Z の声が聴きたかったら
+## 5. 単に Z の声が聴きたかったら
 
 [レーズン瞑想繰り返し(最短)](https://drive.google.com/file/d/1bKPh7qnYiiv241_UV17IZstEulzaqyhE/view?usp=sharing)を単に聴く。
 
-## 7. エアロバイクのお供に
+## 6. エアロバイクのお供に
 
 [パット・メセニーグループのノリノリのライブ](https://drive.google.com/file/d/14ut0I4SEeLuIU5D-0zGwXUjMFWAZ867s/view?usp=drive_link)

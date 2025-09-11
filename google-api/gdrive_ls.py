@@ -16,7 +16,7 @@ def gdrive_ls_ex(service, query):
             service.files()
             .list(
                 q=query,
-                fields="nextPageToken, files(id, name)",
+                fields="nextPageToken, files(id, name, mimeType)",
                 pageToken=page_token,
             )
             .execute()
@@ -27,14 +27,40 @@ def gdrive_ls_ex(service, query):
         if page_token is None:
             break
 
-    yield from ([y["id"], y["name"]] for y in items)
+        yield from ([y["id"], y["mimeType"], y["name"]] for y in items)
 
 
 def main():
+    from collections import defaultdict
+    from pathlib import Path
+    from googleapiclient.http import MediaIoBaseDownload
+
+    infixes = defaultdict(int)
+    suffixes = defaultdict(set)
     service = gdrive_ls_service()
-    for q in "mimeType = 'audio/mpeg'", "mimeType contains 'audio/'":
-        for y in gdrive_ls_ex(service, q):
-            print(*y)
+    for q in "mimeType contains 'audio/'", "mimeType contains 'video/'":
+        for id, type, name in gdrive_ls_ex(service, q):
+            name = Path(name)
+            assert name.parts.__len__() == 1
+            v = suffixes[name.suffix]
+            if not v:
+                v.add(type)
+            else:
+                assert v.__len__() == 1
+                assert type in v
+            infixes[name] += 1
+            if infixes[name] != 1:
+                name = f"{name.stem}-{infixes[name]}{name.suffix}"
+                name = Path(name)
+            path = "/tmp/from-gdrive" / name
+            request = service.files().get_media(fileId=id)
+            with path.open("wb") as oobj:
+                downloader = MediaIoBaseDownload(oobj, request)
+                done = False
+                while done is False:
+                    status, done = downloader.next_chunk()
+                    print(f"ダウンロード進捗: {int(status.progress() * 100)}%")
+    _ = 0
 
 
 if __name__ == "__main__":
