@@ -8,7 +8,7 @@ layout: default1
 
 ## 2. 震えたら
 
-[震えたときの実験](../sweets-printable/)に従う。
+[震え対策](../sweets-printable/)に従う。
 
 ## 3. トイレ以外で幻視が見えたら
 

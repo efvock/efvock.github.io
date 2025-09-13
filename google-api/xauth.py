@@ -65,6 +65,6 @@ def google_service(service, version, creds):
     return build(service, version, credentials=creds)
 
 
-def google_service_ex(scope, service, version):
-    creds = xauth(scope, service, version)
+def google_service_ex(scopes, service, version):
+    creds = xauth(scopes, service, version)
     return google_service(service, version, creds)

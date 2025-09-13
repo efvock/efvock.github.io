@@ -24,10 +24,11 @@ def gdrive_ls_ex(service, query):
 
         items = results.get("files", [])
         page_token = results.get("nextPageToken", None)
-        if page_token is None:
-            break
 
         yield from ([y["id"], y["mimeType"], y["name"]] for y in items)
+
+        if page_token is None:
+            break
 
 
 def main():
@@ -47,7 +48,8 @@ def main():
                 v.add(type)
             else:
                 assert v.__len__() == 1
-                assert type in v
+                if type not in v:
+                    continue
             infixes[name] += 1
             if infixes[name] != 1:
                 name = f"{name.stem}-{infixes[name]}{name.suffix}"
