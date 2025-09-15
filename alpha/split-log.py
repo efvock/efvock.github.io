@@ -38,6 +38,7 @@ def split(first_line, iobj):
             m = DAY.search(y)
             if m:
                 return y
+            y = y.replace(" 堀内寛己 ", " <z ").replace(" あゆり ", " f> ")
             oobj.write(y)
         return y
     return None
