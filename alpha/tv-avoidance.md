@@ -18,7 +18,9 @@ layout: default1
 ---
 
 3️⃣ **↓ TV 遮断用動画を鑑賞しながら**
-<iframe width="100%" src="https://www.youtube.com/embed/rtowxMqfUu8" title="【朗読】【新美南吉】去年の木　【暁月夜の朗読会】" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div class="video-container">
+  <iframe src="https://www.youtube.com/embed/rtowxMqfUu8" frameborder="0" allowfullscreen></iframe>
+</div>
 
 * エアコンのある部屋に戻る
 * 部屋に着いたら、**TV に背を向ける**
