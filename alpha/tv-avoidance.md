@@ -17,7 +17,9 @@ layout: default1
 
 ---
 
-3️⃣ **[TV 遮断用ページ(前編)](https://www.youtube.com/watch?v=pbuIPRqLisE)、[TV 遮断用ページ(後編)](https://www.youtube.com/watch?v=GvG32Kfl0_4)を鑑賞しながら**
+3️⃣ **↓ TV 遮断用ページを鑑賞しながら**
+<iframe width="1380" height="776" src="https://www.youtube.com/embed/pbuIPRqLisE" title="【朗読】【新美南吉】手袋を買いに　前編【暁月夜の朗読会】" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="1380" height="776" src="https://www.youtube.com/embed/GvG32Kfl0_4" title="【朗読】【新美南吉】手袋を買いに　後編【暁月夜の朗読会】" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 * エアコンのある部屋に戻る
 * 部屋に着いたら、**TV に背を向ける**
