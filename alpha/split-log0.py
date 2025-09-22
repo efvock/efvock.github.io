@@ -3,7 +3,7 @@
 from pathlib import Path
 import re
 
-DAY = re.compile(r"^(\d\d\d\d\.\d\d\.\d\d) (.)曜日")
+DAY = re.compile(r"^(\d\d\d\d)/(\d+)/(\d+)\((.)\)")
 DOW = dict(日="Sun", 月="Mon", 火="Tue", 水="Wed", 木="Thu", 金="Fri", 土="Sat")
 
 
@@ -13,7 +13,12 @@ def split(first_line, iobj):
     m = DAY.search(first_line)
     if m is None:
         return None
-    filename = Path(f"alpha-log/{m.group(1)}.{DOW[m.group(2)]}")
+    year, month, day, dow = m.group(1), m.group(2), m.group(3), DOW[m.group(4)]
+    if month.__len__() == 1:
+        month = f"0{month}"
+    if day.__len__() == 1:
+        day = f"0{day}"
+    filename = Path(f"alpha-log/{year}.{month}.{day}.{dow}")
     if filename.exists():
         filename = NULL_CONTEXT
 
@@ -23,7 +28,7 @@ def split(first_line, iobj):
             m = DAY.search(y)
             if m:
                 return y
-            y = y.replace(" 堀内寛己 ", " <z ").replace(" あゆり ", " f> ")
+            y = y.replace("\t堀内寛己\t", " <z ").replace("\tあゆり\t", " f> ")
             oobj.write(y)
         return y
     return None
