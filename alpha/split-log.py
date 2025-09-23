@@ -37,7 +37,7 @@ def skip(iobj):
 
 
 def main():
-    with Path(__file__).with_name("ayuri0.txt").open() as iobj:
+    with Path(__file__).with_name("ayuri.txt").open() as iobj:
         first_line = skip(iobj)
         while True:
             l = split(first_line, iobj)
