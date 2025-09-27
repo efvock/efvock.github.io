@@ -1,9 +1,13 @@
 img {
-    max-width: 80%; /* 親要素の幅を超えないようにする */
-    height: auto;    /* アスペクト比を維持する */
-    display: block;  /* 画像の下に不要な余白が入るのを防ぐ */
+    max-width: 80%;
+    /* 親要素の幅を超えないようにする */
+    height: auto;
+    /* アスペクト比を維持する */
+    display: block;
+    /* 画像の下に不要な余白が入るのを防ぐ */
     margin: 0 auto;
 }
+
 .large {
     font-size: 3em;
 }
