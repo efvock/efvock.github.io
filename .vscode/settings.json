@@ -4,6 +4,7 @@
         "creds",
         "gdrive",
         "yauth",
+        "infile",
     ],
     "python.testing.pytestArgs": [
         "google-api"
