@@ -4,8 +4,16 @@ from pathlib import Path
 from dateutil import parser
 import csv
 
-LARGE_SCHEMA = "Order Date", "Total Owed", "Product Name"
-SMALL_SCHEMA_KEN = dict(date="利用日", amount="支払総額", shop="利用店名・商品名")
+LARGE_SCHEMA = dict(
+    date="Order Date",
+    amount="Total Owed",
+    product="Product Name",
+)
+SMALL_SCHEMA_KEN = dict(
+    date="利用日",
+    amount="支払総額",
+    shop="利用店名・商品名",
+)
 DOWNLOADS = Path("~/Downloads").expanduser()
 KEN = DOWNLOADS / "Your Orders"
 H2 = DOWNLOADS / "Your Orders (1)"
@@ -35,32 +43,31 @@ def date_range(small_log, **schema):
         rdr = csv.reader(iobj)
         columns = columns_logical(rdr, **schema)
         amazon = 0
+        date_x, amount_x, shop_x = columns[0], columns[1], columns[2]
         for row in rdr:
-            shop = row[columns[2]].strip().lower()
-            date_string = row[columns[0]]
+            shop = row[shop_x].strip().lower()
+            date_string = row[date_x]
             if shop == "amazon.co.jp":
-                yield [date_string, row[columns[1]], amazon]
+                yield [date_string, row[amount_x], amazon]
                 amazon += 1
             else:
-                yield date_string, row[columns[1]], row[columns[2]]
+                yield date_string, row[amount_x], row[shop_x]
 
 
 def amazon_summary(whose, start, end):
     large = large_log(whose)
     with large.open() as iobj:
         rdr = csv.reader(iobj)
-        firstline = rdr.__next__()
-        date_index = firstline.index(LARGE_SCHEMA[0])
-        amount_index = firstline.index(LARGE_SCHEMA[1])
-        product_index = firstline.index(LARGE_SCHEMA[2])
+        columns = columns_logical(rdr, **LARGE_SCHEMA)
+        date_x, amount_x, product_x = columns[0], columns[1], columns[2]
         for row in rdr:
-            date = row[date_index]
+            date = row[date_x]
             date = simplify_date(date)
             if end < date:
                 continue
             if date < start:
                 break
-            yield row[amount_index].replace(",", ""), row[product_index]
+            yield row[amount_x].replace(",", ""), row[product_x]
 
 
 def main():
