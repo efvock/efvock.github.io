@@ -5,6 +5,8 @@
         "gdrive",
         "yauth",
         "infile",
+        "iobj",
+        "oobj",
     ],
     "python.testing.pytestArgs": [
         "google-api"
