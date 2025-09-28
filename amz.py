@@ -21,23 +21,28 @@ def simplify_date(date_string):
     return parser.parse(date_string).strftime("%Y-%m-%d")
 
 
-def date_range(small_log, schema):
+def columns_logical(rdr, **schema):
+    columns_physical = rdr.__next__()
+    columns = []
+    for column_en in schema.keys():
+        column_label = schema[column_en]
+        columns.append(columns_physical.index(column_label))
+    return columns
+
+
+def date_range(small_log, **schema):
     with small_log.open() as iobj:
         rdr = csv.reader(iobj)
-        firstline = rdr.__next__()
-        rows = []
-        for row_en in "date", "amount", "shop":
-            row_label = schema[row_en]
-            rows.append(firstline.index(row_label))
+        columns = columns_logical(rdr, **schema)
         amazon = 0
         for row in rdr:
-            shop = row[rows[2]].strip().lower()
-            date_string = row[rows[0]]
+            shop = row[columns[2]].strip().lower()
+            date_string = row[columns[0]]
             if shop == "amazon.co.jp":
-                yield [date_string, row[rows[1]], amazon]
+                yield [date_string, row[columns[1]], amazon]
                 amazon += 1
             else:
-                yield date_string, row[rows[1]], row[rows[2]]
+                yield date_string, row[columns[1]], row[columns[2]]
 
 
 def amazon_summary(whose, start, end):
@@ -62,7 +67,7 @@ def main():
     from datetime import timedelta
 
     one_day = timedelta(days=1)
-    dates = tuple(date_range(DOWNLOADS / "enavi.csv", SMALL_SCHEMA_KEN))
+    dates = tuple(date_range(DOWNLOADS / "enavi.csv", **SMALL_SCHEMA_KEN))
     if not dates:
         return
     end, start = dates[0], dates[-1]
