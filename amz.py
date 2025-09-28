@@ -29,11 +29,15 @@ def date_range(small_log, schema):
         for row_en in "date", "amount", "shop":
             row_label = schema[row_en]
             rows.append(firstline.index(row_label))
+        amazon = 0
         for row in rdr:
             shop = row[rows[2]].strip().lower()
+            date_string = row[rows[0]]
             if shop == "amazon.co.jp":
-                date_string = row[rows[0]]
-                yield date_string
+                yield [date_string, row[rows[1]], amazon]
+                amazon += 1
+            else:
+                yield date_string, row[rows[1]], row[rows[2]]
 
 
 def large_subset(whose, start, end):
@@ -47,19 +51,27 @@ def large_subset(whose, start, end):
         for row in rdr:
             date = row[date_index]
             date = simplify_date(date)
-            if start <= date <= end:
-                yield date, row[amount_index], row[product_index]
+            if end < date:
+                continue
+            if date < start:
+                break
+            yield row[product_index]
 
 
 def main():
     from datetime import timedelta
 
     one_day = timedelta(days=1)
-    dates = list(date_range(DOWNLOADS / "enavi.csv", SMALL_SCHEMA_KEN))
+    dates = tuple(date_range(DOWNLOADS / "enavi.csv", SMALL_SCHEMA_KEN))
+    if not dates:
+        return
     end, start = dates[0], dates[-1]
-    start, end = (parser.parse(y) - one_day for y in (start, end))
+    start, end = (parser.parse(y[0]) - one_day for y in (start, end))
     start, end = (y.strftime("%Y-%m-%d") for y in (start, end))
-    large = tuple(large_subset("ken", start, end))
+    amazon = tuple(large_subset("ken", start, end))
+    for row in dates:
+        if row[2].__class__ is int:
+            row[2] = f"amz {amazon[row[2]]}"
     pass
 
 
