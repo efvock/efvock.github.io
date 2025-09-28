@@ -40,7 +40,7 @@ def date_range(small_log, schema):
                 yield date_string, row[rows[1]], row[rows[2]]
 
 
-def large_subset(whose, start, end):
+def amazon_summary(whose, start, end):
     large = large_log(whose)
     with large.open() as iobj:
         rdr = csv.reader(iobj)
@@ -55,7 +55,7 @@ def large_subset(whose, start, end):
                 continue
             if date < start:
                 break
-            yield row[product_index]
+            yield row[amount_index].replace(",", ""), row[product_index]
 
 
 def main():
@@ -68,10 +68,13 @@ def main():
     end, start = dates[0], dates[-1]
     start, end = (parser.parse(y[0]) - one_day for y in (start, end))
     start, end = (y.strftime("%Y-%m-%d") for y in (start, end))
-    amazon = tuple(large_subset("ken", start, end))
+    amazon = tuple(amazon_summary("ken", start, end))
     for row in dates:
-        if row[2].__class__ is int:
-            row[2] = f"amz {amazon[row[2]]}"
+        product = row[2]
+        if product.__class__ is int:
+            verify, product = amazon[product]
+            b = row[1] == verify
+            row[2] = f"amz {product}"
     pass
 
 
