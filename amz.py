@@ -38,7 +38,7 @@ def columns_logical(rdr, **schema):
     return columns
 
 
-def date_range(small_log, **schema):
+def enavi_range(small_log, **schema):
     with small_log.open() as iobj:
         rdr = csv.reader(iobj)
         columns = columns_logical(rdr, **schema)
@@ -51,7 +51,7 @@ def date_range(small_log, **schema):
                 yield [date_string, row[amount_x], amazon]
                 amazon += 1
             else:
-                yield date_string, row[amount_x], row[shop_x]
+                yield [date_string, row[amount_x], row[shop_x]]
 
 
 def amazon_summary(whose, start, end):
@@ -72,21 +72,41 @@ def amazon_summary(whose, start, end):
 
 def main():
     from datetime import timedelta
+    from itertools import groupby, permutations
+    from operator import itemgetter
 
     one_day = timedelta(days=1)
-    dates = tuple(date_range(DOWNLOADS / "enavi.csv", **SMALL_SCHEMA_KEN))
-    if not dates:
+    enavi = tuple(enavi_range(DOWNLOADS / "enavi.csv", **SMALL_SCHEMA_KEN))
+    if not enavi:
         return
-    end, start = dates[0], dates[-1]
+    end, start = enavi[0], enavi[-1]
     start, end = (parser.parse(y[0]) - one_day for y in (start, end))
     start, end = (y.strftime("%Y-%m-%d") for y in (start, end))
     amazon = tuple(amazon_summary("ken", start, end))
-    for row in dates:
-        product = row[2]
-        if product.__class__ is int:
-            verify, product = amazon[product]
-            b = row[1] == verify
-            row[2] = f"amz {product}"
+    split = {}
+    for k, v in groupby(enavi, itemgetter(0)):
+        split[k] = list(v)
+    for k, v in split.items():
+        assert v
+        if v[0][2].__class__ == str:
+            continue
+        permu = permutations(y[1] for y in v)
+        ok = False
+        for p in permu:
+            nok = 0
+            for vv, pp in zip(v, p):
+                vv[1] = pp
+                amazon_row = amazon[vv[2]]
+                if pp == amazon_row[0]:
+                    nok += 1
+            if nok == p.__len__():
+                ok = True
+                break
+        assert ok
+    for row in enavi:
+        shop = row[2]
+        if shop.__class__ is int:
+            row[2] = f"amz {amazon[shop][1]}"
     pass
 
 
