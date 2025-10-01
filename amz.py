@@ -47,11 +47,12 @@ def enavi_range(small_log, **schema):
         for row in rdr:
             shop = row[shop_x].strip().lower()
             date_string = row[date_x]
+            sort_key = f"{date_string}/{shop}"
             if shop == "amazon.co.jp":
-                yield [date_string, row[amount_x], amazon]
+                yield [date_string, row[amount_x], amazon, sort_key]
                 amazon += 1
             else:
-                yield [date_string, row[amount_x], row[shop_x]]
+                yield [date_string, row[amount_x], row[shop_x], sort_key]
 
 
 def amazon_summary(whose, start, end):
@@ -84,7 +85,7 @@ def main():
     start, end = (y.strftime("%Y-%m-%d") for y in (start, end))
     amazon = tuple(amazon_summary("ken", start, end))
     split = {}
-    for k, v in groupby(enavi, itemgetter(0)):
+    for k, v in groupby(enavi, itemgetter(3)):
         split[k] = list(v)
     for k, v in split.items():
         assert v

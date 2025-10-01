@@ -26,14 +26,14 @@ def split(first_line, iobj):
             y = y.replace(" 堀内寛己 ", " <z ").replace(" あゆり ", " f> ")
             oobj.write(y)
         return y
-    return None
+    assert False
 
 
 def skip(iobj):
     for y in iobj:
         if DAY.search(y):
             return y
-    return None
+    assert False
 
 
 def main():
