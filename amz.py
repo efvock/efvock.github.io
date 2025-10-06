@@ -80,6 +80,7 @@ def main():
     enavi = tuple(enavi_range(DOWNLOADS / "enavi.csv", **SMALL_SCHEMA_KEN))
     if not enavi:
         return
+    yield list(SMALL_SCHEMA_KEN.values())
     end, start = enavi[0], enavi[-1]
     start, end = (parser.parse(y[0]) - one_day for y in (start, end))
     start, end = (y.strftime("%Y-%m-%d") for y in (start, end))
@@ -108,8 +109,14 @@ def main():
         shop = row[2]
         if shop.__class__ is int:
             row[2] = f"amz {amazon[shop][1]}"
-    pass
+        yield row[:3]
 
 
 if __name__ == "__main__":
-    main()
+    import csv
+    from sys import stdout
+
+    wtr = csv.writer(stdout)
+    for row in main():
+        wtr.writerow(row)
+    pass
