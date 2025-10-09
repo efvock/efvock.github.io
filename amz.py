@@ -5,11 +5,11 @@ from dateutil import parser
 import csv
 
 LARGE_SCHEMA = dict(
-    date="Order Date",
+    date="Ship Date",
     amount="Total Owed",
     product="Product Name",
 )
-SMALL_SCHEMA_KEN = dict(
+SMALL_SCHEMA = dict(
     date="利用日",
     amount="支払総額",
     shop="利用店名・商品名",
@@ -38,7 +38,7 @@ def columns_logical(rdr, **schema):
     return columns
 
 
-def enavi_range(small_log, **schema):
+def small_range(small_log, **schema):
     with small_log.open() as iobj:
         rdr = csv.reader(iobj)
         columns = columns_logical(rdr, **schema)
@@ -71,28 +71,33 @@ def amazon_summary(whose, start, end):
             yield row[amount_x].replace(",", ""), row[product_x]
 
 
-def main():
+SMALL_CSV = dict(ken="enavi.csv", h2="views.csv")
+
+def main(whose):
     from datetime import timedelta
     from itertools import groupby, permutations
     from operator import itemgetter
 
-    one_day = timedelta(days=1)
-    enavi = tuple(enavi_range(DOWNLOADS / "enavi.csv", **SMALL_SCHEMA_KEN))
-    if not enavi:
+    if whose == "ken":
+        delta = timedelta(days=1)
+    else:
+        delta = timedelta(days=1)
+    range = tuple(small_range(DOWNLOADS / SMALL_CSV[whose], **SMALL_SCHEMA))
+    if not range:
         return
-    yield list(SMALL_SCHEMA_KEN.values())
-    end, start = enavi[0], enavi[-1]
-    start, end = (parser.parse(y[0]) - one_day for y in (start, end))
+    yield list(SMALL_SCHEMA.values())
+    end, start = range[0], range[-1]
+    start, end = (parser.parse(y[0]) - delta for y in (start, end))
     start, end = (y.strftime("%Y-%m-%d") for y in (start, end))
-    amazon = tuple(amazon_summary("ken", start, end))
+    amazon = tuple(amazon_summary(whose, start, end))
     split = {}
-    for k, v in groupby(enavi, itemgetter(3)):
+    for k, v in groupby(range, itemgetter(3)):
         split[k] = list(v)
     for k, v in split.items():
         assert v
         if v[0][2].__class__ == str:
             continue
-        permu = permutations(y[1] for y in v)
+        permu = tuple(permutations(y[1] for y in v))
         ok = False
         for p in permu:
             nok = 0
@@ -105,7 +110,7 @@ def main():
                 ok = True
                 break
         assert ok
-    for row in enavi:
+    for row in range:
         shop = row[2]
         if shop.__class__ is int:
             row[2] = f"amz {amazon[shop][1]}"
@@ -117,6 +122,6 @@ if __name__ == "__main__":
     from sys import stdout
 
     wtr = csv.writer(stdout)
-    for row in main():
+    for row in main("h2"):
         wtr.writerow(row)
     pass
