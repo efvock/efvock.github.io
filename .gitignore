@@ -9,6 +9,7 @@ nohup.out
 token.json
 /emls/
 *.mp3
+*.wav
 .mscbackup/
 *.aup*
 __pycache__/
