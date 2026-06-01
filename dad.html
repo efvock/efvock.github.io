@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>お父様の「生い立ちの記」入力盤</title>
+  <style>
+    /* iPadの画面全体にフィットさせる設定（誤スクロール防止） */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      padding: 15px;
+      background-color: #f0f2f5;
+      height: 100vh;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    /* 文字が表示されるメインエリア */
+    #text-preview {
+      flex: 1;
+      background-color: #ffffff;
+      border: 3px solid #adc1dc;
+      border-radius: 12px;
+      padding: 20px;
+      font-size: 28px; /* 老眼でも見やすい大きな文字 */
+      line-height: 1.5;
+      min-height: 150px;
+      margin-bottom: 15px;
+      box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+      overflow-y: auto;
+      word-break: break-all;
+    }
+
+    /* 操作ボタンエリア（変換・コピーなど） */
+    .control-box {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+    .ctl-btn {
+      flex: 1;
+      padding: 22px 0;
+      font-size: 24px;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      touch-action: manipulation;
+    }
+    #btn-clear { background-color: #ff8a80; color: #b71c1c; }
+    #btn-convert { background-color: #4fc3f7; color: #0d47a1; font-size: 26px; }
+    #btn-copy { background-color: #81c784; color: #1b5e20; }
+    .ctl-btn:active { transform: translateY(2px); box-shadow: 0 2px 3px rgba(0,0,0,0.1); }
+
+    /* 50音キーボード（右から あいうえお の縦書き風並び） */
+    .keyboard-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      direction: rtl; /* 右から左へ配置 */
+    }
+
+    /* 50音の1つ1つの大きなボタン */
+    .key-btn {
+      background-color: #ffffff;
+      border: 2px solid #b0bec5;
+      border-radius: 12px;
+      padding: 20px 0;
+      font-size: 32px; /* 指で確実に押せる巨型サイズ */
+      font-weight: bold;
+      color: #263238;
+      text-align: center;
+      box-shadow: 0 3px 0 #b0bec5;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+    .key-btn:active {
+      background-color: #eceff1;
+      transform: translateY(3px);
+      box-shadow: none;
+    }
+    .empty { border: none; background: transparent; box-shadow: none; pointer-events: none; }
+    .util-key { background-color: #cfd8dc; border-color: #90a4ae; box-shadow: 0 3px 0 #90a4ae; }
+  </style>
+</head>
+<body>
+
+  <div id="text-preview"></div>
+
+  <div class="control-box">
+    <button id="btn-clear" class="ctl-btn" onclick="clearText()">ぜんぶ消す</button>
+    <button id="btn-convert" class="ctl-btn" onclick="convertWithGemini()">かんじ にする</button>
+    <button id="btn-copy" class="ctl-btn" onclick="copyToClipboard()">原稿に うつす</button>
+  </div>
+
+  <div class="keyboard-grid">
+    <div class="key-btn" onclick="add('お')">お</div><div class="key-btn" onclick="add('え')">え</div><div class="key-btn" onclick="add('う')">う</div><div class="key-btn" onclick="add('い')">い</div><div class="key-btn" onclick="add('あ')">あ</div>
+    <div class="key-btn" onclick="add('こ')">こ</div><div class="key-btn" onclick="add('け')">け</div><div class="key-btn" onclick="add('く')">く</div><div class="key-btn" onclick="add('き')">き</div><div class="key-btn" onclick="add('か')">か</div>
+    <div class="key-btn" onclick="add('そ')">そ</div><div class="key-btn" onclick="add('せ')">せ</div><div class="key-btn" onclick="add('す')">す</div><div class="key-btn" onclick="add('し')">し</div><div class="key-btn" onclick="add('さ')">さ</div>
+    <div class="key-btn" onclick="add('と')">と</div><div class="key-btn" onclick="add('て')">て</div><div class="key-btn" onclick="add('つ')">つ</div><div class="key-btn" onclick="add('ち')">ち</div><div class="key-btn" onclick="add('た')">た</div>
+    <div class="key-btn" onclick="add('の')">の</div><div class="key-btn" onclick="add('ね')">ね</div><div class="key-btn" onclick="add('ぬ')">ぬ</div><div class="key-btn" onclick="add('に')">に</div><div class="key-btn" onclick="add('な')">な</div>
+    <div class="key-btn" onclick="add('ほ')">ほ</div><div class="key-btn" onclick="add('へ')">へ</div><div class="key-btn" onclick="add('ふ')">ふ</div><div class="key-btn" onclick="add('ひ')">ひ</div><div class="key-btn" onclick="add('は')">は</div>
+    <div class="key-btn" onclick="add('も')">も</div><div class="key-btn" onclick="add('め')">め</div><div class="key-btn" onclick="add('む')">む</div><div class="key-btn" onclick="add('み')">み</div><div class="key-btn" onclick="add('ま')">ま</div>
+    <div class="key-btn" onclick="add('よ')">よ</div><div class="empty"></div><div class="key-btn" onclick="add('ゆ')">ゆ</div><div class="empty"></div><div class="key-btn" onclick="add('や')">や</div>
+    <div class="key-btn" onclick="add('ろ')">ろ</div><div class="key-btn" onclick="add('れ')">れ</div><div class="key-btn" onclick="add('る')">る</div><div class="key-btn" onclick="add('り')">り</div><div class="key-btn" onclick="add('ら')">ら</div>
+    <div class="key-btn" onclick="add('ん')">ん</div><div class="key-btn" onclick="add('を')">を</div><div class="key-btn" onclick="add('、')">、</div><div class="key-btn" onclick="add('。')">。</div><div class="key-btn" onclick="add('わ')">わ</div>
+    <div class="key-btn util-key" onclick="add('っ')">っ</div><div class="key-btn util-key" onclick="add('ょ')">ょ</div><div class="key-btn util-key" onclick="add('ゅ')">ゅ</div><div class="key-btn util-key" onclick="add('ゃ')">ゃ</div><div class="key-btn util-key" onclick="add('゛')">゛／゜</div>
+  </div>
+
+  <script>
+    const GEMINI_API_KEY = 'YOUR_API_KEY'; // ★ここにあなたのAPIキーを埋め込みます
+    const preview = document.getElementById('text-preview');
+
+    function add(char) {
+      let current = preview.innerText;
+      
+      // 濁点・半濁点のスマート変換（例：は -> ば -> ぱ -> は）
+      if (char === '゛' && current.length > 0) {
+        let last = current.slice(-1);
+        let changed = toggleDaku(last);
+        if (changed !== last) {
+          preview.innerText = current.slice(0, -1) + changed;
+          return;
+        }
+      }
+      preview.innerText += char;
+    }
+
+    function clearText() {
+      if(confirm("うっている文字を ぜんぶ消しても よろしいですか？")) {
+        preview.innerText = '';
+      }
+    }
+
+    // Gemini API を直接叩いて一発で美しい自伝文に変換
+    async function convertWithGemini() {
+      const text = preview.innerText;
+      if (!text || text.startsWith("考え中...")) return;
+
+      preview.innerText = "考え中... 少々お待ちください";
+
+      const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+      const prompt = `以下の【ひらがな】の文章を、高齢の男性が書く「生い立ちの記（回顧録）」として、文脈に合わせた最も自然で美しい漢字混じりの文章に変換してください。解説や挨拶は一切省き、変換後の文章だけを返してください。\n\n【ひらがな】\n${text}`;
+
+      try {
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+        });
+        const data = await response.json();
+        const result = data.candidates[0].content.parts[0].text.trim();
+        preview.innerText = result;
+      } catch (error) {
+        alert("変換に失敗しました。電波の良い場所でやり直してください。");
+        preview.innerText = text; // 元に戻す
+      }
+    }
+
+    // クリップボードへコピーして、ドキュメントアプリに移動しやすくする
+    function copyToClipboard() {
+      const text = preview.innerText;
+      if (!text || text.startsWith("考え中...")) return;
+
+      navigator.clipboard.writeText(text).then(() => {
+        alert("文章をコピーしました！ Googleドキュメントを開いて「ペースト（貼り付け）」してください。");
+      }).catch(() => {
+        alert("コピーに失敗しました。");
+      });
+    }
+
+    // 濁点・半濁点トグルマップ
+    function toggleDaku(c) {
+      const map = {
+        'か':'が','が':'か','き':'ぎ','ぎ':'き','く':'ぐ','ぐ':'く','け':'げ','げ':'け','こ':'ご','ご':'こ',
+        'さ':'ざ','ざ':'さ','し':'じ','じ':'し','す':'ず','ず':'す','せ':'ぜ','ぜ':'せ','そ':'ぞ','ぞ':'そ',
+        'た':'だ','だ':'た','ち':'ぢ','ぢ':'ち','つ':'づ','づ':'つ','て':'で','で':'て','と':'ど','ど':'と',
+        'は':'ば','ば':'ぱ','ぱ':'は','ひ':'び','び':'ぴ','ぴ':'ひ','ふ':'ぶ','ぶ':'ぷ','ぷ':'ふ','へ':'べ','べ':'ぺ','ぺ':'へ','ほ':'ぼ','ぼ':'ぽ','ぽ':'ほ'
+      };
+      return map[c] || c;
+    }
+  </script>
+</body>
+</html>
