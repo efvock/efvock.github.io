@@ -12,7 +12,7 @@
             --bg-color: #f8f9fa;
         }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: var(--bg-color);
             margin: 0;
             padding: 10px;
@@ -37,7 +37,7 @@
         }
         details input { width: 100%; margin-bottom: 5px; padding: 4px; box-sizing: border-box; }
 
-        /* エディタ（表示画面） */
+        /* エディタ画面 */
         .editor-area {
             width: 100%;
             height: 180px;
@@ -72,11 +72,11 @@
             margin-bottom: 5px;
         }
 
-        /* 専用キーボードの配置 */
+        /* カスタムキーボード（あかさたな縦並び） */
         .keyboard-section {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 6px;
             background: #e9ecef;
             padding: 10px;
             border-radius: 12px;
@@ -84,26 +84,27 @@
         .key-row {
             display: flex;
             justify-content: center;
-            gap: 6px;
+            gap: 5px;
         }
         button {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             font-weight: bold;
-            padding: 12px 0;
+            padding: 10px 0;
             flex: 1;
             border: 1px solid #ced4da;
             border-radius: 6px;
             background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 3px rgba(0,0,0,0.1);
             cursor: pointer;
             touch-action: manipulation;
         }
         button:active { background-color: #dee2e6; }
         
-        /* 特殊ボタンの装飾 */
+        /* 特殊ボタン・機能ボタン */
         .btn-nav { background-color: #d1e3ff; color: #1a3a60; }
         .btn-bs { background-color: #ffccd5; color: #b7094c; }
-        .btn-action { color: white; font-size: 1.4rem; padding: 16px 0; }
+        .btn-sp { background-color: #f8f9fa; font-size: 1.1rem; }
+        .btn-action { color: white; font-size: 1.4rem; padding: 16px 0; margin-top: 5px;}
         .btn-conv { background-color: var(--convert-color); }
         .btn-send { background-color: var(--send-color); }
     </style>
@@ -126,8 +127,8 @@
             <button class="btn-nav" onclick="moveLeft()">← 左へ</button>
             <button class="btn-nav" onclick="moveRight()">右へ →</button>
             <button class="btn-bs" onclick="deleteChar()">消す (BS)</button>
-            <button style="background-color: #f8f9fa;" onclick="insertText('\n')">改行 ↵</button>
-            <button style="background-color: #f8f9fa;" onclick="insertText('　')">全角スペース</button>
+            <button class="btn-sp" onclick="insertText('\n')">改行 ↵</button>
+            <button class="btn-sp" onclick="insertText('　')">全角スペース</button>
         </div>
 
         <div class="key-row">
@@ -145,30 +146,70 @@
         </div>
 
         <div class="key-row">
-            <button onclick="insertText('あ')">あ</button><button onclick="insertText('い')">い</button><button onclick="insertText('う')">う</button><button onclick="insertText('え')">え</button><button onclick="insertText('お')">お</button>
-            <button onclick="insertText('か')">か</button><button onclick="insertText('き')">き</button><button onclick="insertText('く')">く</button><button onclick="insertText('け')">け</button><button onclick="insertText('こ')">こ</button>
+            <button onclick="insertText('あ')">あ</button>
+            <button onclick="insertText('か')">か</button>
+            <button onclick="insertText('さ')">さ</button>
+            <button onclick="insertText('た')">た</button>
+            <button onclick="insertText('な')">な</button>
+            <button onclick="insertText('は')">は</button>
+            <button onclick="insertText('ま')">ま</button>
+            <button onclick="insertText('や')">や</button>
+            <button onclick="insertText('ら')">ら</button>
+            <button onclick="insertText('わ')">わ</button>
         </div>
         <div class="key-row">
-            <button onclick="insertText('さ')">さ</button><button onclick="insertText('し')">し</button><button onclick="insertText('す')">す</button><button onclick="insertText('せ')">せ</button><button onclick="insertText('そ')">そ</button>
-            <button onclick="insertText('た')">た</button><button onclick="insertText('ち')">ち</button><button onclick="insertText('つ')">つ</button><button onclick="insertText('て')">て</button><button onclick="insertText('と')">と</button>
+            <button onclick="insertText('い')">い</button>
+            <button onclick="insertText('き')">き</button>
+            <button onclick="insertText('し')">し</button>
+            <button onclick="insertText('ち')">ち</button>
+            <button onclick="insertText('に')">に</button>
+            <button onclick="insertText('ひ')">ひ</button>
+            <button onclick="insertText('み')">み</button>
+            <button style="background-color:#e9ecef; border:none; box-shadow:none;" disabled></button> <button onclick="insertText('り')">り</button>
+            <button onclick="insertText('を')">を</button>
         </div>
         <div class="key-row">
-            <button onclick="insertText('な')">な</button><button onclick="insertText('に')">に</button><button onclick="insertText('ぬ')">ぬ</button><button onclick="insertText('ね')">ね</button><button onclick="insertText('の')">の</button>
-            <button onclick="insertText('は')">は</button><button onclick="insertText('ひ')">ひ</button><button onclick="insertText('ふ')">ふ</button><button onclick="insertText('へ')">へ</button><button onclick="insertText('ほ')">ほ</button>
+            <button onclick="insertText('う')">う</button>
+            <button onclick="insertText('く')">く</button>
+            <button onclick="insertText('す')">す</button>
+            <button onclick="insertText('つ')">つ</button>
+            <button onclick="insertText('ぬ')">ぬ</button>
+            <button onclick="insertText('ふ')">ふ</button>
+            <button onclick="insertText('む')">む</button>
+            <button onclick="insertText('ゆ')">ゆ</button>
+            <button onclick="insertText('る')">る</button>
+            <button onclick="insertText('ん')">ん</button>
         </div>
         <div class="key-row">
-            <button onclick="insertText('ま')">ま</button><button onclick="insertText('み')">み</button><button onclick="insertText('む')">む</button><button onclick="insertText('め')">め</button><button onclick="insertText('も')">も</button>
-            <button onclick="insertText('や')">や</button><button onclick="insertText('ゆ')">ゆ</button><button onclick="insertText('よ')">よ</button><button onclick="insertText('ら')">ら</button><button onclick="insertText('り')">り</button>
+            <button onclick="insertText('え')">え</button>
+            <button onclick="insertText('け')">け</button>
+            <button onclick="insertText('せ')">せ</button>
+            <button onclick="insertText('て')">て</button>
+            <button onclick="insertText('ね')">ね</button>
+            <button onclick="insertText('へ')">へ</button>
+            <button onclick="insertText('め')">め</button>
+            <button style="background-color:#e9ecef; border:none; box-shadow:none;" disabled></button> <button onclick="insertText('れ')">れ</button>
+            <button onclick="insertText('ー')">ー</button>
         </div>
         <div class="key-row">
-            <button onclick="insertText('る')">る</button><button onclick="insertText('れ')">れ</button><button onclick="insertText('ろ')">ろ</button><button onclick="insertText('わ')">わ</button><button onclick="insertText('を')">を</button>
-            <button onclick="insertText('ん')">ん</button><button onclick="insertText('ー')">ー</button>
-            <button style="background-color: #fff3cd;" onclick="addDakuten()">゛</button>
-            <button style="background-color: #fff3cd;" onclick="addHandakuten()">゜</button>
-            <button style="background-color: #e2e3e5;" onclick="makeSmall()">小文字</button>
+            <button onclick="insertText('お')">お</button>
+            <button onclick="insertText('こ')">こ</button>
+            <button onclick="insertText('そ')">そ</button>
+            <button onclick="insertText('と')">と</button>
+            <button onclick="insertText('の')">の</button>
+            <button onclick="insertText('ほ')">ほ</button>
+            <button onclick="insertText('も')">も</button>
+            <button onclick="insertText('よ')">よ</button>
+            <button onclick="insertText('ろ')">ろ</button>
+            <button style="background-color: #fff3cd; font-size: 1.1rem;" onclick="addDakuten()">゛</button>
+        </div>
+        <div class="key-row">
+            <button style="background-color:#e9ecef; border:none; box-shadow:none; flex:8;" disabled></button>
+            <button style="background-color: #fff3cd; font-size: 1.1rem;" onclick="addHandakuten()">゜</button>
+            <button style="background-color: #e2e3e5; font-size: 1.1rem;" onclick="makeSmall()">小文字</button>
         </div>
 
-        <div class="key-row" style="margin-top: 5px;">
+        <div class="key-row">
             <button class="btn-action btn-conv" id="btnConvert">漢字に直す (Gemini)</button>
             <button class="btn-action btn-send" id="btnSend">本に送る (Google Docs)</button>
         </div>
@@ -183,7 +224,7 @@
     const editorEl = document.getElementById('editor');
     const statusEl = document.getElementById('status');
 
-    // 設定復元
+    // 初期設定の読み込み
     ['geminiApiKey', 'googleToken', 'googleDocId'].forEach(id => {
         const saved = localStorage.getItem(id);
         if (saved) document.getElementById(id).value = saved;
@@ -205,7 +246,7 @@
     function escapeHtml(str) { return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
     function showStatus(msg) { statusEl.innerText = msg; setTimeout(() => { if(statusEl.innerText === msg) statusEl.innerText = ""; }, 5000); }
 
-    // 操作
+    // ボタン操作
     function moveLeft() { if (cursorPosition > 0) { cursorPosition--; render(); } }
     function moveRight() { if (cursorPosition < textBuffer.length) { cursorPosition++; render(); } }
     function deleteChar() {
@@ -225,7 +266,7 @@
         render();
     }
 
-    // 濁点・半濁点・小文字化の特殊処理（直前の文字を変化させる）
+    // 濁点・半濁点・小文字
     function addDakuten() { modifyLastChar(/[かきくけこさしすせそたちつてとはひふへほ]/, c => String.fromCharCode(c.charCodeAt(0) + 1)); }
     function addHandakuten() { modifyLastChar(/[はひふへほ]/, c => String.fromCharCode(c.charCodeAt(0) + 2)); }
     function makeSmall() {
@@ -244,7 +285,7 @@
         }
     }
 
-    // Gemini API
+    // Gemini
     document.getElementById('btnConvert').addEventListener('click', async () => {
         const apiKey = document.getElementById('geminiApiKey').value;
         if (!apiKey || !textBuffer.trim()) return;
@@ -266,7 +307,7 @@
         } catch (e) { showStatus("変換に失敗しました。"); }
     });
 
-    // Google Docs API
+    // Google Docs
     document.getElementById('btnSend').addEventListener('click', async () => {
         const token = document.getElementById('googleToken').value;
         const docId = document.getElementById('googleDocId').value;
@@ -282,7 +323,7 @@
             if (response.ok) {
                 showStatus("送信完了！バッファをクリアしました。");
                 textBuffer = ""; cursorPosition = 0; render();
-            } else { showStatus("送信失敗。トークンの期限切れの可能性があります。"); }
+            } else { showStatus("送信失敗。トークンを確認してください。"); }
         } catch (e) { showStatus("送信エラーが発生しました。"); }
     });
 
