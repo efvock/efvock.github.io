@@ -1,232 +1,292 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>お父様の「生い立ちの記」入力盤</title>
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      margin: 0;
-      padding: 15px;
-      background-color: #f0f2f5;
-      height: 100vh;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      user-select: none;
-      -webkit-user-select: none;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>生い立ちの記 執筆エディタ</title>
+    <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --convert-color: #2a9d8f;
+            --send-color: #e76f51;
+            --bg-color: #f8f9fa;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        .container {
+            width: 100%;
+            max-width: 900px;
+            box-sizing: border-box;
+        }
+        /* 設定エリア */
+        details {
+            background: #eee;
+            padding: 8px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            font-size: 0.8rem;
+        }
+        details input { width: 100%; margin-bottom: 5px; padding: 4px; box-sizing: border-box; }
 
-    /* 文字表示エリア */
-    #text-preview {
-      flex: 1;
-      background-color: #ffffff;
-      border: 3px solid #adc1dc;
-      border-radius: 12px;
-      padding: 20px;
-      font-size: 30px; /* 文字をさらに少し大きく */
-      line-height: 1.6;
-      min-height: 120px;
-      margin-bottom: 15px;
-      box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
-      overflow-y: auto;
-      word-break: break-all;
-    }
+        /* エディタ（表示画面） */
+        .editor-area {
+            width: 100%;
+            height: 180px;
+            border: 3px solid #bbb;
+            border-radius: 10px;
+            padding: 15px;
+            box-sizing: border-box;
+            font-size: 1.5rem;
+            line-height: 1.8;
+            overflow-y: auto;
+            background: #fff;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            margin-bottom: 10px;
+        }
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.4em;
+            background-color: #e63946;
+            vertical-align: middle;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
 
-    /* 操作ボタンエリア */
-    .control-box {
-      display: flex;
-      gap: 15px;
-      margin-bottom: 15px;
-    }
-    .ctl-btn {
-      flex: 1;
-      padding: 22px 0;
-      font-size: 24px;
-      font-weight: bold;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      touch-action: manipulation;
-    }
-    #btn-clear { background-color: #ff8a80; color: #b71c1c; }
-    #btn-bs { background-color: #ffd54f; color: #ff6f00; } /* バックスペース */
-    #btn-convert { background-color: #4fc3f7; color: #0d47a1; font-size: 26px; }
-    #btn-copy { background-color: #81c784; color: #1b5e20; }
-    .ctl-btn:active { transform: translateY(2px); box-shadow: 0 2px 3px rgba(0,0,0,0.1); }
+        .status {
+            text-align: center;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #4a6fa5;
+            height: 24px;
+            margin-bottom: 5px;
+        }
 
-    /* 数字キーボード（上部に横一列、右から123...） */
-    .number-grid {
-      display: grid;
-      grid-template-columns: repeat(10, 1fr);
-      gap: 8px;
-      margin-bottom: 12px;
-      direction: rtl;
-    }
-    .num-key {
-      background-color: #eceff1;
-      border: 2px solid #b0bec5;
-      border-radius: 10px;
-      padding: 15px 0;
-      font-size: 28px;
-      font-weight: bold;
-      color: #37474f;
-      text-align: center;
-      box-shadow: 0 3px 0 #b0bec5;
-      cursor: pointer;
-      touch-action: manipulation;
-    }
-    .num-key:active { background-color: #cfd8dc; transform: translateY(3px); box-shadow: none; }
-
-    /* 50音キーボード（右から左） */
-    .keyboard-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 10px;
-      direction: rtl;
-    }
-
-    .key-btn {
-      background-color: #ffffff;
-      border: 2px solid #b0bec5;
-      border-radius: 12px;
-      padding: 18px 0;
-      font-size: 32px;
-      font-weight: bold;
-      color: #263238;
-      text-align: center;
-      box-shadow: 0 3px 0 #b0bec5;
-      cursor: pointer;
-      touch-action: manipulation;
-    }
-    .key-btn:active {
-      background-color: #eceff1;
-      transform: translateY(3px);
-      box-shadow: none;
-    }
-    .empty { border: none; background: transparent; box-shadow: none; pointer-events: none; }
-    .util-key { background-color: #cfd8dc; border-color: #90a4ae; box-shadow: 0 3px 0 #90a4ae; }
-  </style>
+        /* 専用キーボードの配置 */
+        .keyboard-section {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 12px;
+        }
+        .key-row {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+        }
+        button {
+            font-size: 1.3rem;
+            font-weight: bold;
+            padding: 12px 0;
+            flex: 1;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+        button:active { background-color: #dee2e6; }
+        
+        /* 特殊ボタンの装飾 */
+        .btn-nav { background-color: #d1e3ff; color: #1a3a60; }
+        .btn-bs { background-color: #ffccd5; color: #b7094c; }
+        .btn-action { color: white; font-size: 1.4rem; padding: 16px 0; }
+        .btn-conv { background-color: var(--convert-color); }
+        .btn-send { background-color: var(--send-color); }
+    </style>
 </head>
 <body>
 
-  <div id="text-preview"></div>
+<div class="container">
+    <details>
+        <summary>🔧 初期設定</summary>
+        <input type="password" id="geminiApiKey" placeholder="Gemini API Key">
+        <input type="password" id="googleToken" placeholder="Google Access Token">
+        <input type="text" id="googleDocId" placeholder="Google Doc ID">
+    </details>
 
-  <div class="control-box">
-    <button id="btn-clear" class="ctl-btn" onclick="clearAllText()">ぜんぶ消す</button>
-    <button id="btn-bs" class="ctl-btn" onclick="backspace()">1もじ消す</button>
-    <button id="btn-convert" class="ctl-btn" onclick="convertWithGemini()">かんじ にする</button>
-    <button id="btn-copy" class="ctl-btn" onclick="copyToClipboard()">原稿に うつす</button>
-  </div>
+    <div id="editor" class="editor-area"></div>
+    <div id="status" class="status"></div>
 
-  <div class="number-grid">
-    <div class="num-key" onclick="add('0')">0</div>
-    <div class="num-key" onclick="add('9')">9</div>
-    <div class="num-key" onclick="add('8')">8</div>
-    <div class="num-key" onclick="add('7')">7</div>
-    <div class="num-key" onclick="add('6')">6</div>
-    <div class="num-key" onclick="add('5')">5</div>
-    <div class="num-key" onclick="add('4')">4</div>
-    <div class="num-key" onclick="add('3')">3</div>
-    <div class="num-key" onclick="add('2')">2</div>
-    <div class="num-key" onclick="add('1')">1</div>
-  </div>
+    <div class="keyboard-section">
+        <div class="key-row">
+            <button class="btn-nav" onclick="moveLeft()">← 左へ</button>
+            <button class="btn-nav" onclick="moveRight()">右へ →</button>
+            <button class="btn-bs" onclick="deleteChar()">消す (BS)</button>
+            <button style="background-color: #f8f9fa;" onclick="insertText('\n')">改行 ↵</button>
+            <button style="background-color: #f8f9fa;" onclick="insertText('　')">全角スペース</button>
+        </div>
 
-  <div class="keyboard-grid">
-    <div class="key-btn" onclick="add('お')">お</div><div class="key-btn" onclick="add('え')">え</div><div class="key-btn" onclick="add('う')">う</div><div class="key-btn" onclick="add('い')">い</div><div class="key-btn" onclick="add('あ')">あ</div>
-    <div class="key-btn" onclick="add('こ')">こ</div><div class="key-btn" onclick="add('け')">け</div><div class="key-btn" onclick="add('く')">く</div><div class="key-btn" onclick="add('き')">き</div><div class="key-btn" onclick="add('か')">か</div>
-    <div class="key-btn" onclick="add('そ')">そ</div><div class="key-btn" onclick="add('せ')">せ</div><div class="key-btn" onclick="add('す')">す</div><div class="key-btn" onclick="add('し')">し</div><div class="key-btn" onclick="add('さ')">さ</div>
-    <div class="key-btn" onclick="add('と')">と</div><div class="key-btn" onclick="add('て')">て</div><div class="key-btn" onclick="add('つ')">つ</div><div class="key-btn" onclick="add('ち')">ち</div><div class="key-btn" onclick="add('た')">た</div>
-    <div class="key-btn" onclick="add('の')">の</div><div class="key-btn" onclick="add('ね')">ね</div><div class="key-btn" onclick="add('ぬ')">ぬ</div><div class="key-btn" onclick="add('に')">に</div><div class="key-btn" onclick="add('な')">な</div>
-    <div class="key-btn" onclick="add('ほ')">ほ</div><div class="key-btn" onclick="add('へ')">へ</div><div class="key-btn" onclick="add('ふ')">ふ</div><div class="key-btn" onclick="add('ひ')">ひ</div><div class="key-btn" onclick="add('は')">は</div>
-    <div class="key-btn" onclick="add('も')">も</div><div class="key-btn" onclick="add('め')">め</div><div class="key-btn" onclick="add('む')">む</div><div class="key-btn" onclick="add('み')">み</div><div class="key-btn" onclick="add('ま')">ま</div>
-    <div class="key-btn" onclick="add('よ')">よ</div><div class="empty"></div><div class="key-btn" onclick="add('ゆ')">ゆ</div><div class="empty"></div><div class="key-btn" onclick="add('や')">や</div>
-    <div class="key-btn" onclick="add('ろ')">ろ</div><div class="key-btn" onclick="add('れ')">れ</div><div class="key-btn" onclick="add('る')">る</div><div class="key-btn" onclick="add('り')">り</div><div class="key-btn" onclick="add('ら')">ら</div>
-    <div class="key-btn" onclick="add('ん')">ん</div><div class="key-btn" onclick="add('を')">を</div><div class="key-btn" onclick="add('、')">、</div><div class="key-btn" onclick="add('。')">。</div><div class="key-btn" onclick="add('わ')">わ</div>
-    <div class="key-btn util-key" onclick="add('ー')">ー</div><div class="key-btn util-key" onclick="add('ょ')">ょ</div><div class="key-btn util-key" onclick="add('ゅ')">ゅ</div><div class="key-btn util-key" onclick="add('ゃ')">ゃ</div><div class="key-btn util-key" onclick="add('゛')">゛／゜</div>
-  </div>
+        <div class="key-row">
+            <button onclick="insertText('（')">（</button>
+            <button onclick="insertText('）')">）</button>
+            <button onclick="insertText('［')">［</button>
+            <button onclick="insertText('］')">］</button>
+            <button onclick="insertText('｛')">｛</button>
+            <button onclick="insertText('｝')">｝</button>
+            <button onclick="insertText('「')">「</button>
+            <button onclick="insertText('」')">」</button>
+            <button onclick="insertText('、')">、</button>
+            <button onclick="insertText('。')">。</button>
+            <button onclick="insertText('・')">・</button>
+        </div>
 
-  <script>
-    const GEMINI_API_KEY = 'YOUR_API_KEY'; // ★ここにあなたのAPIキーを埋め込みます
-    const preview = document.getElementById('text-preview');
+        <div class="key-row">
+            <button onclick="insertText('あ')">あ</button><button onclick="insertText('い')">い</button><button onclick="insertText('う')">う</button><button onclick="insertText('え')">え</button><button onclick="insertText('お')">お</button>
+            <button onclick="insertText('か')">か</button><button onclick="insertText('き')">き</button><button onclick="insertText('く')">く</button><button onclick="insertText('け')">け</button><button onclick="insertText('こ')">こ</button>
+        </div>
+        <div class="key-row">
+            <button onclick="insertText('さ')">さ</button><button onclick="insertText('し')">し</button><button onclick="insertText('す')">す</button><button onclick="insertText('せ')">せ</button><button onclick="insertText('そ')">そ</button>
+            <button onclick="insertText('た')">た</button><button onclick="insertText('ち')">ち</button><button onclick="insertText('つ')">つ</button><button onclick="insertText('て')">て</button><button onclick="insertText('と')">と</button>
+        </div>
+        <div class="key-row">
+            <button onclick="insertText('な')">な</button><button onclick="insertText('に')">に</button><button onclick="insertText('ぬ')">ぬ</button><button onclick="insertText('ね')">ね</button><button onclick="insertText('の')">の</button>
+            <button onclick="insertText('は')">は</button><button onclick="insertText('ひ')">ひ</button><button onclick="insertText('ふ')">ふ</button><button onclick="insertText('へ')">へ</button><button onclick="insertText('ほ')">ほ</button>
+        </div>
+        <div class="key-row">
+            <button onclick="insertText('ま')">ま</button><button onclick="insertText('み')">み</button><button onclick="insertText('む')">む</button><button onclick="insertText('め')">め</button><button onclick="insertText('も')">も</button>
+            <button onclick="insertText('や')">や</button><button onclick="insertText('ゆ')">ゆ</button><button onclick="insertText('よ')">よ</button><button onclick="insertText('ら')">ら</button><button onclick="insertText('り')">り</button>
+        </div>
+        <div class="key-row">
+            <button onclick="insertText('る')">る</button><button onclick="insertText('れ')">れ</button><button onclick="insertText('ろ')">ろ</button><button onclick="insertText('わ')">わ</button><button onclick="insertText('を')">を</button>
+            <button onclick="insertText('ん')">ん</button><button onclick="insertText('ー')">ー</button>
+            <button style="background-color: #fff3cd;" onclick="addDakuten()">゛</button>
+            <button style="background-color: #fff3cd;" onclick="addHandakuten()">゜</button>
+            <button style="background-color: #e2e3e5;" onclick="makeSmall()">小文字</button>
+        </div>
 
-    function add(char) {
-      let current = preview.innerText;
-      
-      // 濁点・半濁点のスマート変換
-      if (char === '゛' && current.length > 0) {
-        let last = current.slice(-1);
-        let changed = toggleDaku(last);
-        if (changed !== last) {
-          preview.innerText = current.slice(0, -1) + changed;
-          return;
+        <div class="key-row" style="margin-top: 5px;">
+            <button class="btn-action btn-conv" id="btnConvert">漢字に直す (Gemini)</button>
+            <button class="btn-action btn-send" id="btnSend">本に送る (Google Docs)</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    let textBuffer = "";
+    let cursorPosition = 0;
+    const MAX_PARAGRAPHS = 3;
+
+    const editorEl = document.getElementById('editor');
+    const statusEl = document.getElementById('status');
+
+    // 設定復元
+    ['geminiApiKey', 'googleToken', 'googleDocId'].forEach(id => {
+        const saved = localStorage.getItem(id);
+        if (saved) document.getElementById(id).value = saved;
+        document.getElementById(id).addEventListener('input', (e) => localStorage.setItem(id, e.target.value));
+    });
+
+    function render() {
+        const safeBefore = escapeHtml(textBuffer.substring(0, cursorPosition));
+        const safeAfter = escapeHtml(textBuffer.substring(cursorPosition));
+        editorEl.innerHTML = safeBefore + '<span class="cursor"></span>' + safeAfter;
+        editorEl.scrollTop = editorEl.scrollHeight;
+
+        const paragraphCount = textBuffer.split('\n').length;
+        if (paragraphCount >= MAX_PARAGRAPHS && textBuffer.endsWith('\n')) {
+            showStatus("バッファが一杯です。Google Docsへ送信してください。");
         }
-      }
-      preview.innerText += char;
     }
 
-    // 1文字消す（バックスペース）
-    function backspace() {
-      let current = preview.innerText;
-      if (current.length > 0 && !current.startsWith("考え中...")) {
-        preview.innerText = current.slice(0, -1);
-      }
+    function escapeHtml(str) { return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+    function showStatus(msg) { statusEl.innerText = msg; setTimeout(() => { if(statusEl.innerText === msg) statusEl.innerText = ""; }, 5000); }
+
+    // 操作
+    function moveLeft() { if (cursorPosition > 0) { cursorPosition--; render(); } }
+    function moveRight() { if (cursorPosition < textBuffer.length) { cursorPosition++; render(); } }
+    function deleteChar() {
+        if (cursorPosition > 0) {
+            textBuffer = textBuffer.substring(0, cursorPosition - 1) + textBuffer.substring(cursorPosition);
+            cursorPosition--;
+            render();
+        }
+    }
+    function insertText(str) {
+        if (textBuffer.split('\n').length >= MAX_PARAGRAPHS && str.includes('\n')) {
+            showStatus("3段落を超える改行はできません。");
+            return;
+        }
+        textBuffer = textBuffer.substring(0, cursorPosition) + str + textBuffer.substring(cursorPosition);
+        cursorPosition += str.length;
+        render();
     }
 
-    function clearAllText() {
-      if(confirm("うっている文字を ぜんぶ消しても よろしいですか？")) {
-        preview.innerText = '';
-      }
+    // 濁点・半濁点・小文字化の特殊処理（直前の文字を変化させる）
+    function addDakuten() { modifyLastChar(/[かきくけこさしすせそたちつてとはひふへほ]/, c => String.fromCharCode(c.charCodeAt(0) + 1)); }
+    function addHandakuten() { modifyLastChar(/[はひふへほ]/, c => String.fromCharCode(c.charCodeAt(0) + 2)); }
+    function makeSmall() {
+        const map = {'あ':'ぁ','い':'ぃ','う':'ぅ','え':'ぇ','お':'ぉ','つ':'っ','や':'ゃ','ゆ':'ゅ','よ':'ょ','わ':'ゎ'};
+        const revMap = {'ぁ':'あ','ぃ':'い','ぅ':'う','ぇ':'え','ぉ':'お','っ':'つ','ゃ':'や','ゅ':'ゆ','ょ':'よ','ゎ':'わ'};
+        modifyLastChar(/[あいうえおつやゆよわぁぃぅぇぉっゃゅょゎ]/, c => map[c] || revMap[c]);
+    }
+    function modifyLastChar(regex, transformFn) {
+        if (cursorPosition > 0) {
+            let lastChar = textBuffer.charAt(cursorPosition - 1);
+            if (regex.test(lastChar)) {
+                let newChar = transformFn(lastChar);
+                textBuffer = textBuffer.substring(0, cursorPosition - 1) + newChar + textBuffer.substring(cursorPosition);
+                render();
+            }
+        }
     }
 
-    // Gemini API 漢字変換
-    async function convertWithGemini() {
-      const text = preview.innerText;
-      if (!text || text.startsWith("考え中...")) return;
+    // Gemini API
+    document.getElementById('btnConvert').addEventListener('click', async () => {
+        const apiKey = document.getElementById('geminiApiKey').value;
+        if (!apiKey || !textBuffer.trim()) return;
+        showStatus("漢字に変換中...");
+        try {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    contents: [{ parts: [{ text: `以下の文章を、前後の文脈を判断して自然な漢字仮名交じり文に変換してください。括弧などの記号はそのまま維持してください。余計な解説は一切含めず、変換後の文章だけを出力してください。\n\n${textBuffer}` }] }]
+                })
+            });
+            const data = await response.json();
+            textBuffer = data.candidates[0].content.parts[0].text.trim();
+            cursorPosition = textBuffer.length;
+            render();
+            showStatus("変換しました。");
+        } catch (e) { showStatus("変換に失敗しました。"); }
+    });
 
-      preview.innerText = "考え中... 少々お待ちください";
+    // Google Docs API
+    document.getElementById('btnSend').addEventListener('click', async () => {
+        const token = document.getElementById('googleToken').value;
+        const docId = document.getElementById('googleDocId').value;
+        if (!token || !docId || !textBuffer.trim()) return;
+        showStatus("Google Docsへ送信中...");
+        try {
+            const url = `https://docs.googleapis.com/v1/documents/${docId}:batchUpdate`;
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+                body: JSON.stringify({ requests: [{ insertText: { text: textBuffer + "\n\n", endOfSegmentLocation: {} } }] })
+            });
+            if (response.ok) {
+                showStatus("送信完了！バッファをクリアしました。");
+                textBuffer = ""; cursorPosition = 0; render();
+            } else { showStatus("送信失敗。トークンの期限切れの可能性があります。"); }
+        } catch (e) { showStatus("送信エラーが発生しました。"); }
+    });
 
-      const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
-      const prompt = `以下の【ひらがなや数字】の文章を、高齢の男性が書く「生い立ちの記（回顧録）」として、文脈に合わせた最も自然で美しい漢字混じりの文章に変換してください。数字は、文脈（西暦、元号、年齢など）に合わせて適切な漢数字または半角数字を選択して整えてください。解説や挨拶は一切省き、変換後の文章だけを返してください。\n\n【本文】\n${text}`;
-
-      try {
-        const response = await fetch(url, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
-        });
-        const data = await response.json();
-        const result = data.candidates[0].content.parts[0].text.trim();
-        preview.innerText = result;
-      } catch (error) {
-        alert("変換に失敗しました。");
-        preview.innerText = text;
-      }
-    }
-
-    // クリップボードコピー
-    function copyToClipboard() {
-      const text = preview.innerText;
-      if (!text || text.startsWith("考え中...")) return;
-
-      navigator.clipboard.writeText(text).then(() => {
-        alert("文章をコピーしました！ Googleドキュメントに貼り付けてください。");
-      }).catch(() => {
-        alert("コピーに失敗しました。");
-      });
-    }
-
-    function toggleDaku(c) {
-      const map = {
-        'か':'が','が':'か','き':'ぎ','ぎ':'き','く':'ぐ','ぐ':'く','け':'げ','げ':'け','こ':'ご','ご':'こ',
-        'さ':'ざ','ざ':'さ','し':'じ','じ':'し','す':'ず','ず':'す','せ':'ぜ','ぜ':'せ','そ':'ぞ','ぞ':'そ',
-        'た':'だ','だ':'た','ち':'ぢ','ぢ':'ち','つ':'づ','づ':'つ','て':'で','で':'て','と':'ど','ど':'と',
-        'は':'ば','ば':'ぱ','ぱ':'は','ひ':'び','び':'ぴ','ぴ':'ひ','ふ':'ぶ','ぶ':'ぷ','ぷ':'ふ','へ':'べ','べ':'ぺ','ぺ':'へ','ほ':'ぼ','ぼ':'ぽ','ぽ':'ほ'
-      };
-      return map[c] || c;
-    }
-  </script>
+    render();
+</script>
 </body>
 </html>
