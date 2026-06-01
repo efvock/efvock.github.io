@@ -3,331 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>生い立ちの記 執筆エディタ</title>
+    <title>執筆支援ツール</title>
     <style>
         :root {
-            --primary-color: #4a6fa5;
-            --convert-color: #2a9d8f;
-            --send-color: #e76f51;
-            --bg-color: #f8f9fa;
+            --bg-color: #f5f5f7;
+            --key-color: #ffffff;
+            --key-active: #e2e2e7;
+            --action-color: #0071e3;
+            --text-color: #1d1d1f;
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: var(--bg-color);
             margin: 0;
             padding: 10px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             display: flex;
             flex-direction: column;
-            align-items: center;
-            -webkit-user-select: none;
-            user-select: none;
-        }
-        .container {
-            width: 100%;
-            max-width: 900px;
+            height: 100vh;
             box-sizing: border-box;
         }
-        /* 設定エリア */
-        details {
-            background: #eee;
-            padding: 8px;
-            border-radius: 6px;
-            margin-bottom: 8px;
-            font-size: 0.8rem;
-        }
-        details input { width: 100%; margin-bottom: 5px; padding: 4px; box-sizing: border-box; }
-
-        /* エディタ画面 */
-        .editor-area {
-            width: 100%;
-            height: 180px;
-            border: 3px solid #bbb;
-            border-radius: 10px;
-            padding: 15px;
-            box-sizing: border-box;
-            font-size: 1.5rem;
-            line-height: 1.8;
-            overflow-y: auto;
+        /* バッファ表示エリア */
+        #buffer-container {
+            flex: 1;
             background: #fff;
-            white-space: pre-wrap;
-            word-wrap: break-word;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            font-size: 1.2rem;
+            line-height: 1.6;
+            overflow-y: auto;
             margin-bottom: 10px;
+            white-space: pre-wrap;
+            border: 1px solid #d2d2d7;
         }
-        .cursor {
-            display: inline-block;
-            width: 3px;
-            height: 1.4em;
-            background-color: #e63946;
-            vertical-align: middle;
-            animation: blink 1s infinite;
+        #buffer-text {
+            min-height: 100px;
+            outline: none;
         }
-        @keyframes blink { 50% { opacity: 0; } }
-
-        .status {
-            text-align: center;
-            font-size: 1rem;
-            font-weight: bold;
-            color: #4a6fa5;
-            height: 24px;
-            margin-bottom: 5px;
-        }
-
-        /* カスタムキーボード（あかさたな縦並び） */
-        .keyboard-section {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            background: #e9ecef;
+        /* キーボードエリア */
+        #keyboard {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            background: #d1d1d6;
             padding: 10px;
             border-radius: 12px;
+            user-select: none;
         }
-        .key-row {
-            display: flex;
-            justify-content: center;
-            gap: 5px;
-        }
-        button {
-            font-size: 1.25rem;
-            font-weight: bold;
-            padding: 10px 0;
-            flex: 1;
-            border: 1px solid #ced4da;
-            border-radius: 6px;
-            background-color: #fff;
-            box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+        .key {
+            background: var(--key-color);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
             cursor: pointer;
-            touch-action: manipulation;
+            transition: background 0.1s;
         }
-        button:active { background-color: #dee2e6; }
+        .key:active {
+            background: var(--key-active);
+        }
+        .key.action {
+            background: var(--action-color);
+            color: white;
+        }
+        .key.span-2 { grid-column: span 2; }
         
-        /* 特殊ボタン・機能ボタン */
-        .btn-nav { background-color: #d1e3ff; color: #1a3a60; }
-        .btn-bs { background-color: #ffccd5; color: #b7094c; }
-        .btn-sp { background-color: #f8f9fa; font-size: 1.1rem; }
-        .btn-action { color: white; font-size: 1.4rem; padding: 16px 0; margin-top: 5px;}
-        .btn-conv { background-color: var(--convert-color); }
-        .btn-send { background-color: var(--send-color); }
+        /* 記号・特殊文字エリア */
+        #symbol-bar {
+            display: flex;
+            gap: 5px;
+            overflow-x: auto;
+            padding: 5px 0;
+            margin-bottom: 5px;
+        }
+        .sym-key {
+            background: #e5e5ea;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 1rem;
+            white-space: nowrap;
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <details>
-        <summary>🔧 初期設定</summary>
-        <input type="password" id="geminiApiKey" placeholder="Gemini API Key">
-        <input type="password" id="googleToken" placeholder="Google Access Token">
-        <input type="text" id="googleDocId" placeholder="Google Doc ID">
-    </details>
-
-    <div id="editor" class="editor-area"></div>
-    <div id="status" class="status"></div>
-
-    <div class="keyboard-section">
-        <div class="key-row">
-            <button class="btn-nav" onclick="moveLeft()">← 左へ</button>
-            <button class="btn-nav" onclick="moveRight()">右へ →</button>
-            <button class="btn-bs" onclick="deleteChar()">消す (BS)</button>
-            <button class="btn-sp" onclick="insertText('\n')">改行 ↵</button>
-            <button class="btn-sp" onclick="insertText('　')">全角スペース</button>
-        </div>
-
-        <div class="key-row">
-            <button onclick="insertText('（')">（</button>
-            <button onclick="insertText('）')">）</button>
-            <button onclick="insertText('［')">［</button>
-            <button onclick="insertText('］')">］</button>
-            <button onclick="insertText('｛')">｛</button>
-            <button onclick="insertText('｝')">｝</button>
-            <button onclick="insertText('「')">「</button>
-            <button onclick="insertText('」')">」</button>
-            <button onclick="insertText('、')">、</button>
-            <button onclick="insertText('。')">。</button>
-            <button onclick="insertText('・')">・</button>
-        </div>
-
-        <div class="key-row">
-            <button onclick="insertText('あ')">あ</button>
-            <button onclick="insertText('か')">か</button>
-            <button onclick="insertText('さ')">さ</button>
-            <button onclick="insertText('た')">た</button>
-            <button onclick="insertText('な')">な</button>
-            <button onclick="insertText('は')">は</button>
-            <button onclick="insertText('ま')">ま</button>
-            <button onclick="insertText('や')">や</button>
-            <button onclick="insertText('ら')">ら</button>
-            <button onclick="insertText('わ')">わ</button>
-        </div>
-        <div class="key-row">
-            <button onclick="insertText('い')">い</button>
-            <button onclick="insertText('き')">き</button>
-            <button onclick="insertText('し')">し</button>
-            <button onclick="insertText('ち')">ち</button>
-            <button onclick="insertText('に')">に</button>
-            <button onclick="insertText('ひ')">ひ</button>
-            <button onclick="insertText('み')">み</button>
-            <button style="background-color:#e9ecef; border:none; box-shadow:none;" disabled></button> <button onclick="insertText('り')">り</button>
-            <button onclick="insertText('を')">を</button>
-        </div>
-        <div class="key-row">
-            <button onclick="insertText('う')">う</button>
-            <button onclick="insertText('く')">く</button>
-            <button onclick="insertText('す')">す</button>
-            <button onclick="insertText('つ')">つ</button>
-            <button onclick="insertText('ぬ')">ぬ</button>
-            <button onclick="insertText('ふ')">ふ</button>
-            <button onclick="insertText('む')">む</button>
-            <button onclick="insertText('ゆ')">ゆ</button>
-            <button onclick="insertText('る')">る</button>
-            <button onclick="insertText('ん')">ん</button>
-        </div>
-        <div class="key-row">
-            <button onclick="insertText('え')">え</button>
-            <button onclick="insertText('け')">け</button>
-            <button onclick="insertText('せ')">せ</button>
-            <button onclick="insertText('て')">て</button>
-            <button onclick="insertText('ね')">ね</button>
-            <button onclick="insertText('へ')">へ</button>
-            <button onclick="insertText('め')">め</button>
-            <button style="background-color:#e9ecef; border:none; box-shadow:none;" disabled></button> <button onclick="insertText('れ')">れ</button>
-            <button onclick="insertText('ー')">ー</button>
-        </div>
-        <div class="key-row">
-            <button onclick="insertText('お')">お</button>
-            <button onclick="insertText('こ')">こ</button>
-            <button onclick="insertText('そ')">そ</button>
-            <button onclick="insertText('と')">と</button>
-            <button onclick="insertText('の')">の</button>
-            <button onclick="insertText('ほ')">ほ</button>
-            <button onclick="insertText('も')">も</button>
-            <button onclick="insertText('よ')">よ</button>
-            <button onclick="insertText('ろ')">ろ</button>
-            <button style="background-color: #fff3cd; font-size: 1.1rem;" onclick="addDakuten()">゛</button>
-        </div>
-        <div class="key-row">
-            <button style="background-color:#e9ecef; border:none; box-shadow:none; flex:8;" disabled></button>
-            <button style="background-color: #fff3cd; font-size: 1.1rem;" onclick="addHandakuten()">゜</button>
-            <button style="background-color: #e2e3e5; font-size: 1.1rem;" onclick="makeSmall()">小文字</button>
-        </div>
-
-        <div class="key-row">
-            <button class="btn-action btn-conv" id="btnConvert">漢字に直す (Gemini)</button>
-            <button class="btn-action btn-send" id="btnSend">本に送る (Google Docs)</button>
-        </div>
+    <div id="buffer-container">
+        <div id="buffer-text" contenteditable="true" placeholder="ここに文字が入力されます..."></div>
     </div>
-</div>
 
-<script>
-    let textBuffer = "";
-    let cursorPosition = 0;
-    const MAX_PARAGRAPHS = 3;
+    <div id="symbol-bar">
+        <button class="sym-key" onclick="insertText('{')">{</button>
+        <button class="sym-key" onclick="insertText('}')">}</button>
+        <button class="sym-key" onclick="insertText('[')">[</button>
+        <button class="sym-key" onclick="insertText(']')">]</button>
+        <button class="sym-key" onclick="insertText('(')">(</button>
+        <button class="sym-key" onclick="insertText(')')">)</button>
+        <button class="sym-key" onclick="insertText('<')">&lt;</button>
+        <button class="sym-key" onclick="insertText('>')">&gt;</button>
+        <button class="sym-key" onclick="insertText('「')">「</button>
+        <button class="sym-key" onclick="insertText('」')">」</button>
+        <button class="sym-key" onclick="insertText('、')">、</button>
+        <button class="sym-key" onclick="insertText('。')">。</button>
+    </div>
 
-    const editorEl = document.getElementById('editor');
-    const statusEl = document.getElementById('status');
+    <div id="keyboard">
+        <button class="key" onclick="insertText('あ')">あ</button>
+        <button class="key" onclick="insertText('か')">か</button>
+        <button class="key" onclick="insertText('さ')">さ</button>
+        <button class="key" onclick="handleBS()">BS</button>
 
-    // 初期設定の読み込み
-    ['geminiApiKey', 'googleToken', 'googleDocId'].forEach(id => {
-        const saved = localStorage.getItem(id);
-        if (saved) document.getElementById(id).value = saved;
-        document.getElementById(id).addEventListener('input', (e) => localStorage.setItem(id, e.target.value));
-    });
+        <button class="key" onclick="insertText('た')">た</button>
+        <button class="key" onclick="insertText('な')">な</button>
+        <button class="key" onclick="insertText('ま')">ま</button>
+        <button class="key" onclick="moveCursor(-1)">←</button>
 
-    function render() {
-        const safeBefore = escapeHtml(textBuffer.substring(0, cursorPosition));
-        const safeAfter = escapeHtml(textBuffer.substring(cursorPosition));
-        editorEl.innerHTML = safeBefore + '<span class="cursor"></span>' + safeAfter;
-        editorEl.scrollTop = editorEl.scrollHeight;
+        <button class="key" onclick="insertText('や')">や</button>
+        <button class="key" onclick="insertText('ら')">ら</button>
+        <button class="key" onclick="insertText('わ')">わ</button>
+        <button class="key" onclick="moveCursor(1)">→</button>
 
-        const paragraphCount = textBuffer.split('\n').length;
-        if (paragraphCount >= MAX_PARAGRAPHS && textBuffer.endsWith('\n')) {
-            showStatus("バッファが一杯です。Google Docsへ送信してください。");
+        <button class="key action span-2" onclick="translateWithGemini()">Gemini 変換</button>
+        <button class="key action span-2" style="background:#34c759;" onclick="sendToGoogleDocs()">Docs 転送</button>
+    </div>
+
+    <script>
+        const GEMINI_API_KEY = "YOUR_GEMINI_API_KEY"; 
+        const GAS_WEBAPP_URL = "YOUR_GAS_WEB_APP_URL"; // Google Docs転送用GAS URL
+
+        const buffer = document.getElementById('buffer-text');
+
+        // 文字挿入（カーソル位置への挿入を考慮）
+        function insertText(text) {
+            buffer.focus();
+            const selection = window.getSelection();
+            if (!selection.rangeCount) return;
+            const range = selection.getRangeAt(0);
+            range.deleteContents();
+            const textNode = document.createTextNode(text);
+            range.insertNode(textNode);
+            
+            // カーソルを入力した文字の後ろに移動
+            range.setStartAfter(textNode);
+            range.setEndAfter(textNode);
+            selection.removeAllRanges();
+            selection.addRange(range);
+            
+            // 必要に応じて自動変換トリガーをここに仕込む（文字数カウントなど）
         }
-    }
 
-    function escapeHtml(str) { return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
-    function showStatus(msg) { statusEl.innerText = msg; setTimeout(() => { if(statusEl.innerText === msg) statusEl.innerText = ""; }, 5000); }
-
-    // ボタン操作
-    function moveLeft() { if (cursorPosition > 0) { cursorPosition--; render(); } }
-    function moveRight() { if (cursorPosition < textBuffer.length) { cursorPosition++; render(); } }
-    function deleteChar() {
-        if (cursorPosition > 0) {
-            textBuffer = textBuffer.substring(0, cursorPosition - 1) + textBuffer.substring(cursorPosition);
-            cursorPosition--;
-            render();
+        // バックスペース
+        function handleBS() {
+            buffer.focus();
+            document.execCommand('delete', false, null);
         }
-    }
-    function insertText(str) {
-        if (textBuffer.split('\n').length >= MAX_PARAGRAPHS && str.includes('\n')) {
-            showStatus("3段落を超える改行はできません。");
-            return;
-        }
-        textBuffer = textBuffer.substring(0, cursorPosition) + str + textBuffer.substring(cursorPosition);
-        cursorPosition += str.length;
-        render();
-    }
 
-    // 濁点・半濁点・小文字
-    function addDakuten() { modifyLastChar(/[かきくけこさしすせそたちつてとはひふへほ]/, c => String.fromCharCode(c.charCodeAt(0) + 1)); }
-    function addHandakuten() { modifyLastChar(/[はひふへほ]/, c => String.fromCharCode(c.charCodeAt(0) + 2)); }
-    function makeSmall() {
-        const map = {'あ':'ぁ','い':'ぃ','う':'ぅ','え':'ぇ','お':'ぉ','つ':'っ','や':'ゃ','ゆ':'ゅ','よ':'ょ','わ':'ゎ'};
-        const revMap = {'ぁ':'あ','ぃ':'い','ぅ':'う','ぇ':'え','ぉ':'お','っ':'つ','ゃ':'や','ゅ':'ゆ','ょ':'よ','ゎ':'わ'};
-        modifyLastChar(/[あいうえおつやゆよわぁぃぅぇぉっゃゅょゎ]/, c => map[c] || revMap[c]);
-    }
-    function modifyLastChar(regex, transformFn) {
-        if (cursorPosition > 0) {
-            let lastChar = textBuffer.charAt(cursorPosition - 1);
-            if (regex.test(lastChar)) {
-                let newChar = transformFn(lastChar);
-                textBuffer = textBuffer.substring(0, cursorPosition - 1) + newChar + textBuffer.substring(cursorPosition);
-                render();
+        // カーソル移動
+        function moveCursor(direction) {
+            buffer.focus();
+            const selection = window.getSelection();
+            if (selection.rangeCount > 0) {
+                const range = selection.getRangeAt(0);
+                // 簡易的なカーソル移動処理（※contenteditableの仕様上、厳密にはノードを跨ぐ処理が必要）
+                if (direction === -1) {
+                    window.getSelection().modify("move", "backward", "character");
+                } else {
+                    window.getSelection().modify("move", "forward", "character");
+                }
             }
         }
-    }
 
-    // Gemini
-    document.getElementById('btnConvert').addEventListener('click', async () => {
-        const apiKey = document.getElementById('geminiApiKey').value;
-        if (!apiKey || !textBuffer.trim()) return;
-        showStatus("漢字に変換中...");
-        try {
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    contents: [{ parts: [{ text: `以下の文章を、前後の文脈を判断して自然な漢字仮名交じり文に変換してください。括弧などの記号はそのまま維持してください。余計な解説は一切含めず、変換後の文章だけを出力してください。\n\n${textBuffer}` }] }]
-                })
-            });
-            const data = await response.json();
-            textBuffer = data.candidates[0].content.parts[0].text.trim();
-            cursorPosition = textBuffer.length;
-            render();
-            showStatus("変換しました。");
-        } catch (e) { showStatus("変換に失敗しました。"); }
-    });
+        // Gemini APIを使った漢字仮名交じり文への変換
+        async function translateWithGemini() {
+            const currentText = buffer.innerText;
+            if (!currentText.trim()) return;
 
-    // Google Docs
-    document.getElementById('btnSend').addEventListener('click', async () => {
-        const token = document.getElementById('googleToken').value;
-        const docId = document.getElementById('googleDocId').value;
-        if (!token || !docId || !textBuffer.trim()) return;
-        showStatus("Google Docsへ送信中...");
-        try {
-            const url = `https://docs.googleapis.com/v1/documents/${docId}:batchUpdate`;
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
-                body: JSON.stringify({ requests: [{ insertText: { text: textBuffer + "\n\n", endOfSegmentLocation: {} } }] })
-            });
-            if (response.ok) {
-                showStatus("送信完了！バッファをクリアしました。");
-                textBuffer = ""; cursorPosition = 0; render();
-            } else { showStatus("送信失敗。トークンを確認してください。"); }
-        } catch (e) { showStatus("送信エラーが発生しました。"); }
-    });
+            buffer.innerText = "変換中...";
 
-    render();
-</script>
+            const prompt = `以下のひらがなを主体とした文章を、文脈を判断して読みやすい「漢字仮名交じり文」に変換してください。余計な解説や挨拶は一切含めず、変換後の文章だけを出力してください。\n\n${currentText}`;
+
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: prompt }] }]
+                    })
+                });
+                const data = await response.json();
+                const resultText = data.candidates[0].content.parts[0].text;
+                
+                // バッファに変換結果を反映
+                buffer.innerText = resultText.trim();
+            } catch (error) {
+                alert("変換に失敗しました: " + error);
+                buffer.innerText = currentText; // 元に戻す
+            }
+        }
+
+        // Google Docsへの転送（GAS経由）
+        async function sendToGoogleDocs() {
+            const textToSend = buffer.innerText;
+            if (!textToSend.trim()) return;
+
+            if (!confirm("この内容を Google Docs に追加してバッファをクリアしますか？")) return;
+
+            try {
+                const response = await fetch(GAS_WEBAPP_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({ text: textToSend }),
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                
+                // 成功したらバッファをクリア
+                buffer.innerText = "";
+                alert("Google Docsに転送しました。");
+            } catch (error) {
+                alert("転送に失敗しました: " + error);
+            }
+        }
+    </script>
 </body>
 </html>
