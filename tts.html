@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Gemini 最小TTSテスト</title>
+    <style>
+        body {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            height: 100vh; background-color: #121212; color: white; font-family: sans-serif;
+        }
+        button {
+            padding: 15px 30px; font-size: 18px; cursor: pointer;
+            background-color: #4285F4; color: white; border: none; border-radius: 5px; font-weight: bold;
+        }
+        button:disabled { background-color: #555; cursor: not-allowed; }
+        #text-preview { margin-bottom: 20px; font-size: 24px; text-align: center; line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+    <div id="text-preview">
+        俺が、がん。<br>
+        しかも、喉に。<br>
+        45歳で。<br>
+        嘘やろ。
+    </div>
+
+    <button id="play-btn">音声を生成して再生</button>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/genai": "https://esm.run/@google/genai"
+        }
+      }
+    </script>
+
+    <script type="module">
+        import { GoogleGenAI } from '@google/genai';
+
+        const textToSpeak = `
+        俺が、がん。
+        しかも、喉に。
+        45歳で。
+        嘘やろ。
+        `;
+
+        document.getElementById('play-btn').addEventListener('click', async () => {
+            const apiKey = prompt("Google AI Studio の APIキーを入力してください:");
+            if (!apiKey) return;
+
+            const btn = document.getElementById('play-btn');
+            btn.innerText = "Geminiが思考＆発声中...";
+            btn.disabled = true;
+
+            try {
+                // 1. SDKの初期化
+                const ai = new GoogleGenAI({ apiKey: apiKey });
+
+                // 2. 音声マルチモーダル出力が可能な gemini-2.0-flash を指定
+                const response = await ai.models.generateContent({
+                    model: 'gemini-2.0-flash',
+                    contents: `
+                    以下のセリフを、45歳で突然ガンを宣告された男の絶望感、かすれ声、
+                    言葉にならない息の漏れ（ブレス）を極限までリアルに表現して、
+                    「音声のみ」で音読してください。余計な解説のナレーションは一切不要です。
+                    
+                    セリフ：
+                    ${textToSpeak}
+                    `,
+                    config: {
+                        // 正しい音声要求パラメータ：responseModalities
+                        responseModalities: ["AUDIO"],
+                        // 読み上げボイス（音声の種類）を指定
+                        speechConfig: {
+                            voiceConfig: {
+                                prebuiltVoiceConfig: {
+                                    // 男性系の声（Aoede, Charon, Fenrir, Puck などから選択可能）
+                                    voiceName: "Puck" 
+                                }
+                            }
+                        }
+                    }
+                });
+
+                // 3. レスポンスから音声バイナリ（Base64）を正確に取り出す
+                const candidate = response.candidates?.[0];
+                const part = candidate?.content?.parts?.find(p => p.inlineData);
+
+                if (!part || !part.inlineData || !part.inlineData.data) {
+                    throw new Error("音声データがレスポンスに含まれていませんでした。");
+                }
+
+                const base64Data = part.inlineData.data;
+                const mimeType = part.inlineData.mimeType || "audio/mp3"; // 通常はaudio/mp3形式で返ります
+
+                // 4. Base64をBlobに変換して再生
+                const audioBytes = Uint8Array.from(atob(base64Data), c => c.charCodeAt(0));
+                const blob = new Blob([audioBytes], { type: mimeType });
+                const audioUrl = URL.createObjectURL(blob);
+                
+                const audio = new Audio(audioUrl);
+                await audio.play();
+
+            } catch (error) {
+                alert('エラーが発生しました:\n' + error.message);
+                console.error(error);
+            } finally {
+                btn.innerText = "音声を生成して再生";
+                btn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

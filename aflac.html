@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aflac CM風 TTS プレイヤー</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        .cm-text {
+            background: #222;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: left;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+        }
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            font-size: 0.85rem;
+            color: #7f8c8d;
+            margin-bottom: 5px;
+        }
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        button:disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+        }
+        .status {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Aflac CM風 音声合成</h1>
+    
+    <div class="cm-text">
+        俺が、がん。<br>
+        しかも、喉に。<br>
+        45歳で。<br>
+        嘘やろ。
+    </div>
+
+    <div class="input-group">
+        <label for="apiKey">Google Cloud API Key:</label>
+        <input type="password" id="apiKey" placeholder="AIzaSy..." />
+    </div>
+
+    <button id="playBtn" onclick="generateSpeech()">声を再生する</button>
+    
+    <div id="status" class="status"></div>
+</div>
+
+<script>
+async function generateSpeech() {
+    const apiKey = document.getElementById('apiKey').value.trim();
+    const statusDiv = document.getElementById('status');
+    const playBtn = document.getElementById('playBtn');
+
+    if (!apiKey) {
+        statusDiv.innerText = 'APIキーを入力してください。';
+        return;
+    }
+
+    statusDiv.innerText = '音声生成中...';
+    playBtn.disabled = true;
+
+    // Aflac風の抑揚と間（ま）を表現するSSML
+    // pitchで声のトーンを低く、rateで少し遅めに喋らせ、breakで絶望感を演出
+    const ssmlText = `
+        <speak>
+            <prosody pitch="-3st" rate="0.85">
+                俺が、がん。
+                <break time="1.2s"/>
+                しかも、
+                <break time="0.2s"/>
+                喉に。
+                <break time="1.5s"/>
+                45歳で。
+                <break time="1.8s"/>
+                嘘やろ。
+            </prosody>
+        </speak>
+    `.trim();
+
+    const url = `https://texttospeech.googleapis.com/v1/text:synthesize?key=${apiKey}`;
+    
+    const requestBody = {
+        input: { ssml: ssmlText },
+        voice: {
+            languageCode: "ja-JP",
+            name: "ja-JP-Wavenet-B" // 落ち着いた大人の男性の声
+        },
+        audioConfig: {
+            audioEncoding: "MP3",
+            speakingRate: 1.0 // 基本速度（SSML側で細かく制御）
+        }
+    };
+
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestBody)
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.error.message || 'APIエラーが発生しました。');
+        }
+
+        const data = await response.json();
+        statusDiv.innerText = '';
+
+        // Base64デコードしてオーディオ再生
+        const audioBytes = data.audioContent;
+        const audioUrl = `data:audio/mp3;base64,${audioBytes}`;
+        const audio = new Audio(audioUrl);
+        audio.play();
+
+    } catch (error) {
+        console.error(error);
+        statusDiv.innerText = `エラー: ${error.message}`;
+    } finally {
+        playBtn.disabled = false;
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,525 +1,109 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>マルチモード・フリックエディタ</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gemini CM風 音声生成プレイヤー</title>
     <style>
-        :root {
-            --bg-color: #f5f5f7;
-            --key-bg: #ffffff;
-            --key-active: #e0e0e0;
-            --text-color: #333333;
-            --border-color: #cccccc;
-            --accent-color: #007aff;
-            --fn-key-bg: #b0b5bc;
-        }
-
-        * {
-            box-sizing: border-box;
-            user-select: none;
-            -webkit-user-select: none;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        /* エディタのバッファ（テキストエリア） */
-        #buffer-container {
-            flex: 1;
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        #buffer {
-            flex: 1;
-            width: 100%;
-            padding: 15px;
-            font-size: 18px;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            resize: none;
-            outline: none;
-            background-color: #ffffff;
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
-            /* カーソル移動と選択を許可するため、テキストエリアだけは選択可能にする */
-            user-select: text;
-            -webkit-user-select: text;
-        }
-
-        /* モードインジケーター */
-        #mode-indicator {
-            padding: 2px 10px;
-            font-size: 12px;
-            text-align: right;
-            color: #666;
-            background-color: #e5e7eb;
-        }
-
-        /* キーボード外枠 */
-        #keyboard {
-            background-color: #d1d5db;
-            padding: 6px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 6px;
-            padding-bottom: env(safe-area-inset-bottom, 6px);
-        }
-
-        /* 各キーのスタイル */
-        .key {
-            background-color: var(--key-bg);
-            height: 55px;
-            border-radius: 6px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            font-size: 18px;
-            font-weight: 500;
-            position: relative;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-            cursor: pointer;
-            touch-action: none;
-        }
-
-        .key:active, .key.active {
-            background-color: var(--key-active);
-        }
-
-        .sub-chars {
-            font-size: 9px;
-            color: #777;
-            margin-top: 1px;
-            white-space: nowrap;
-        }
-
-        /* 機能キー（削除、モード切替など） */
-        .functional-key {
-            background-color: var(--fn-key-bg);
-            font-size: 14px;
-        }
-        
-        .mode-key {
-            background-color: #9ca3af;
-            font-weight: bold;
-            color: #fff;
-        }
-
-        /* フリックプレビュー（ポップアップ用） */
-        #flick-preview {
-            position: absolute;
-            display: none;
-            pointer-events: none;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 8px 18px;
-            border-radius: 8px;
-            font-size: 22px;
-            font-weight: bold;
-            z-index: 1000;
-            transform: translate(-50%, -100%);
-            margin-top: -20px;
-        }
+      body {
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        background-color: #f4f6f9;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .container {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        max-width: 450px;
+        width: 100%;
+        text-align: center;
+      }
+      h1 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        color: #2c3e50;
+      }
+      .cm-text {
+        background: #222;
+        color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: left;
+        font-size: 1.2rem;
+        line-height: 1.8;
+        margin-bottom: 20px;
+        font-weight: bold;
+        letter-spacing: 0.1em;
+        white-space: pre-line;
+      }
+      .input-group {
+        margin-bottom: 20px;
+        text-align: left;
+      }
+      label {
+        display: block;
+        font-size: 0.85rem;
+        color: #7f8c8d;
+        margin-bottom: 5px;
+      }
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 0.9rem;
+      }
+      button {
+        background-color: #9b59b6;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        font-size: 1rem;
+        border-radius: 6px;
+        cursor: pointer;
+        width: 100%;
+        transition: background 0.2s;
+      }
+      button:hover {
+        background-color: #8e44ad;
+      }
+      button:disabled {
+        background-color: #bdc3c7;
+        cursor: not-allowed;
+      }
+      .status {
+        margin-top: 15px;
+        font-size: 0.9rem;
+        color: #e74c3c;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Gemini 生音声合成</h1>
 
-    <div id="buffer-container">
-        <textarea id="buffer" placeholder="画面をタップしてカーソルを移動できます..." inputmode="none"></textarea>
+      <div class="cm-text">俺が、がん。
+しかも、喉に。
+45歳で。
+嘘やろ。</div>
+
+      <div class="input-group">
+        <label for="apiKey">Gemini API Key (Google AI Studioで取得):</label>
+        <input type="password" id="apiKey" placeholder="AIzaSy..." />
+      </div>
+
+      <button id="playBtn" onclick="generateSpeech()">Geminiの声を聞く</button>
+
+      <div id="status" class="status"></div>
     </div>
 
-    <div id="mode-indicator">モード: ひらがな</div>
-
-    <div id="flick-preview"></div>
-
-    <div id="keyboard">
-        </div>
-
-    <script>
-        // キーボードの文字マッピング定義
-        const keyLayouts = {
-            kana: [
-                { id: '1', base: 'あ', label: 'あ', sub: 'い う え お' },
-                { id: '2', base: 'か', label: 'か', sub: 'き く け こ' },
-                { id: '3', base: 'さ', label: 'さ', sub: 'し す せ そ' },
-                { id: '4', base: 'た', label: 'た', sub: 'ち つ て と' },
-                { id: '5', base: 'な', label: 'な', sub: 'に ぬ ね の' },
-                { id: '6', base: 'は', label: 'は', sub: 'ひ ふ へ ほ' },
-                { id: '7', base: 'ま', label: 'ま', sub: 'み む め も' },
-                { id: '8', base: 'や', label: 'や', sub: '（ ゆ ） よ' },
-                { id: '9', base: 'ら', label: 'ら', sub: 'り る れ ろ' },
-                { id: 'mod', label: '小 ゛ ゜', action: 'mod' },
-                { id: '0', base: 'わ', label: 'わ', sub: 'を ん ー ～' },
-                { id: 'del', label: '削除', action: 'delete' },
-                { id: 'mode', label: '英数記へ', action: 'next-mode' },
-                { id: 'space', base: ' 　', label: '空白', sub: '　 　 　 　' }, // トグル/フリックで全角半角切り替え等
-                { id: 'enter', label: '改行', action: 'enter' }
-            ],
-            alpha: [
-                { id: '1', base: '@', label: '@', sub: '. _ - /' },
-                { id: '2', base: 'a', label: 'abc', sub: 'b c A B C' },
-                { id: '3', base: 'd', label: 'def', sub: 'e f D E F' },
-                { id: '4', base: 'g', label: 'ghi', sub: 'h i G H I' },
-                { id: '5', base: 'j', label: 'jkl', sub: 'k l J K L' },
-                { id: '6', base: 'm', label: 'mno', sub: 'n o M N O' },
-                { id: '7', base: 'p', label: 'pqrs', sub: 'q r s P' },
-                { id: '8', base: 't', label: 'tuv', sub: 'u v T U V' },
-                { id: '9', base: 'w', label: 'wxyz', sub: 'x y z W' },
-                { id: 'mod', label: '大/小', action: 'case' },
-                { id: '0', base: '.', label: '.,-', sub: ', - ? !' },
-                { id: 'del', label: '削除', action: 'delete' },
-                { id: 'mode', label: '数字へ', action: 'next-mode' },
-                { id: 'space', base: ' ', label: '空白', sub: ' 　  ' },
-                { id: 'enter', label: '改行', action: 'enter' }
-            ],
-            num: [
-                { id: '1', base: '1', label: '1', sub: '① ㈠ 1 1' },
-                { id: '2', base: '2', label: '2', sub: '② ㈡ 2 2' },
-                { id: '3', base: '3', label: '3', sub: '③ ㈢ 3 3' },
-                { id: '4', base: '4', label: '4', sub: '④ ㈣ 4 4' },
-                { id: '5', base: '5', label: '5', sub: '⑤ ㈤ 5 5' },
-                { id: '6', base: '6', label: '6', sub: '⑥ ㈥ 6 6' },
-                { id: '7', base: '7', label: '7', sub: '⑦ ㈦ 7 7' },
-                { id: '8', base: '8', label: '8', sub: '⑧ ㈧ 8 8' },
-                { id: '9', base: '9', label: '9', sub: '⑨ ㈨ 9 9' },
-                { id: 'dummy', label: '・', action: 'none' },
-                { id: '0', base: '0', label: '0', sub: '⓪ ㈩ 0 0' },
-                { id: 'del', label: '削除', action: 'delete' },
-                { id: 'mode', label: 'かなへ', action: 'next-mode' },
-                { id: 'space', base: ' ', label: '空白', sub: ' 　  ' },
-                { id: 'enter', label: '改行', action: 'enter' }
-            ]
-        };
-
-        // フリック方向ごとの文字リスト詳細定義
-        const flickChars = {
-            // かな
-            'あ': ['あ', 'い', 'う', 'え', 'お'], 'か': ['か', 'き', 'く', 'け', 'こ'], 'さ': ['さ', 'し', 'す', 'せ', 'そ'],
-            'た': ['た', 'ち', 'つ', 'て', 'と'], 'な': ['な', 'に', 'ぬ', 'ね', 'の'], 'は': ['は', 'ひ', 'ふ', 'へ', 'ほ'],
-            'ま': ['ま', 'み', 'む', 'め', 'も'], 'や': ['や', '（', 'ゆ', '）', 'よ'], 'ら': ['ら', 'り', 'る', 'れ', 'ろ'],
-            'わ': ['わ', 'を', 'ん', 'ー', '～'], ' 　': [' ', '　', ' ', '　', ' '],
-            // 英字
-            '@': ['@', '.', '_', '-', '/'],
-            'a': ['a', 'b', 'c', 'A', 'B'], 'd': ['d', 'e', 'f', 'D', 'E'], 'g': ['g', 'h', 'i', 'G', 'H'],
-            'j': ['j', 'k', 'l', 'J', 'K'], 'm': ['m', 'n', 'o', 'M', 'N'], 'p': ['p', 'q', 'r', 's', 'P'],
-            't': ['t', 'u', 'v', 'T', 'U'], 'w': ['w', 'x', 'y', 'z', 'W'], '.': ['.', ',', '-', '?', '!'],
-            // 数字
-            '1': ['1', '①', '!', '1', '1'], '2': ['2', '②', '"', '2', '2'], '3': ['3', '③', '#', '3', '3'],
-            '4': ['4', '④', '$', '4', '4'], '5': ['5', '⑤', '%', '5', '5'], '6': ['6', '⑥', '&', '6', '6'],
-            '7': ['7', '⑦', '\'', '7', '7'], '8': ['8', '⑧', '(', '8', '8'], '9': ['9', '⑨', ')', '9', '9'],
-            '0': ['0', '⓪', '~', '0', '0'], ' ': [' ', '　', ' ', '　', ' ']
-        };
-
-        // かな特殊変形
-        const modMap = {
-            'か': 'が', 'が': 'か', 'き': 'ぎ', 'ぎ': 'き', 'く': 'ぐ', 'ぐ': 'く', 'け': 'げ', 'げ': 'け', 'こ': 'ご', 'ご': 'こ',
-            'さ': 'ざ', 'ざ': 'さ', 'し': 'じ', 'じ': 'し', 'す': 'ず', 'ず': 'す', 'せ': 'ぜ', 'ぜ': 'せ', 'そ': 'ぞ', 'ぞ': 'そ',
-            'た': 'だ', 'だ': 'た', 'ち': 'ぢ', 'ぢ': 'ち', 'つ': 'づ', 'づ': 'っ', 'っ': 'つ', 'て': 'で', 'で': 'て', 'と': 'ど', 'ど': 'と',
-            'は': 'ば', 'ば': 'ぱ', 'ぱ': 'は', 'ひ': 'び', 'び': 'ぴ', 'ぴ': 'ひ', 'ふ': 'ぶ', 'ぶ': 'ぷ', 'ぷ': 'ふ', 'へ': 'べ', 'べ': 'ぺ', 'ぺ': 'へ', 'ほ': 'ぼ', 'ぼ': 'ぽ', 'ぽ': 'ほ',
-            'あ': 'ぁ', 'ぁ': 'あ', 'い': 'ぃ', 'ぃ': 'い', 'う': 'ぅ', 'ぅ': 'う', 'え': 'ぇ', 'ぇ': 'え', 'お': 'ぉ', 'ぉ': 'お',
-            'や': 'ゃ', 'ゃ': 'や', 'ゆ': 'ゅ', 'ゅ': 'ゆ', 'よ': 'ょ', 'よ': 'よ', 'わ': 'ゎ', 'ゎ': 'わ'
-        };
-
-        const buffer = document.getElementById('buffer');
-        const preview = document.getElementById('flick-preview');
-        const indicator = document.getElementById('mode-indicator');
-        const keyboard = document.getElementById('keyboard');
-        
-        let currentMode = 'kana'; // 'kana' | 'alpha' | 'num'
-        let lastKeyId = null;
-        let toggleIndex = 0;
-        let timer = null;
-
-        // タッチ/フリック追跡
-        let startX = 0, startY = 0;
-        let currentKeyEl = null;
-        let isFlicking = false;
-        const FLICK_THRESHOLD = 30;
-
-        // キーボードUIの生成
-        function renderKeyboard() {
-            keyboard.innerHTML = '';
-            const layout = keyLayouts[currentMode];
-            
-            layout.forEach(k => {
-                const div = document.createElement('div');
-                div.className = 'key';
-                if (k.action) {
-                    div.classList.add('functional-key');
-                    if (k.action === 'next-mode') div.classList.add('mode-key');
-                }
-                
-                div.setAttribute('data-id', k.id);
-                if (k.base) div.setAttribute('data-key', k.base);
-                if (k.action) div.setAttribute('data-action', k.action);
-
-                div.innerHTML = k.label;
-                if (k.sub) {
-                    const span = document.createElement('span');
-                    span.className = 'sub-chars';
-                    span.textContent = k.sub;
-                    div.appendChild(span);
-                }
-
-                // イベント登録
-                bindKeyEvents(div);
-                keyboard.appendChild(div);
-            });
-
-            // モード表示更新
-            const modeNames = { kana: 'ひらがな', alpha: 'アルファベット (a-A)', num: '数字・記号' };
-            indicator.textContent = `モード: ${modeNames[currentMode]}`;
-        }
-
-        function commit() {
-            lastKeyId = null;
-            toggleIndex = 0;
-            if (timer) clearTimeout(timer);
-        }
-
-        // カーソル位置を考慮したテキスト挿入・置換
-        function insertCharAtCursor(char, isToggle = false) {
-            const start = buffer.selectionStart;
-            const end = buffer.selectionEnd;
-            const text = buffer.value;
-
-            if (isToggle && lastKeyId !== null) {
-                // カーソルの直前の1文字を置き換える
-                const newText = text.slice(0, start - 1) + char + text.slice(end);
-                buffer.value = newText;
-                buffer.setSelectionRange(start, start); // カーソル位置を維持
-            } else {
-                // 新規挿入
-                const newText = text.slice(0, start) + char + text.slice(end);
-                buffer.value = newText;
-                const newPos = start + char.length;
-                buffer.setSelectionRange(newPos, newPos); // カーソルを進める
-            }
-            buffer.focus();
-        }
-
-        function deleteAtCursor() {
-            const start = buffer.selectionStart;
-            const end = buffer.selectionEnd;
-            const text = buffer.value;
-
-            if (start === 0 && end === 0) return;
-
-            if (start === end) {
-                // 通常の1文字削除（カーソルの左側）
-                buffer.value = text.slice(0, start - 1) + text.slice(end);
-                buffer.setSelectionRange(start - 1, start - 1);
-            } else {
-                // 範囲選択されている場合はその範囲を削除
-                buffer.value = text.slice(0, start) + text.slice(end);
-                buffer.setSelectionRange(start, start);
-            }
-            buffer.focus();
-        }
-
-        function modifyAtCursor() {
-            const start = buffer.selectionStart;
-            const text = buffer.value;
-            if (start === 0) return;
-
-            const targetChar = text.charAt(start - 1);
-            
-            if (currentMode === 'kana' && modMap[targetChar]) {
-                buffer.value = text.slice(0, start - 1) + modMap[targetChar] + text.slice(start);
-                buffer.setSelectionRange(start, start);
-            } else if (currentMode === 'alpha') {
-                // アルファベットの大文字小文字反転
-                let nextChar = targetChar;
-                if (targetChar >= 'a' && targetChar <= 'z') nextChar = targetChar.toUpperCase();
-                else if (targetChar >= 'A' && targetChar <= 'Z') nextChar = targetChar.toLowerCase();
-                
-                buffer.value = text.slice(0, start - 1) + nextChar + text.slice(start);
-                buffer.setSelectionRange(start, start);
-            }
-            buffer.focus();
-        }
-
-        // フリック方向算出
-        function getFlickDirection(dx, dy) {
-            if (Math.abs(dx) < FLICK_THRESHOLD && Math.abs(dy) < FLICK_THRESHOLD) return 'center';
-            if (Math.abs(dx) > Math.abs(dy)) {
-                return dx < 0 ? 'left' : 'right';
-            } else {
-                return dy < 0 ? 'up' : 'down';
-            }
-        }
-
-        function getCharByDirection(baseChar, direction) {
-            const list = flickChars[baseChar];
-            if (!list) return baseChar;
-            switch (direction) {
-                case 'center': return list[0];
-                case 'left':   return list[1] || list[0];
-                case 'up':     return list[2] || list[0];
-                case 'right':  return list[3] || list[0];
-                case 'down':   return list[4] || list[0];
-                default:       return list[0];
-            }
-        }
-
-        // キーイベントのバインド処理
-        function bindKeyEvents(keyEl) {
-            const onStart = (e) => {
-                e.preventDefault();
-                buffer.focus(); // 入力時に常にエディタにフォーカスを戻す
-
-                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-                
-                startX = clientX;
-                startY = clientY;
-                currentKeyEl = keyEl;
-                isFlicking = true;
-                keyEl.classList.add('active');
-
-                const baseKey = keyEl.getAttribute('data-key');
-                if (baseKey && flickChars[baseKey]) {
-                    showPreview(clientX, clientY, baseKey);
-                }
-            };
-
-            const onMove = (e) => {
-                if (!isFlicking || currentKeyEl !== keyEl) return;
-                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-                
-                const dx = clientX - startX;
-                const dy = clientY - startY;
-                
-                const baseKey = keyEl.getAttribute('data-key');
-                if (baseKey && flickChars[baseKey]) {
-                    const dir = getFlickDirection(dx, dy);
-                    const targetChar = getCharByDirection(baseKey, dir);
-                    showPreview(clientX, clientY, targetChar);
-                }
-            };
-
-            const onEnd = (e) => {
-                if (!isFlicking || currentKeyEl !== keyEl) return;
-                isFlicking = false;
-                keyEl.classList.remove('active');
-                preview.style.display = 'none';
-
-                const keyId = keyEl.getAttribute('data-id');
-                const baseKey = keyEl.getAttribute('data-key');
-                const action = keyEl.getAttribute('data-action');
-
-                // 1. 機能キーの処理
-                if (action) {
-                    if (action === 'delete') {
-                        commit();
-                        deleteAtCursor();
-                    } else if (action === 'mod' || action === 'case') {
-                        commit();
-                        modifyAtCursor();
-                    } else if (action === 'enter') {
-                        commit();
-                        insertCharAtCursor('\n', false);
-                    } else if (action === 'next-mode') {
-                        commit();
-                        if (currentMode === 'kana') currentMode = 'alpha';
-                        else if (currentMode === 'alpha') currentMode = 'num';
-                        else currentMode = 'kana';
-                        renderKeyboard();
-                    }
-                    return;
-                }
-
-                // 2. 文字入力キーの処理
-                if (baseKey) {
-                    const endX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
-                    const endY = e.changedTouches ? e.changedTouches[0].clientY : e.clientY;
-                    const dx = endX - startX;
-                    const dy = endY - startY;
-                    
-                    const direction = getFlickDirection(dx, dy);
-
-                    if (direction === 'center') {
-                        // 連打トグル入力
-                        if (lastKeyId === keyId) {
-                            toggleIndex = (toggleIndex + 1) % flickChars[baseKey].length;
-                            insertCharAtCursor(flickChars[baseKey][toggleIndex], true);
-                        } else {
-                            commit();
-                            lastKeyId = keyId;
-                            toggleIndex = 0;
-                            insertCharAtCursor(flickChars[baseKey][toggleIndex], false);
-                        }
-                        if (timer) clearTimeout(timer);
-                        timer = setTimeout(commit, 1000);
-                    } else {
-                        // フリック入力
-                        commit();
-                        const finalChar = getCharByDirection(baseKey, direction);
-                        insertCharAtCursor(finalChar, false);
-                    }
-                }
-            };
-
-            keyEl.addEventListener('touchstart', onStart, { passive: false });
-            keyEl.addEventListener('mousedown', onStart);
-        }
-
-        // グローバルなポインアイベント（フリック中の移動と終了はウィンドウ全体で拾う）
-        window.addEventListener('touchmove', (e) => {
-            if(isFlicking && currentKeyEl) {
-                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-                const dx = clientX - startX;
-                const dy = clientY - startY;
-                const baseKey = currentKeyEl.getAttribute('data-key');
-                if (baseKey && flickChars[baseKey]) {
-                    const dir = getFlickDirection(dx, dy);
-                    showPreview(clientX, clientY, getCharByDirection(baseKey, dir));
-                }
-            }
-        }, { passive: false });
-
-        window.addEventListener('mousemove', (e) => {
-            if(isFlicking && currentKeyEl) {
-                const dx = e.clientX - startX;
-                const dy = e.clientY - startY;
-                const baseKey = currentKeyEl.getAttribute('data-key');
-                if (baseKey && flickChars[baseKey]) {
-                    const dir = getFlickDirection(dx, dy);
-                    showPreview(e.clientX, e.clientY, getCharByDirection(baseKey, dir));
-                }
-            }
-        });
-
-        window.addEventListener('touchend', () => { if(currentKeyEl) currentKeyEl.dispatchEvent(new Event('mouseup')); });
-        window.addEventListener('mouseup', () => { /* 各キーのonEndが発火 */ });
-
-        function showPreview(x, y, text) {
-            preview.textContent = text;
-            preview.style.display = 'block';
-            preview.style.left = `${x}px`;
-            preview.style.top = `${y}px`;
-        }
-
-        // テキストエリアをクリック（タップ）したときに、既存のトグル入力を確定させる
-        buffer.addEventListener('click', () => {
-            commit();
-        });
-
-        // 初回キーボード生成
-        renderKeyboard();
-    </script>
-</body>
+    <script src="app.js"></script>
+  </body>
 </html>
