@@ -4,7 +4,7 @@ layout: default1
 ---
 ## 1. 風のゆくえ
 
-<iframe src="https://drive.google.com/file/d/1j1E6a5dASadFc0-RyYEr1hvGYyEreBtm/preview" width="100%" allow="autoplay"></iframe>
+<iframe src="https://drive.google.com/file/d/1WwrnXebbqHBzbrMgCi9-9wWhywrtSpsH/preview" width="100%" allow="autoplay"></iframe>
 
 <br/><br/>
 
@@ -34,7 +34,7 @@ layout: default1
 
 ## 6. recollections
 
-<iframe src="https://drive.google.com/file/d/17RHeWTO7EdamypfnlM30sQoHpv2PK67X/preview" width="100%" allow="autoplay"></iframe>
+<iframe src="https://drive.google.com/file/d/113geVAI4s28ohjPlnimsJkbJW_Od_Hmf/preview" width="100%" allow="autoplay"></iframe>
 
 <br/><br/>
 
