@@ -1,0 +1,29 @@
+<style>
+    .container {
+        width: 100%;
+        max-width: 600px;
+        /* PCでの最大幅を制限 */
+        margin: 0 auto;
+        /* 中央寄せ */
+        padding: 16px;
+    }
+
+    .btn-responsive {
+        width: 100%;
+        /* 親要素（container）に合わせてレスポンシブに伸縮 */
+        padding: 12px;
+        font-size: 16px;
+    }
+</style>
+<div class="container">
+    <button class="btn-responsive" id="copyBtn2">JSONをコピー</button>
+</div>
+<script>
+    document.getElementById('copyBtn').addEventListener('click', async () => {
+        // Jekyllの機能で、YAMLデータを自動的にJSON文字列に変換してここに埋め込む
+        const jsonText = '{{ site.data.mydata | jsonify | escape_js }}';
+
+        await navigator.clipboard.writeText(jsonText);
+        alert("コピーしました！");
+    });
+</script>
