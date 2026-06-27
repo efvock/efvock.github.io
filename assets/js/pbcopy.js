@@ -6,6 +6,7 @@ document.getElementById("copyBtn").addEventListener("click", async () => {
         const siteData = window.jekyllSiteData;
         const urlParams = new URLSearchParams(window.location.search);
         const dataKey = urlParams.get("data");
+        const json = urlParams.get("json");
         if (!dataKey) {
             status = "default"
         } else {
@@ -21,13 +22,17 @@ document.getElementById("copyBtn").addEventListener("click", async () => {
         } else if (status === "ok") {
             msg = `${dataKey}: copied`;
         } else {
-            msg = "{} copied";
+            msg = "{} copied";  //
         }
         alert(msg);
         if (status === "ng") {
             return;
         }
-
+        if (!json) {
+            targetData ||= "";
+            await navigator.clipboard.writeText(targetData);
+            return;
+        }
         const formattedJson =
             status === "default"
                 ? "{}"
