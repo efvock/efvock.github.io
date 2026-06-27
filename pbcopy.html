@@ -17,7 +17,7 @@ layout: null
     </div>
 
     <script>
-        window.jekyllSiteData = {{ site.data | jsonify }};
+        window.jekyllSiteData = {{ site.data.open | jsonify }};
     </script>
 
     <script src="{{ site.baseurl }}/assets/js/pbcopy.js"></script>
